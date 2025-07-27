@@ -1,0 +1,11 @@
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\bin\Debug\net8.0\SportGearRental.ViewModels.deps.json
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\bin\Debug\net8.0\SportGearRental.ViewModels.dll
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\bin\Debug\net8.0\SportGearRental.ViewModels.pdb
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\SportGearRental.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\SportGearRental.ViewModels.AssemblyInfoInputs.cache
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\SportGearRental.ViewModels.AssemblyInfo.cs
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\SportGearRental.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\SportGearRental.ViewModels.dll
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\refint\SportGearRental.ViewModels.dll
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\SportGearRental.ViewModels.pdb
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.ViewModels\obj\Debug\net8.0\ref\SportGearRental.ViewModels.dll

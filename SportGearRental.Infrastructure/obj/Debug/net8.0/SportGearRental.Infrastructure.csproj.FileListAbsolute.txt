@@ -1,0 +1,11 @@
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\bin\Debug\net8.0\SportGearRental.Infrastructure.deps.json
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\bin\Debug\net8.0\SportGearRental.Infrastructure.dll
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\bin\Debug\net8.0\SportGearRental.Infrastructure.pdb
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\SportGearRental.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\SportGearRental.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\SportGearRental.Infrastructure.AssemblyInfo.cs
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\SportGearRental.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\SportGearRental.Infrastructure.dll
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\refint\SportGearRental.Infrastructure.dll
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\SportGearRental.Infrastructure.pdb
+C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Infrastructure\obj\Debug\net8.0\ref\SportGearRental.Infrastructure.dll
