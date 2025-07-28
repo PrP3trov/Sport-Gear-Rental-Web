@@ -9,3 +9,17 @@ C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Common\obj\Debug\net8.0\S
 C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Common\obj\Debug\net8.0\refint\SportGearRental.Common.dll
 C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.pdb
 C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Common\obj\Debug\net8.0\ref\SportGearRental.Common.dll
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\bin\Debug\net8.0\SportGearRental.Common.deps.json
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\bin\Debug\net8.0\SportGearRental.Common.runtimeconfig.json
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\bin\Debug\net8.0\SportGearRental.Common.dll
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\bin\Debug\net8.0\SportGearRental.Common.pdb
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.AssemblyInfoInputs.cache
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.AssemblyInfo.cs
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.csproj.CoreCompileInputs.cache
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.sourcelink.json
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.dll
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\refint\SportGearRental.Common.dll
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.pdb
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\SportGearRental.Common.genruntimeconfig.cache
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Common\obj\Debug\net8.0\ref\SportGearRental.Common.dll

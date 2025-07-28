@@ -13,18 +13,24 @@ namespace SportGearRental.Data.Models
     public class Review
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [MaxLength(ContentMaxLength)]
         public string? Content { get; set; }
 
+        [Required]
         [Range(RatingMin, RatingMax)]
         public int Rating { get; set; }
 
-        public string? UserId { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public ApplicationUser User { get; set; }
 
-        [ForeignKey(nameof(SportGear))]
-        public int SportGearId { get; set; }
+        public string UserId { get; set; }
+
+        [Required]
+        public Guid SportGearId { get; set; }
+
+        [ForeignKey(nameof(SportGearId))]
         public SportGear SportGear { get; set; } = null!;
     }
 }

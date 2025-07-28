@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "SportGearRental.Web/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.15",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.18",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.15",
           "Microsoft.AspNetCore.Identity.UI": "8.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.15",
@@ -620,20 +620,20 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/8.0.15": {
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/8.0.18": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.15"
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.18"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {
-            "assemblyVersion": "8.0.15.0",
-            "fileVersion": "8.0.1525.16505"
+            "assemblyVersion": "8.0.18.0",
+            "fileVersion": "8.0.1825.31706"
           }
         }
       },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.15": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.15",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.18",
           "Microsoft.Extensions.Identity.Stores": "8.0.15"
         },
         "runtime": {
@@ -1215,34 +1215,34 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/8.0.15": {
+      "Microsoft.EntityFrameworkCore/8.0.18": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.15",
-          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.15",
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.18",
+          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.18",
           "Microsoft.Extensions.Caching.Memory": "8.0.1",
           "Microsoft.Extensions.Logging": "8.0.1"
         },
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.dll": {
-            "assemblyVersion": "8.0.15.0",
-            "fileVersion": "8.0.1525.16502"
+            "assemblyVersion": "8.0.18.0",
+            "fileVersion": "8.0.1825.31203"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/8.0.15": {
+      "Microsoft.EntityFrameworkCore.Abstractions/8.0.18": {
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "8.0.15.0",
-            "fileVersion": "8.0.1525.16502"
+            "assemblyVersion": "8.0.18.0",
+            "fileVersion": "8.0.1825.31203"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/8.0.15": {},
+      "Microsoft.EntityFrameworkCore.Analyzers/8.0.18": {},
       "Microsoft.EntityFrameworkCore.Design/8.0.15": {
         "dependencies": {
           "Humanizer.Core": "2.14.1",
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "4.8.0",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.15",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.18",
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "Mono.TextTemplating": "2.3.1"
         },
@@ -1253,15 +1253,15 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/8.0.15": {
+      "Microsoft.EntityFrameworkCore.Relational/8.0.18": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.15",
+          "Microsoft.EntityFrameworkCore": "8.0.18",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll": {
-            "assemblyVersion": "8.0.15.0",
-            "fileVersion": "8.0.1525.16502"
+            "assemblyVersion": "8.0.18.0",
+            "fileVersion": "8.0.1825.31203"
           }
         }
       },
@@ -1274,7 +1274,7 @@
       "Microsoft.EntityFrameworkCore.Sqlite.Core/8.0.11": {
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": "8.0.11",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.15",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.18",
           "Microsoft.Extensions.DependencyModel": "8.0.2"
         },
         "runtime": {
@@ -1287,7 +1287,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer/8.0.15": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "5.1.6",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.15",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.18",
           "System.Formats.Asn1": "8.0.2"
         },
         "runtime": {
@@ -2187,6 +2187,7 @@
       "SportGearRental.Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.15",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.15",
           "SportGearRental.Common": "1.0.0",
           "SportGearRental.Data.Models": "1.0.0"
         },
@@ -2198,6 +2199,12 @@
         }
       },
       "SportGearRental.Data.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.18",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.15",
+          "Microsoft.EntityFrameworkCore": "8.0.18",
+          "SportGearRental.Common": "1.0.0"
+        },
         "runtime": {
           "SportGearRental.Data.Models.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -2622,12 +2629,12 @@
       "path": "microsoft.aspnetcore.cryptography.keyderivation/8.0.15",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.8.0.15.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/8.0.15": {
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/8.0.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DWWb3lIiUsVle2wYm2FT9rmuSVMbCPX4+qNl1EvnZrt6H2j20SzYBDBIDbOfbqNJ9Hrh3jRPoPuWwMpT+FVCmA==",
-      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/8.0.15",
-      "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.8.0.15.nupkg.sha512"
+      "sha512": "sha512-H4GKNR5eGHpK5yovhsO3BvOfzKlSv8DVclVYi1JLN5wfei+HAbskbi9nMGGamgtqgVXX1RAAduGKGQWlWGlfKw==",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/8.0.18",
+      "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.8.0.18.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.15": {
       "type": "package",
@@ -2790,26 +2797,26 @@
       "path": "microsoft.dotnet.scaffolding.shared/8.0.7",
       "hashPath": "microsoft.dotnet.scaffolding.shared.8.0.7.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore/8.0.15": {
+    "Microsoft.EntityFrameworkCore/8.0.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-v6gDYdi2j+BbUHzl5sb835mefpFlSCsQOOsn/xjky45kFA9Xrc2hjVa0yQGVLc2J7+fQDqoHWRD5c+RHU3klSQ==",
-      "path": "microsoft.entityframeworkcore/8.0.15",
-      "hashPath": "microsoft.entityframeworkcore.8.0.15.nupkg.sha512"
+      "sha512": "sha512-LBc07vlgPxEXmjF0Kgn1S0mip3KLDPVD1OQOFu+4Mfpg1Z8OPMJ82MVCkqek1Ex2WeCzVGbNI9nRXcepHB+48g==",
+      "path": "microsoft.entityframeworkcore/8.0.18",
+      "hashPath": "microsoft.entityframeworkcore.8.0.18.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/8.0.15": {
+    "Microsoft.EntityFrameworkCore.Abstractions/8.0.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wzBUYqfNTyclVaVo6we4Vo0GsfNSmHHJPn3SF4gEsR+e5QZ4r5Ck5Y9oRcEoeqxS+eFPvJzWN6xpTbwCCoWPnw==",
-      "path": "microsoft.entityframeworkcore.abstractions/8.0.15",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.15.nupkg.sha512"
+      "sha512": "sha512-aQGpxj0/RKXhSqDFbWENQgOg6WQH3z5Dezu3VBXaTCBHE6hAWQIZmmqdpO1k+lkANsoCSwPJZ4iFRqPPZXBXzg==",
+      "path": "microsoft.entityframeworkcore.abstractions/8.0.18",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.18.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/8.0.15": {
+    "Microsoft.EntityFrameworkCore.Analyzers/8.0.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-viyTqFw09xwhynmvYggUu48R0Y6WEU2dDKBKm7WwozDH5t1K7+RS9P+iXGe5uUNJstTH/STd2AMFKpT9GaX4OQ==",
-      "path": "microsoft.entityframeworkcore.analyzers/8.0.15",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.15.nupkg.sha512"
+      "sha512": "sha512-aYkyWRkb+o9++mtIWn5XSYPVND5N9mFFfvdmBX1s6kCss6XTaZsFXf8QjvaiXAcGblp/HoYzS5lusx0ZqeFxzQ==",
+      "path": "microsoft.entityframeworkcore.analyzers/8.0.18",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.18.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Design/8.0.15": {
       "type": "package",
@@ -2818,12 +2825,12 @@
       "path": "microsoft.entityframeworkcore.design/8.0.15",
       "hashPath": "microsoft.entityframeworkcore.design.8.0.15.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Relational/8.0.15": {
+    "Microsoft.EntityFrameworkCore.Relational/8.0.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rOge9UqPepLr4fDSbAjH+gMl4TwK7byKgUy66vgsjlwl11n/+MjbYZAYqfrD8mpGDwJ6Nzv2LIIK2fBHDqA+CQ==",
-      "path": "microsoft.entityframeworkcore.relational/8.0.15",
-      "hashPath": "microsoft.entityframeworkcore.relational.8.0.15.nupkg.sha512"
+      "sha512": "sha512-SL067ITd6QfDF9wNsNtGm3fROpnv3SNrOY3Fjb+efEUnKn5NI0sUitrtpUim+t1DtCJIs7qgmyCPdD3zjSt4Xw==",
+      "path": "microsoft.entityframeworkcore.relational/8.0.18",
+      "hashPath": "microsoft.entityframeworkcore.relational.8.0.18.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Sqlite/8.0.11": {
       "type": "package",

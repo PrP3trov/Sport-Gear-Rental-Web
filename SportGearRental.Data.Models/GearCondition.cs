@@ -11,6 +11,7 @@ namespace SportGearRental.Data.Models
 {
     public class GearCondition
     {
+        [Key]
         public Guid Id { get; set; }
 
         [MaxLength(GearConditionNameMaxLength)]

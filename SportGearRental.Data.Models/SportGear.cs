@@ -32,27 +32,28 @@ namespace SportGearRental.Data.Models
         public decimal PricePerDay { get; set; }
 
         [Comment("The image URL of the gear")]
-        public string? ImageUrl { get; set; } = null!;
+        [MaxLength(ImageUrlMaxLength)]
+        public string? ImageUrl { get; set; }
 
         [Required]
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; } = null!;
 
         [Required]
-        public int BrandId { get; set; }
+        public Guid BrandId { get; set; }
 
         [ForeignKey(nameof(BrandId))]
         public Brand Brand { get; set; } = null!;
 
         [Required]
-        public int ConditionId { get; set; }
+        public Guid ConditionId { get; set; }
 
         [ForeignKey(nameof(ConditionId))]
         public GearCondition Condition { get; set; } = null!;
 
-        public ICollection<Rental> Rentals { get; set; } = new HashSet<Rental>();
-        public ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
+        public virtual ICollection<Rental> Rentals { get; set; } = new HashSet<Rental>();
+        public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }
 }

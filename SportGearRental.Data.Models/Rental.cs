@@ -13,7 +13,7 @@ namespace SportGearRental.Data.Models
     public class Rental
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string UserId { get; set; } = string.Empty;
@@ -22,7 +22,7 @@ namespace SportGearRental.Data.Models
         public ApplicationUser User { get; set; } = null!;
 
         [Required]
-        public int SportGearId { get; set; }
+        public Guid SportGearId { get; set; }
 
         [ForeignKey(nameof(SportGearId))]
         public SportGear SportGear { get; set; } = null!;
@@ -36,6 +36,6 @@ namespace SportGearRental.Data.Models
         [Required]
         [Range((double)TotalPriceMin, (double)TotalPriceMax)]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Price { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

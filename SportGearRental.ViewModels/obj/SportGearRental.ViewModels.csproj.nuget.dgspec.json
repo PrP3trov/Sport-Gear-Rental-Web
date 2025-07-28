@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tsrle\\Desktop\\SportGearRental\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj": {}
+    "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tsrle\\Desktop\\SportGearRental\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj": {
+    "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tsrle\\Desktop\\SportGearRental\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj",
+        "projectUniqueName": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj",
         "projectName": "SportGearRental.ViewModels",
-        "projectPath": "C:\\Users\\tsrle\\Desktop\\SportGearRental\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj",
+        "projectPath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj",
         "packagesPath": "C:\\Users\\tsrle\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tsrle\\Desktop\\SportGearRental\\SportGearRental.ViewModels\\obj\\",
+        "outputPath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
