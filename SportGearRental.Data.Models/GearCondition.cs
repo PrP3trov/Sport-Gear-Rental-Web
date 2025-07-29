@@ -14,6 +14,7 @@ namespace SportGearRental.Data.Models
         [Key]
         public Guid Id { get; set; }
 
+        [Required]
         [MaxLength(GearConditionNameMaxLength)]
         public string Name { get; set; } = null!;
 

@@ -20,7 +20,7 @@ namespace SportGearRental.Data.Models
 
         [Comment("Is the account deleted or not")]
         public bool IsDeleted { get; set; } = false;
-        public ICollection<Rental> Rentals { get; set; } = new HashSet<Rental>();
-        public ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
+        public virtual ICollection<Rental> Rentals { get; set; } = new HashSet<Rental>();
+        public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }
 }

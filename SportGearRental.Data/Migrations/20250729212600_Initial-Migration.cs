@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace SportGearRental.Data.Migrations
 {
     /// <inheritdoc />
@@ -203,6 +205,7 @@ namespace SportGearRental.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false, comment: "The description of the gear"),
                     PricePerDay = table.Column<decimal>(type: "decimal(18,2)", nullable: false, comment: "The price per day of the gear"),
                     ImageUrl = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: true, comment: "The image URL of the gear"),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, comment: "Is the entity deleted (soft delete)?"),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BrandId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ConditionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -239,6 +242,7 @@ namespace SportGearRental.Data.Migrations
                     SportGearId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RentalStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RentalEndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, comment: "Is the entity deleted (soft delete)?"),
                     TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
@@ -264,6 +268,7 @@ namespace SportGearRental.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, comment: "Is the entity deleted (soft delete)?"),
                     Rating = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     SportGearId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -283,6 +288,99 @@ namespace SportGearRental.Data.Migrations
                         principalTable: "SportGears",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "a1f2e3d4-c5b6-47f8-9876-123456789abc", null, "Admin", "ADMIN" },
+                    { "b2f3e4d5-a6b7-48c9-8765-abcdef123456", null, "User", "USER" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "IsDeleted", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "c3d4e5f6-7890-4abc-def1-234567890abc", 0, "c40e5f27-a744-4069-9dea-377f2ec2d9c8", "admin@gear.bg", true, false, false, null, "ADMIN@GEAR.BG", "ADMIN@GEAR.BG", "AQAAAAIAAYagAAAAEKRyeZe/Ac1sdpBfspj792SoXmC+JrwT3RuhVDDv2X1WjXklm2phepACbg0L34ydzA==", null, false, "c4f46b2b-a334-480a-95ca-596c83184d1c", false, "admin@gear.bg" },
+                    { "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 0, "0df06fb6-2df9-4c62-9fdc-8452f6d4abe8", "user@gear.bg", true, false, false, null, "USER@GEAR.BG", "USER@GEAR.BG", "AQAAAAIAAYagAAAAENblSsvmzdRGYPTmoEqonauX4yNjXvkzmRSgFrp6Id2r66wtaRFf2l4sHB7ydKBLiw==", null, false, "3325435e-1fce-4db4-92b5-46533efc0337", false, "user@gear.bg" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Brands",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"), "Саломон" },
+                    { new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"), "Колумбия" },
+                    { new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"), "Пума" },
+                    { new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"), "Найк" },
+                    { new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"), "Адидас" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), "Фитнес оборудване" },
+                    { new Guid("6fa459ea-ee8a-3ca4-894e-db77e160355e"), "Велосипеди" },
+                    { new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), "Аксесоари" },
+                    { new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"), "Дрехи" },
+                    { new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"), "Обувки" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "GearConditions",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("22a963d9-2a3b-4baf-943d-9e6a51b8db78"), "С видими следи от употреба", "Средно" },
+                    { new Guid("5f0e3e1f-4a76-4c4e-9d34-bdeff33f76a9"), "Със сериозни дефекти", "Лошо" },
+                    { new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Използвано, но в добро състояние", "Добро" },
+                    { new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Много леко използвано", "Като ново" },
+                    { new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Изцяло ново, неизползвано", "Ново" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "a1f2e3d4-c5b6-47f8-9876-123456789abc", "c3d4e5f6-7890-4abc-def1-234567890abc" },
+                    { "b2f3e4d5-a6b7-48c9-8765-abcdef123456", "d4e5f6a7-8901-4bcd-efa2-34567890bcde" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SportGears",
+                columns: new[] { "Id", "BrandId", "CategoryId", "ConditionId", "Description", "ImageUrl", "IsDeleted", "Name", "PricePerDay" },
+                values: new object[,]
+                {
+                    { new Guid("1679091c-5a88-4e3e-96a4-7f3b3e7d9d3f"), new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"), new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Дебела постелка за йога с антислип покритие.", "https://example.com/images/yoga-mat-deluxe.jpg", false, "Yoga Mat Deluxe", 9.00m },
+                    { new Guid("1dcca233-c2a1-4f1e-9d9f-c2147b0ccf8a"), new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Очила за ски и сноуборд с високо качество.", "https://example.com/images/salomon-goggles.jpg", false, "Salomon Ski Goggles", 10.00m },
+                    { new Guid("37b51d19-59a7-4ed4-8996-0b1d0c428a92"), new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Удобни ръкавици за фитнес и тежести.", "https://example.com/images/puma-gloves.jpg", false, "Puma Fitness Gloves", 5.00m },
+                    { new Guid("73feffa4-7f1b-4e14-90c6-b42b041bf63f"), new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Топли ръкавици за зимни спортове.", "https://example.com/images/columbia-gloves.jpg", false, "Columbia Winter Gloves", 7.50m },
+                    { new Guid("8e296a06-2b87-4f7d-bb57-1a7b1c5ca6e9"), new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"), new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Обувки за бягане в планината, устойчиви на кал и вода.", "https://example.com/images/trail-shoes.jpg", false, "Trail Running Shoes", 13.50m },
+                    { new Guid("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"), new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Леки маратонки за бягане с въздушна възглавница.", "https://example.com/images/nike-pegasus.jpg", false, "Nike Air Zoom Pegasus", 12.50m },
+                    { new Guid("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"), new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"), new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Удобен постел за фитнес и йога.", "https://example.com/images/adidas-mat.jpg", false, "Adidas Fitness Mat", 8.00m },
+                    { new Guid("acbd18db-4cc2-43e2-a05d-dcbbd298db96"), new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"), new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Водоустойчиво яке за планина.", "https://example.com/images/adidas-terrex.jpg", false, "Adidas Terrex Jacket", 15.00m },
+                    { new Guid("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"), new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"), new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Дишащи шорти за бягане и спорт.", "https://example.com/images/nike-shorts.jpg", false, "Nike Running Shorts", 6.00m },
+                    { new Guid("e4da3b7f-bbce-4a1b-b0f4-35e1d9f2b35a"), new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"), new Guid("6fa459ea-ee8a-3ca4-894e-db77e160355e"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Велосипед с 21 скорости и амортисьори.", "https://example.com/images/bike-x200.jpg", false, "Mountain Bike X200", 25.00m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Reviews",
+                columns: new[] { "Id", "Content", "IsDeleted", "Rating", "SportGearId", "UserId" },
+                values: new object[,]
+                {
+                    { new Guid("6d7f2c91-ea12-4c88-9b3a-8f7d5a0e4b9d"), "Good value for money.", false, 4, new Guid("acbd18db-4cc2-43e2-a05d-dcbbd298db96"), "d4e5f6a7-8901-4bcd-efa2-34567890bcde" },
+                    { new Guid("c9f1d8b2-3a47-4d89-8e7c-12a9d1e8f3b2"), "Works perfectly for my needs.", false, 5, new Guid("37b51d19-59a7-4ed4-8996-0b1d0c428a92"), "d4e5f6a7-8901-4bcd-efa2-34567890bcde" },
+                    { new Guid("d4b6c1a3-7f56-4a2e-9bc7-efa7a1234567"), "Highly recommend this gear!", false, 5, new Guid("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"), "c3d4e5f6-7890-4abc-def1-234567890abc" },
+                    { new Guid("e3f4d2b1-1234-4c5d-a789-6b7c8d9e0f1a"), "Good quality and fast delivery.", false, 4, new Guid("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"), "c3d4e5f6-7890-4abc-def1-234567890abc" },
+                    { new Guid("f2e3a1b4-7f9c-4d26-bf6e-0a4eae9d0bfb"), "Great equipment, very durable!", false, 5, new Guid("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), "d4e5f6a7-8901-4bcd-efa2-34567890bcde" },
+                    { new Guid("f7e8d9c0-4567-4b8d-b12f-34a5b6c7d8e9"), "Perfect for winter sports.", false, 5, new Guid("73feffa4-7f1b-4e14-90c6-b42b041bf63f"), "c3d4e5f6-7890-4abc-def1-234567890abc" }
                 });
 
             migrationBuilder.CreateIndex(

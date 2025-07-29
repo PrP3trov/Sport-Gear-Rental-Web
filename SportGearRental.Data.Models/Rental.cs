@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static SportGearRental.Common.EntityValidationConstants.Rental;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace SportGearRental.Data.Models
@@ -16,22 +17,25 @@ namespace SportGearRental.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        public string UserId { get; set; } = string.Empty;
+        public string UserId { get; set; } =  null!;
 
         [ForeignKey(nameof(UserId))]
-        public ApplicationUser User { get; set; } = null!;
+        public virtual ApplicationUser User { get; set; } = null!;
 
         [Required]
         public Guid SportGearId { get; set; }
 
         [ForeignKey(nameof(SportGearId))]
-        public SportGear SportGear { get; set; } = null!;
+        public virtual SportGear SportGear { get; set; } = null!;
 
         [Required]
         public DateTime RentalStartDate { get; set; }
 
         [Required]
         public DateTime RentalEndDate { get; set; }
+
+        [Comment("Is the entity deleted (soft delete)?")]
+        public bool IsDeleted { get; set; } = false;
 
         [Required]
         [Range((double)TotalPriceMin, (double)TotalPriceMax)]

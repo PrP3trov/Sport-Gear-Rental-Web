@@ -12,7 +12,7 @@ using SportGearRental.Data;
 namespace SportGearRental.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250728200600_Initial-Migration")]
+    [Migration("20250729212600_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -50,6 +50,20 @@ namespace SportGearRental.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a1f2e3d4-c5b6-47f8-9876-123456789abc",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "b2f3e4d5-a6b7-48c9-8765-abcdef123456",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -139,6 +153,18 @@ namespace SportGearRental.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "c3d4e5f6-7890-4abc-def1-234567890abc",
+                            RoleId = "a1f2e3d4-c5b6-47f8-9876-123456789abc"
+                        },
+                        new
+                        {
+                            UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
+                            RoleId = "b2f3e4d5-a6b7-48c9-8765-abcdef123456"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -230,6 +256,42 @@ namespace SportGearRental.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "c3d4e5f6-7890-4abc-def1-234567890abc",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c40e5f27-a744-4069-9dea-377f2ec2d9c8",
+                            Email = "admin@gear.bg",
+                            EmailConfirmed = true,
+                            IsDeleted = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@GEAR.BG",
+                            NormalizedUserName = "ADMIN@GEAR.BG",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKRyeZe/Ac1sdpBfspj792SoXmC+JrwT3RuhVDDv2X1WjXklm2phepACbg0L34ydzA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c4f46b2b-a334-480a-95ca-596c83184d1c",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@gear.bg"
+                        },
+                        new
+                        {
+                            Id = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0df06fb6-2df9-4c62-9fdc-8452f6d4abe8",
+                            Email = "user@gear.bg",
+                            EmailConfirmed = true,
+                            IsDeleted = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER@GEAR.BG",
+                            NormalizedUserName = "USER@GEAR.BG",
+                            PasswordHash = "AQAAAAIAAYagAAAAENblSsvmzdRGYPTmoEqonauX4yNjXvkzmRSgFrp6Id2r66wtaRFf2l4sHB7ydKBLiw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "3325435e-1fce-4db4-92b5-46533efc0337",
+                            TwoFactorEnabled = false,
+                            UserName = "user@gear.bg"
+                        });
                 });
 
             modelBuilder.Entity("SportGearRental.Data.Models.Brand", b =>
@@ -246,6 +308,33 @@ namespace SportGearRental.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"),
+                            Name = "Найк"
+                        },
+                        new
+                        {
+                            Id = new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"),
+                            Name = "Адидас"
+                        },
+                        new
+                        {
+                            Id = new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"),
+                            Name = "Пума"
+                        },
+                        new
+                        {
+                            Id = new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"),
+                            Name = "Колумбия"
+                        },
+                        new
+                        {
+                            Id = new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"),
+                            Name = "Саломон"
+                        });
                 });
 
             modelBuilder.Entity("SportGearRental.Data.Models.Category", b =>
@@ -262,6 +351,33 @@ namespace SportGearRental.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"),
+                            Name = "Обувки"
+                        },
+                        new
+                        {
+                            Id = new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"),
+                            Name = "Дрехи"
+                        },
+                        new
+                        {
+                            Id = new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
+                            Name = "Аксесоари"
+                        },
+                        new
+                        {
+                            Id = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
+                            Name = "Фитнес оборудване"
+                        },
+                        new
+                        {
+                            Id = new Guid("6fa459ea-ee8a-3ca4-894e-db77e160355e"),
+                            Name = "Велосипеди"
+                        });
                 });
 
             modelBuilder.Entity("SportGearRental.Data.Models.GearCondition", b =>
@@ -282,6 +398,38 @@ namespace SportGearRental.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GearConditions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"),
+                            Description = "Изцяло ново, неизползвано",
+                            Name = "Ново"
+                        },
+                        new
+                        {
+                            Id = new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"),
+                            Description = "Много леко използвано",
+                            Name = "Като ново"
+                        },
+                        new
+                        {
+                            Id = new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                            Description = "Използвано, но в добро състояние",
+                            Name = "Добро"
+                        },
+                        new
+                        {
+                            Id = new Guid("22a963d9-2a3b-4baf-943d-9e6a51b8db78"),
+                            Description = "С видими следи от употреба",
+                            Name = "Средно"
+                        },
+                        new
+                        {
+                            Id = new Guid("5f0e3e1f-4a76-4c4e-9d34-bdeff33f76a9"),
+                            Description = "Със сериозни дефекти",
+                            Name = "Лошо"
+                        });
                 });
 
             modelBuilder.Entity("SportGearRental.Data.Models.Rental", b =>
@@ -289,6 +437,10 @@ namespace SportGearRental.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Is the entity deleted (soft delete)?");
 
                     b.Property<DateTime>("RentalEndDate")
                         .HasColumnType("datetime2");
@@ -325,6 +477,10 @@ namespace SportGearRental.Data.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Is the entity deleted (soft delete)?");
+
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
@@ -342,6 +498,62 @@ namespace SportGearRental.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("f2e3a1b4-7f9c-4d26-bf6e-0a4eae9d0bfb"),
+                            Content = "Great equipment, very durable!",
+                            IsDeleted = false,
+                            Rating = 5,
+                            SportGearId = new Guid("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"),
+                            UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde"
+                        },
+                        new
+                        {
+                            Id = new Guid("6d7f2c91-ea12-4c88-9b3a-8f7d5a0e4b9d"),
+                            Content = "Good value for money.",
+                            IsDeleted = false,
+                            Rating = 4,
+                            SportGearId = new Guid("acbd18db-4cc2-43e2-a05d-dcbbd298db96"),
+                            UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde"
+                        },
+                        new
+                        {
+                            Id = new Guid("c9f1d8b2-3a47-4d89-8e7c-12a9d1e8f3b2"),
+                            Content = "Works perfectly for my needs.",
+                            IsDeleted = false,
+                            Rating = 5,
+                            SportGearId = new Guid("37b51d19-59a7-4ed4-8996-0b1d0c428a92"),
+                            UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde"
+                        },
+                        new
+                        {
+                            Id = new Guid("d4b6c1a3-7f56-4a2e-9bc7-efa7a1234567"),
+                            Content = "Highly recommend this gear!",
+                            IsDeleted = false,
+                            Rating = 5,
+                            SportGearId = new Guid("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"),
+                            UserId = "c3d4e5f6-7890-4abc-def1-234567890abc"
+                        },
+                        new
+                        {
+                            Id = new Guid("e3f4d2b1-1234-4c5d-a789-6b7c8d9e0f1a"),
+                            Content = "Good quality and fast delivery.",
+                            IsDeleted = false,
+                            Rating = 4,
+                            SportGearId = new Guid("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"),
+                            UserId = "c3d4e5f6-7890-4abc-def1-234567890abc"
+                        },
+                        new
+                        {
+                            Id = new Guid("f7e8d9c0-4567-4b8d-b12f-34a5b6c7d8e9"),
+                            Content = "Perfect for winter sports.",
+                            IsDeleted = false,
+                            Rating = 5,
+                            SportGearId = new Guid("73feffa4-7f1b-4e14-90c6-b42b041bf63f"),
+                            UserId = "c3d4e5f6-7890-4abc-def1-234567890abc"
+                        });
                 });
 
             modelBuilder.Entity("SportGearRental.Data.Models.SportGear", b =>
@@ -370,6 +582,10 @@ namespace SportGearRental.Data.Migrations
                         .HasColumnType("nvarchar(2048)")
                         .HasComment("The image URL of the gear");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Is the entity deleted (soft delete)?");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -389,6 +605,128 @@ namespace SportGearRental.Data.Migrations
                     b.HasIndex("ConditionId");
 
                     b.ToTable("SportGears");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"),
+                            BrandId = new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"),
+                            CategoryId = new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"),
+                            ConditionId = new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"),
+                            Description = "Леки маратонки за бягане с въздушна възглавница.",
+                            ImageUrl = "https://example.com/images/nike-pegasus.jpg",
+                            IsDeleted = false,
+                            Name = "Nike Air Zoom Pegasus",
+                            PricePerDay = 12.50m
+                        },
+                        new
+                        {
+                            Id = new Guid("acbd18db-4cc2-43e2-a05d-dcbbd298db96"),
+                            BrandId = new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"),
+                            CategoryId = new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"),
+                            ConditionId = new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"),
+                            Description = "Водоустойчиво яке за планина.",
+                            ImageUrl = "https://example.com/images/adidas-terrex.jpg",
+                            IsDeleted = false,
+                            Name = "Adidas Terrex Jacket",
+                            PricePerDay = 15.00m
+                        },
+                        new
+                        {
+                            Id = new Guid("37b51d19-59a7-4ed4-8996-0b1d0c428a92"),
+                            BrandId = new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"),
+                            CategoryId = new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
+                            ConditionId = new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                            Description = "Удобни ръкавици за фитнес и тежести.",
+                            ImageUrl = "https://example.com/images/puma-gloves.jpg",
+                            IsDeleted = false,
+                            Name = "Puma Fitness Gloves",
+                            PricePerDay = 5.00m
+                        },
+                        new
+                        {
+                            Id = new Guid("73feffa4-7f1b-4e14-90c6-b42b041bf63f"),
+                            BrandId = new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"),
+                            CategoryId = new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
+                            ConditionId = new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                            Description = "Топли ръкавици за зимни спортове.",
+                            ImageUrl = "https://example.com/images/columbia-gloves.jpg",
+                            IsDeleted = false,
+                            Name = "Columbia Winter Gloves",
+                            PricePerDay = 7.50m
+                        },
+                        new
+                        {
+                            Id = new Guid("1dcca233-c2a1-4f1e-9d9f-c2147b0ccf8a"),
+                            BrandId = new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"),
+                            CategoryId = new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
+                            ConditionId = new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"),
+                            Description = "Очила за ски и сноуборд с високо качество.",
+                            ImageUrl = "https://example.com/images/salomon-goggles.jpg",
+                            IsDeleted = false,
+                            Name = "Salomon Ski Goggles",
+                            PricePerDay = 10.00m
+                        },
+                        new
+                        {
+                            Id = new Guid("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"),
+                            BrandId = new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"),
+                            CategoryId = new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"),
+                            ConditionId = new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"),
+                            Description = "Дишащи шорти за бягане и спорт.",
+                            ImageUrl = "https://example.com/images/nike-shorts.jpg",
+                            IsDeleted = false,
+                            Name = "Nike Running Shorts",
+                            PricePerDay = 6.00m
+                        },
+                        new
+                        {
+                            Id = new Guid("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"),
+                            BrandId = new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"),
+                            CategoryId = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
+                            ConditionId = new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"),
+                            Description = "Удобен постел за фитнес и йога.",
+                            ImageUrl = "https://example.com/images/adidas-mat.jpg",
+                            IsDeleted = false,
+                            Name = "Adidas Fitness Mat",
+                            PricePerDay = 8.00m
+                        },
+                        new
+                        {
+                            Id = new Guid("e4da3b7f-bbce-4a1b-b0f4-35e1d9f2b35a"),
+                            BrandId = new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"),
+                            CategoryId = new Guid("6fa459ea-ee8a-3ca4-894e-db77e160355e"),
+                            ConditionId = new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                            Description = "Велосипед с 21 скорости и амортисьори.",
+                            ImageUrl = "https://example.com/images/bike-x200.jpg",
+                            IsDeleted = false,
+                            Name = "Mountain Bike X200",
+                            PricePerDay = 25.00m
+                        },
+                        new
+                        {
+                            Id = new Guid("1679091c-5a88-4e3e-96a4-7f3b3e7d9d3f"),
+                            BrandId = new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"),
+                            CategoryId = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
+                            ConditionId = new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"),
+                            Description = "Дебела постелка за йога с антислип покритие.",
+                            ImageUrl = "https://example.com/images/yoga-mat-deluxe.jpg",
+                            IsDeleted = false,
+                            Name = "Yoga Mat Deluxe",
+                            PricePerDay = 9.00m
+                        },
+                        new
+                        {
+                            Id = new Guid("8e296a06-2b87-4f7d-bb57-1a7b1c5ca6e9"),
+                            BrandId = new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"),
+                            CategoryId = new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"),
+                            ConditionId = new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                            Description = "Обувки за бягане в планината, устойчиви на кал и вода.",
+                            ImageUrl = "https://example.com/images/trail-shoes.jpg",
+                            IsDeleted = false,
+                            Name = "Trail Running Shoes",
+                            PricePerDay = 13.50m
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

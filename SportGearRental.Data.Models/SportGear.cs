@@ -35,23 +35,26 @@ namespace SportGearRental.Data.Models
         [MaxLength(ImageUrlMaxLength)]
         public string? ImageUrl { get; set; }
 
+        [Comment("Is the entity deleted (soft delete)?")]
+        public bool IsDeleted { get; set; } = false;
+
         [Required]
         public Guid CategoryId { get; set; }
 
         [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; } = null!;
+        public virtual Category Category { get; set; } = null!;
 
         [Required]
         public Guid BrandId { get; set; }
 
         [ForeignKey(nameof(BrandId))]
-        public Brand Brand { get; set; } = null!;
+        public virtual Brand Brand { get; set; } = null!;
 
         [Required]
         public Guid ConditionId { get; set; }
 
         [ForeignKey(nameof(ConditionId))]
-        public GearCondition Condition { get; set; } = null!;
+        public virtual GearCondition Condition { get; set; } = null!;
 
         public virtual ICollection<Rental> Rentals { get; set; } = new HashSet<Rental>();
         public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
