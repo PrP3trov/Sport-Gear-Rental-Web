@@ -1,0 +1,38 @@
+﻿@model SportGearRental.ViewModels.SportGear.SportGearDetailsViewModel
+
+@{
+    ViewData["Title"] = "Sport Gear Details";
+}
+
+<h2 class="text-center">@Model.Name</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.ImageUrl" class="img-fluid rounded shadow" alt="@Model.Name" />
+    </div>
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Description</dt>
+            <dd class="col-sm-8">@Model.Description</dd>
+
+            <dt class="col-sm-4">Price Per Day</dt>
+            <dd class="col-sm-8">@Model.PricePerDay.ToString("C")</dd>
+
+            <dt class="col-sm-4">Category</dt>
+            <dd class="col-sm-8">@Model.Category</dd>
+
+            <dt class="col-sm-4">Brand</dt>
+            <dd class="col-sm-8">@Model.Brand</dd>
+
+            <dt class="col-sm-4">Condition</dt>
+            <dd class="col-sm-8">@Model.Condition</dd>
+
+            <dt class="col-sm-4">Owner</dt>
+            <dd class="col-sm-8">@Model.OwnerEmail</dd>
+        </dl>
+        <div class="mt-4">
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

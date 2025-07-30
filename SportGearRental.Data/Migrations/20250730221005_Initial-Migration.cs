@@ -208,11 +208,18 @@ namespace SportGearRental.Data.Migrations
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, comment: "Is the entity deleted (soft delete)?"),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BrandId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ConditionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ConditionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    OwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SportGears", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SportGears_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_SportGears_Brands_BrandId",
                         column: x => x.BrandId,
@@ -304,8 +311,8 @@ namespace SportGearRental.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "IsDeleted", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "c3d4e5f6-7890-4abc-def1-234567890abc", 0, "c40e5f27-a744-4069-9dea-377f2ec2d9c8", "admin@gear.bg", true, false, false, null, "ADMIN@GEAR.BG", "ADMIN@GEAR.BG", "AQAAAAIAAYagAAAAEKRyeZe/Ac1sdpBfspj792SoXmC+JrwT3RuhVDDv2X1WjXklm2phepACbg0L34ydzA==", null, false, "c4f46b2b-a334-480a-95ca-596c83184d1c", false, "admin@gear.bg" },
-                    { "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 0, "0df06fb6-2df9-4c62-9fdc-8452f6d4abe8", "user@gear.bg", true, false, false, null, "USER@GEAR.BG", "USER@GEAR.BG", "AQAAAAIAAYagAAAAENblSsvmzdRGYPTmoEqonauX4yNjXvkzmRSgFrp6Id2r66wtaRFf2l4sHB7ydKBLiw==", null, false, "3325435e-1fce-4db4-92b5-46533efc0337", false, "user@gear.bg" }
+                    { "c3d4e5f6-7890-4abc-def1-234567890abc", 0, "d7330888-08c8-43da-9ebf-7825b43dbca8", "admin@gear.bg", true, false, false, null, "ADMIN@GEAR.BG", "ADMIN@GEAR.BG", "AQAAAAIAAYagAAAAEEObmPFSAZX78QeszvsAYXdjDuqti0O51SlZsoxteBkzIWh8ynZ+Y9OCf81XdpGEOA==", null, false, "7596a413-e822-4ea3-9dd2-24b724ab37e4", false, "admin@gear.bg" },
+                    { "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 0, "54a451a0-109e-48aa-a4bc-19bd067ac742", "user@gear.bg", true, false, false, null, "USER@GEAR.BG", "USER@GEAR.BG", "AQAAAAIAAYagAAAAEO1vTaZg5/p7TF9a6uwZgf4dWg6dH55jE/UBEQafus/bVFWuYZHYbtm93bTYuNgLyA==", null, false, "dfbb4a76-0ede-4772-b96c-32e91235001f", false, "user@gear.bg" }
                 });
 
             migrationBuilder.InsertData(
@@ -355,19 +362,29 @@ namespace SportGearRental.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "SportGears",
-                columns: new[] { "Id", "BrandId", "CategoryId", "ConditionId", "Description", "ImageUrl", "IsDeleted", "Name", "PricePerDay" },
+                columns: new[] { "Id", "BrandId", "CategoryId", "ConditionId", "Description", "ImageUrl", "IsDeleted", "Name", "OwnerId", "PricePerDay" },
                 values: new object[,]
                 {
-                    { new Guid("1679091c-5a88-4e3e-96a4-7f3b3e7d9d3f"), new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"), new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Дебела постелка за йога с антислип покритие.", "https://example.com/images/yoga-mat-deluxe.jpg", false, "Yoga Mat Deluxe", 9.00m },
-                    { new Guid("1dcca233-c2a1-4f1e-9d9f-c2147b0ccf8a"), new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Очила за ски и сноуборд с високо качество.", "https://example.com/images/salomon-goggles.jpg", false, "Salomon Ski Goggles", 10.00m },
-                    { new Guid("37b51d19-59a7-4ed4-8996-0b1d0c428a92"), new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Удобни ръкавици за фитнес и тежести.", "https://example.com/images/puma-gloves.jpg", false, "Puma Fitness Gloves", 5.00m },
-                    { new Guid("73feffa4-7f1b-4e14-90c6-b42b041bf63f"), new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Топли ръкавици за зимни спортове.", "https://example.com/images/columbia-gloves.jpg", false, "Columbia Winter Gloves", 7.50m },
-                    { new Guid("8e296a06-2b87-4f7d-bb57-1a7b1c5ca6e9"), new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"), new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Обувки за бягане в планината, устойчиви на кал и вода.", "https://example.com/images/trail-shoes.jpg", false, "Trail Running Shoes", 13.50m },
-                    { new Guid("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"), new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Леки маратонки за бягане с въздушна възглавница.", "https://example.com/images/nike-pegasus.jpg", false, "Nike Air Zoom Pegasus", 12.50m },
-                    { new Guid("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"), new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"), new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Удобен постел за фитнес и йога.", "https://example.com/images/adidas-mat.jpg", false, "Adidas Fitness Mat", 8.00m },
-                    { new Guid("acbd18db-4cc2-43e2-a05d-dcbbd298db96"), new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"), new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Водоустойчиво яке за планина.", "https://example.com/images/adidas-terrex.jpg", false, "Adidas Terrex Jacket", 15.00m },
-                    { new Guid("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"), new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"), new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Дишащи шорти за бягане и спорт.", "https://example.com/images/nike-shorts.jpg", false, "Nike Running Shorts", 6.00m },
-                    { new Guid("e4da3b7f-bbce-4a1b-b0f4-35e1d9f2b35a"), new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"), new Guid("6fa459ea-ee8a-3ca4-894e-db77e160355e"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Велосипед с 21 скорости и амортисьори.", "https://example.com/images/bike-x200.jpg", false, "Mountain Bike X200", 25.00m }
+                    { new Guid("1679091c-5a88-4e3e-96a4-7f3b3e7d9d3f"), new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"), new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Дебела постелка за йога с антислип покритие.", "https://example.com/images/yoga-mat-deluxe.jpg", false, "Yoga Mat Deluxe", "c3d4e5f6-7890-4abc-def1-234567890abc", 9.00m },
+                    { new Guid("1dcca233-c2a1-4f1e-9d9f-c2147b0ccf8a"), new Guid("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Очила за ски и сноуборд с високо качество.", "https://example.com/images/salomon-goggles.jpg", false, "Salomon Ski Goggles", "c3d4e5f6-7890-4abc-def1-234567890abc", 10.00m },
+                    { new Guid("37b51d19-59a7-4ed4-8996-0b1d0c428a92"), new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Удобни ръкавици за фитнес и тежести.", "https://example.com/images/puma-gloves.jpg", false, "Puma Fitness Gloves", "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 5.00m },
+                    { new Guid("73feffa4-7f1b-4e14-90c6-b42b041bf63f"), new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"), new Guid("7c9e6679-7425-40de-944b-e07fc1f90ae7"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Топли ръкавици за зимни спортове.", "https://example.com/images/columbia-gloves.jpg", false, "Columbia Winter Gloves", "c3d4e5f6-7890-4abc-def1-234567890abc", 7.50m },
+                    { new Guid("8e296a06-2b87-4f7d-bb57-1a7b1c5ca6e9"), new Guid("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"), new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Обувки за бягане в планината, устойчиви на кал и вода.", "https://example.com/images/trail-shoes.jpg", false, "Trail Running Shoes", "c3d4e5f6-7890-4abc-def1-234567890abc", 13.50m },
+                    { new Guid("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"), new Guid("f47ac10b-58cc-4372-a567-0e02b2c3d479"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Леки маратонки за бягане с въздушна възглавница.", "https://example.com/images/nike-pegasus.jpg", false, "Nike Air Zoom Pegasus", "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 12.50m },
+                    { new Guid("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"), new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"), new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"), new Guid("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"), "Удобен постел за фитнес и йога.", "https://example.com/images/adidas-mat.jpg", false, "Adidas Fitness Mat", "c3d4e5f6-7890-4abc-def1-234567890abc", 8.00m },
+                    { new Guid("acbd18db-4cc2-43e2-a05d-dcbbd298db96"), new Guid("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"), new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Водоустойчиво яке за планина.", "https://example.com/images/adidas-terrex.jpg", false, "Adidas Terrex Jacket", "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 15.00m },
+                    { new Guid("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"), new Guid("c9bf9e57-1685-4c89-bafb-ff5af830be8a"), new Guid("9c858901-8a57-4791-81fe-4c455b099bc9"), new Guid("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"), "Дишащи шорти за бягане и спорт.", "https://example.com/images/nike-shorts.jpg", false, "Nike Running Shorts", "c3d4e5f6-7890-4abc-def1-234567890abc", 6.00m },
+                    { new Guid("e4da3b7f-bbce-4a1b-b0f4-35e1d9f2b35a"), new Guid("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"), new Guid("6fa459ea-ee8a-3ca4-894e-db77e160355e"), new Guid("73c2f799-3e94-47bc-8c29-1d157f243bbc"), "Велосипед с 21 скорости и амортисьори.", "https://example.com/images/bike-x200.jpg", false, "Mountain Bike X200", "c3d4e5f6-7890-4abc-def1-234567890abc", 25.00m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Rentals",
+                columns: new[] { "Id", "IsDeleted", "RentalEndDate", "RentalStartDate", "SportGearId", "TotalPrice", "UserId" },
+                values: new object[,]
+                {
+                    { new Guid("a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d"), false, new DateTime(2025, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), 50.00m, "d4e5f6a7-8901-4bcd-efa2-34567890bcde" },
+                    { new Guid("b2c3d4e5-f6a7-48b9-9c0d-1e2f3a4b5c6d"), false, new DateTime(2025, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("acbd18db-4cc2-43e2-a05d-dcbbd298db96"), 75.50m, "d4e5f6a7-8901-4bcd-efa2-34567890bcde" },
+                    { new Guid("c3d4e5f6-a7b8-49c0-ad1e-2f3a4b5c6d7e"), false, new DateTime(2025, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"), 30.00m, "c3d4e5f6-7890-4abc-def1-234567890abc" }
                 });
 
             migrationBuilder.InsertData(
@@ -456,6 +473,11 @@ namespace SportGearRental.Data.Migrations
                 name: "IX_SportGears_ConditionId",
                 table: "SportGears",
                 column: "ConditionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SportGears_OwnerId",
+                table: "SportGears",
+                column: "OwnerId");
         }
 
         /// <inheritdoc />
@@ -486,10 +508,10 @@ namespace SportGearRental.Data.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "SportGears");
 
             migrationBuilder.DropTable(
-                name: "SportGears");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Brands");

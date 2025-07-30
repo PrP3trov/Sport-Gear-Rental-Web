@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SportGearRental.ViewModels.SportGear.SportGearListViewModel>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<SportGearRental.Data.Models.ApplicationUser> UserManager
+@inject SignInManager<SportGearRental.Data.Models.ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "All Sport Gear";
+    bool isAuthenticated = SignInManager.IsSignedIn(User);
+}
+
+<h2 class="text-center">All Sport Gear</h2>
+<hr />
+
+@if (isAuthenticated)
+{
+    <div class="mb-4 text-end">
+        <a asp-action="Create" class="btn btn-success">➕ Add New Gear</a>
+    </div>
+}
+
+<!-- TODO: Optional filters/pagination UI here -->
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var gear in Model)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <img src="@gear.ImageUrl" class="card-img-top" alt="@gear.Name" style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">@gear.Name</h5>
+                    <p class="card-text">Price/Day: <strong>@gear.PricePerDay.ToString("C")</strong></p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="Details" asp-route-id="@gear.Id" class="btn btn-outline-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

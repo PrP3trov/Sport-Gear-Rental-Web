@@ -12,8 +12,8 @@ using SportGearRental.Data;
 namespace SportGearRental.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250729213050_Seed-Rental")]
-    partial class SeedRental
+    [Migration("20250730221005_Initial-Migration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -262,16 +262,16 @@ namespace SportGearRental.Data.Migrations
                         {
                             Id = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2aaea8e5-413e-42ad-8583-596325acef28",
+                            ConcurrencyStamp = "d7330888-08c8-43da-9ebf-7825b43dbca8",
                             Email = "admin@gear.bg",
                             EmailConfirmed = true,
                             IsDeleted = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GEAR.BG",
                             NormalizedUserName = "ADMIN@GEAR.BG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEK+SxF5jcdqlIboWN+FJqBRQl9OtHrMYNnAcaRDy/SmXFqwxJ0f9IQdnro4dXie5jQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEObmPFSAZX78QeszvsAYXdjDuqti0O51SlZsoxteBkzIWh8ynZ+Y9OCf81XdpGEOA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "335729ab-3555-47ec-b5df-ab90a98c6c9a",
+                            SecurityStamp = "7596a413-e822-4ea3-9dd2-24b724ab37e4",
                             TwoFactorEnabled = false,
                             UserName = "admin@gear.bg"
                         },
@@ -279,16 +279,16 @@ namespace SportGearRental.Data.Migrations
                         {
                             Id = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "daa34453-b3f2-4c7b-ab10-a598812a4c32",
+                            ConcurrencyStamp = "54a451a0-109e-48aa-a4bc-19bd067ac742",
                             Email = "user@gear.bg",
                             EmailConfirmed = true,
                             IsDeleted = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@GEAR.BG",
                             NormalizedUserName = "USER@GEAR.BG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIJ6GDOBeJI6As3qDs7dWZ93SO6E+ltyZXa22JfynKMh55X+ZcYH7EVRIpDIGa7Uhw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO1vTaZg5/p7TF9a6uwZgf4dWg6dH55jE/UBEQafus/bVFWuYZHYbtm93bTYuNgLyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "398bbe4d-835e-481b-a9bf-25e0d23cd3f9",
+                            SecurityStamp = "dfbb4a76-0ede-4772-b96c-32e91235001f",
                             TwoFactorEnabled = false,
                             UserName = "user@gear.bg"
                         });
@@ -624,6 +624,10 @@ namespace SportGearRental.Data.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasComment("The name of the gear");
 
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<decimal>("PricePerDay")
                         .HasColumnType("decimal(18,2)")
                         .HasComment("The price per day of the gear");
@@ -635,6 +639,8 @@ namespace SportGearRental.Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("ConditionId");
+
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("SportGears");
 
@@ -649,6 +655,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/nike-pegasus.jpg",
                             IsDeleted = false,
                             Name = "Nike Air Zoom Pegasus",
+                            OwnerId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
                             PricePerDay = 12.50m
                         },
                         new
@@ -661,6 +668,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/adidas-terrex.jpg",
                             IsDeleted = false,
                             Name = "Adidas Terrex Jacket",
+                            OwnerId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
                             PricePerDay = 15.00m
                         },
                         new
@@ -673,6 +681,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/puma-gloves.jpg",
                             IsDeleted = false,
                             Name = "Puma Fitness Gloves",
+                            OwnerId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
                             PricePerDay = 5.00m
                         },
                         new
@@ -685,6 +694,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/columbia-gloves.jpg",
                             IsDeleted = false,
                             Name = "Columbia Winter Gloves",
+                            OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             PricePerDay = 7.50m
                         },
                         new
@@ -697,6 +707,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/salomon-goggles.jpg",
                             IsDeleted = false,
                             Name = "Salomon Ski Goggles",
+                            OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             PricePerDay = 10.00m
                         },
                         new
@@ -709,6 +720,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/nike-shorts.jpg",
                             IsDeleted = false,
                             Name = "Nike Running Shorts",
+                            OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             PricePerDay = 6.00m
                         },
                         new
@@ -721,6 +733,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/adidas-mat.jpg",
                             IsDeleted = false,
                             Name = "Adidas Fitness Mat",
+                            OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             PricePerDay = 8.00m
                         },
                         new
@@ -733,6 +746,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/bike-x200.jpg",
                             IsDeleted = false,
                             Name = "Mountain Bike X200",
+                            OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             PricePerDay = 25.00m
                         },
                         new
@@ -745,6 +759,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/yoga-mat-deluxe.jpg",
                             IsDeleted = false,
                             Name = "Yoga Mat Deluxe",
+                            OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             PricePerDay = 9.00m
                         },
                         new
@@ -757,6 +772,7 @@ namespace SportGearRental.Data.Migrations
                             ImageUrl = "https://example.com/images/trail-shoes.jpg",
                             IsDeleted = false,
                             Name = "Trail Running Shoes",
+                            OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             PricePerDay = 13.50m
                         });
                 });
@@ -870,11 +886,19 @@ namespace SportGearRental.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SportGearRental.Data.Models.ApplicationUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Brand");
 
                     b.Navigation("Category");
 
                     b.Navigation("Condition");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("SportGearRental.Data.Models.ApplicationUser", b =>

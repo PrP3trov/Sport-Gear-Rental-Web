@@ -56,6 +56,12 @@ namespace SportGearRental.Data.Models
         [ForeignKey(nameof(ConditionId))]
         public virtual GearCondition Condition { get; set; } = null!;
 
+        [Required]
+        public string OwnerId { get; set; } = null!;
+
+        [ForeignKey(nameof(OwnerId))]
+        public virtual ApplicationUser Owner { get; set; } = null!;
+
         public virtual ICollection<Rental> Rentals { get; set; } = new HashSet<Rental>();
         public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }

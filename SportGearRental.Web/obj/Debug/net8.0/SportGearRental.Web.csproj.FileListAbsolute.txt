@@ -307,13 +307,10 @@ C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Web\bin\Debug\net8.0\Spor
 C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Infrastructure.pdb
 C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Services.pdb
 C:\Users\tsrle\Desktop\SportGearRental\SportGearRental.Web\obj\Debug\net8.0\SportGearRental.Web.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\SportGearRental.Web.dll
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\refint\SportGearRental.Web.dll
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\SportGearRental.Web.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\appsettings.json
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Web.staticwebassets.endpoints.json
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Web.staticwebassets.runtime.json
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Web.staticwebassets.endpoints.json
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Web.exe
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Web.deps.json
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Web.runtimeconfig.json
@@ -615,5 +612,8 @@ C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\De
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\SportGea.95048092.Up2Date
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\SportGearRental.Web.dll
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\refint\SportGearRental.Web.dll
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\SportGearRental.Web.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\SportGearRental.Web.genruntimeconfig.cache
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\ref\SportGearRental.Web.dll

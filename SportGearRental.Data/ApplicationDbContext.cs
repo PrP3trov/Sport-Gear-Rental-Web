@@ -41,6 +41,12 @@ namespace SportGearRental.Data
                 .HasForeignKey(g => g.ConditionId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<SportGear>()
+                .HasOne(g => g.Owner)
+                .WithMany()
+                .HasForeignKey(g => g.OwnerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Entity<Rental>()
                 .Property(r => r.TotalPrice)
                 .HasColumnType("decimal(18,2)");
@@ -150,7 +156,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("f47ac10b-58cc-4372-a567-0e02b2c3d479"),
                     BrandId = Guid.Parse("c9bf9e57-1685-4c89-bafb-ff5af830be8a"),
-                    ConditionId = Guid.Parse("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c")
+                    ConditionId = Guid.Parse("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"),
+                    OwnerId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde"
                 },
                 new SportGear
                 {
@@ -162,7 +169,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("9c858901-8a57-4791-81fe-4c455b099bc9"),
                     BrandId = Guid.Parse("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"),
-                    ConditionId = Guid.Parse("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6")
+                    ConditionId = Guid.Parse("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"),
+                    OwnerId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde"
                 },
                 new SportGear
                 {
@@ -174,7 +182,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
                     BrandId = Guid.Parse("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"),
-                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc")
+                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                    OwnerId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde"
                 },
                 new SportGear
                 {
@@ -186,7 +195,9 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
                     BrandId = Guid.Parse("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"),
-                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc")
+                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                    OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc"
+
                 },
                 new SportGear
                 {
@@ -198,7 +209,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
                     BrandId = Guid.Parse("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"),
-                    ConditionId = Guid.Parse("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c")
+                    ConditionId = Guid.Parse("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"),
+                    OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc"
                 },
                 new SportGear
                 {
@@ -210,7 +222,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("9c858901-8a57-4791-81fe-4c455b099bc9"),
                     BrandId = Guid.Parse("c9bf9e57-1685-4c89-bafb-ff5af830be8a"),
-                    ConditionId = Guid.Parse("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6")
+                    ConditionId = Guid.Parse("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"),
+                    OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc"
                 },
                 new SportGear
                 {
@@ -222,7 +235,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                     BrandId = Guid.Parse("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"),
-                    ConditionId = Guid.Parse("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c")
+                    ConditionId = Guid.Parse("f1a52b5b-4c3d-44d0-80f8-5ad836eeb09c"),
+                    OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc"
                 },
                 new SportGear
                 {
@@ -234,7 +248,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("6fa459ea-ee8a-3ca4-894e-db77e160355e"),
                     BrandId = Guid.Parse("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"),
-                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc")
+                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                    OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc"
                 },
                 new SportGear
                 {
@@ -246,7 +261,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                     BrandId = Guid.Parse("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"),
-                    ConditionId = Guid.Parse("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6")
+                    ConditionId = Guid.Parse("862f2c20-cb09-4e6a-b4d2-92d0d4e3d5f6"),
+                    OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc"
                 },
                 new SportGear
                 {
@@ -258,7 +274,8 @@ namespace SportGearRental.Data
                     IsDeleted = false,
                     CategoryId = Guid.Parse("f47ac10b-58cc-4372-a567-0e02b2c3d479"),
                     BrandId = Guid.Parse("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"),
-                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc")
+                    ConditionId = Guid.Parse("73c2f799-3e94-47bc-8c29-1d157f243bbc"),
+                    OwnerId = "c3d4e5f6-7890-4abc-def1-234567890abc"
                 }
             );
 

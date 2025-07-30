@@ -11,7 +11,7 @@
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.18",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.15",
           "Microsoft.AspNetCore.Identity.UI": "8.0.15",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.15",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.18",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.15",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
@@ -1284,7 +1284,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/8.0.15": {
+      "Microsoft.EntityFrameworkCore.SqlServer/8.0.18": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "5.1.6",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.18",
@@ -1292,8 +1292,8 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
-            "assemblyVersion": "8.0.15.0",
-            "fileVersion": "8.0.1525.16502"
+            "assemblyVersion": "8.0.18.0",
+            "fileVersion": "8.0.1825.31203"
           }
         }
       },
@@ -2186,8 +2186,10 @@
       },
       "SportGearRental.Data/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.18",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.15",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.15",
+          "Microsoft.EntityFrameworkCore": "8.0.18",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.18",
           "SportGearRental.Common": "1.0.0",
           "SportGearRental.Data.Models": "1.0.0"
         },
@@ -2222,6 +2224,7 @@
       },
       "SportGearRental.Services/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.18",
           "SportGearRental.Common": "1.0.0",
           "SportGearRental.Data": "1.0.0",
           "SportGearRental.Data.Models": "1.0.0",
@@ -2236,6 +2239,11 @@
         }
       },
       "SportGearRental.ViewModels/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.18",
+          "Microsoft.EntityFrameworkCore": "8.0.18",
+          "SportGearRental.Common": "1.0.0"
+        },
         "runtime": {
           "SportGearRental.ViewModels.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -2846,12 +2854,12 @@
       "path": "microsoft.entityframeworkcore.sqlite.core/8.0.11",
       "hashPath": "microsoft.entityframeworkcore.sqlite.core.8.0.11.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/8.0.15": {
+    "Microsoft.EntityFrameworkCore.SqlServer/8.0.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Kouryy99RU+YvRpfxJ4+ajaILxindm/Fq67zFBd8Lzikl7k/b9c7Ow5ilIB7anrhh6tUXc2MIHfwDV1AcrQS/g==",
-      "path": "microsoft.entityframeworkcore.sqlserver/8.0.15",
-      "hashPath": "microsoft.entityframeworkcore.sqlserver.8.0.15.nupkg.sha512"
+      "sha512": "sha512-9G/mJ3A42wtCRSjm9HyDtZQ6qHjHsDabEnkUCP3PMTyY9gd+YPRZr5AJzhsbrgy0kEEZ/P2p4bRKNalB9qO49Q==",
+      "path": "microsoft.entityframeworkcore.sqlserver/8.0.18",
+      "hashPath": "microsoft.entityframeworkcore.sqlserver.8.0.18.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Tools/8.0.15": {
       "type": "package",
