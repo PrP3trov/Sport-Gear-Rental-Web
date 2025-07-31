@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q2i5Jwiw9TY=",
+  "dgSpecHash": "j33OK9Zr5JI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj",
+  "projectFilePath": "C:\\Users\\tsrle\\Desktop\\SportGearRental\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tsrle\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\tsrle\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\8.0.18\\microsoft.aspnetcore.diagnostics.entityframeworkcore.8.0.18.nupkg.sha512",
