@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UCdOrr3xBuT6+NHUCZLLTTf/1PH62SWvaoy/sX4Mfsg=",
+  "Hash": "05k8hyE01NbRPnQC+Lub77zzzlzC9xFFE7R/L5cIp88=",
   "Source": "SportGearRental.Web",
   "BasePath": "_content/SportGearRental.Web",
   "Mode": "Default",
@@ -1333,8 +1333,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ybiwumi6q1",
-      "Integrity": "MkULqTaVsKTxkRs2ruOszDSQoRoTbAE3kdA79/iKkgs=",
+      "Fingerprint": "rotv26ktza",
+      "Integrity": "9b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -2591,7 +2591,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1048"
+          "Value": "1488"
         },
         {
           "Name": "Content-Type",
@@ -2599,11 +2599,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MkULqTaVsKTxkRs2ruOszDSQoRoTbAE3kdA79/iKkgs=\""
+          "Value": "\"9b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 02 Aug 2025 17:02:26 GMT"
+          "Value": "Sat, 02 Aug 2025 21:38:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2613,12 +2613,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MkULqTaVsKTxkRs2ruOszDSQoRoTbAE3kdA79/iKkgs="
+          "Value": "sha256-9b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM="
         }
       ]
     },
     {
-      "Route": "css/site.ybiwumi6q1.css",
+      "Route": "css/site.rotv26ktza.css",
       "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2628,7 +2628,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1048"
+          "Value": "1488"
         },
         {
           "Name": "Content-Type",
@@ -2636,11 +2636,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MkULqTaVsKTxkRs2ruOszDSQoRoTbAE3kdA79/iKkgs=\""
+          "Value": "\"9b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 02 Aug 2025 17:02:26 GMT"
+          "Value": "Sat, 02 Aug 2025 21:38:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2650,7 +2650,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ybiwumi6q1"
+          "Value": "rotv26ktza"
         },
         {
           "Name": "label",
@@ -2658,7 +2658,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MkULqTaVsKTxkRs2ruOszDSQoRoTbAE3kdA79/iKkgs="
+          "Value": "sha256-9b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM="
         }
       ]
     },
@@ -9743,7 +9743,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 02 Aug 2025 17:38:52 GMT"
+          "Value": "Sat, 02 Aug 2025 22:14:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9780,7 +9780,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 02 Aug 2025 17:38:52 GMT"
+          "Value": "Sat, 02 Aug 2025 22:14:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9825,7 +9825,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 02 Aug 2025 17:38:52 GMT"
+          "Value": "Sat, 02 Aug 2025 22:14:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9870,7 +9870,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 02 Aug 2025 17:38:52 GMT"
+          "Value": "Sat, 02 Aug 2025 22:14:38 GMT"
         },
         {
           "Name": "Cache-Control",

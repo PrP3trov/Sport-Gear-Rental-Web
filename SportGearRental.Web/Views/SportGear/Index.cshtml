@@ -21,7 +21,7 @@
     <div class="col-md-2">
         <label class="form-label">Category</label>
         <select name="categoryId" class="form-select">
-            <option value="">All</option>
+            <option value="">Всички</option>
             @foreach (var c in Model.Categories)
             {
                 <option value="@c.Id" selected="@(Model.CategoryId == c.Id)">@c.Name</option>
@@ -94,6 +94,7 @@
                 </div>
                 <div class="card-footer text-center">
                     <a asp-action="Details" asp-route-id="@gear.Id" class="btn btn-outline-primary btn-sm">Details</a>
+
                     @if (gear.OwnerId == currentUserId)
                     {
                         <a asp-action="Edit" asp-route-id="@gear.Id" class="btn btn-warning btn-sm">Edit</a>
@@ -103,6 +104,17 @@
                                 data-gear-id="@gear.Id"
                                 data-gear-name="@gear.Name">
                             Delete
+                        </button>
+                    }
+                    else if (User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <!-- Бутон Наеми -->
+                        <button type="button" class="btn btn-success btn-sm"
+                                data-bs-toggle="modal"
+                                data-bs-target="#rentalModal"
+                                data-gear-id="@gear.Id"
+                                data-price="@gear.PricePerDay">
+                            Наеми
                         </button>
                     }
                 </div>
@@ -132,6 +144,60 @@
     </div>
 </div>
 
+<!-- RENTAL MODAL -->
+<div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-controller="Rental" asp-action="CreateQuickRental" method="post" id="rentalForm">
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rentalModalLabel">Наемане на екипировка</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Скрито поле за ID на екипировката -->
+                    <input type="hidden" id="gearId" name="SportGearId" />
+
+                    <!-- Начална дата -->
+                    <div class="mb-3">
+                        <label class="form-label">Начална дата</label>
+                        <input type="date" class="form-control" id="startDate" name="StartDate"
+                               min="@DateTime.UtcNow.ToString("yyyy-MM-dd")" required />
+                    </div>
+
+                    <!-- Крайна дата -->
+                    <div class="mb-3">
+                        <label class="form-label">Крайна дата</label>
+                        <input type="date" class="form-control" id="endDate" name="EndDate"
+                               min="@DateTime.UtcNow.ToString("yyyy-MM-dd")" required />
+                    </div>
+
+                    <!-- Цена на ден -->
+                    <div class="mb-3">
+                        <label class="form-label">Цена на ден</label>
+                        <input type="text" class="form-control" id="pricePerDay" readonly />
+                    </div>
+
+                    <!-- Обща цена -->
+                    <div class="mb-3">
+                        <label class="form-label">Обща цена</label>
+                        <input type="text" class="form-control" id="totalPrice" readonly />
+                        <input type="hidden" id="priceHidden" name="Price" />
+                    </div>
+
+                    <!-- Поле за грешка -->
+                    <div id="dateError" class="text-danger mb-2" style="display:none; font-weight:bold;"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Потвърди наем</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script>
         var deleteModal = document.getElementById('deleteModal');
@@ -144,7 +210,100 @@
             modalGearName.textContent = gearName;
 
             var form = deleteModal.querySelector('#deleteForm');
-            form.action = '/SportGear/Delete/' + gearId;
+            form.action = '/SportGear/Delete/' + gearId;          
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let startDateInput = document.getElementById("startDate");
+            let endDateInput = document.getElementById("endDate");
+            let pricePerDayInput = document.getElementById("pricePerDay");
+            let totalPriceInput = document.getElementById("totalPrice");
+            let priceHiddenInput = document.getElementById("priceHidden");
+            let gearIdInput = document.getElementById("gearId");
+            let dateError = document.getElementById("dateError");
+            let rentalForm = document.getElementById("rentalForm");
+
+            // При отваряне на модала
+            document.querySelectorAll('[data-bs-target="#rentalModal"]').forEach(button => {
+                button.addEventListener('click', function () {
+                    let price = this.getAttribute('data-price');
+                    let gearId = this.getAttribute('data-gear-id');
+
+                    pricePerDayInput.value = parseFloat(price).toFixed(2) + " лв.";
+                    gearIdInput.value = gearId;
+
+                    totalPriceInput.value = "";
+                    priceHiddenInput.value = "";
+                    startDateInput.value = "";
+                    endDateInput.value = "";
+                    dateError.style.display = "none";
+                });
+            });
+
+            // Минимална крайна дата според началната
+            startDateInput.addEventListener("change", function () {
+                endDateInput.setAttribute("min", this.value);
+                updateTotalPrice();
+            });
+
+            // Пресмятане при промяна на крайната дата
+            endDateInput.addEventListener("change", updateTotalPrice);
+
+            // Преди изпращане на формата - проверка
+            rentalForm.addEventListener("submit", function (e) {
+                updateTotalPrice(); // гарантираме, че цената е изчислена
+
+                if (!priceHiddenInput.value || parseFloat(priceHiddenInput.value.replace(',', '.')) <= 0) {
+                    e.preventDefault();
+                    dateError.innerText = "Моля, изберете валидни дати, за да се изчисли цената.";
+                    dateError.style.display = "block";
+                }
+            });
+
+            function updateTotalPrice() {
+                let start = new Date(startDateInput.value);
+                let end = new Date(endDateInput.value);
+                let price = parseFloat(pricePerDayInput.value.replace(" лв.", ""));
+
+                if (!startDateInput.value || !endDateInput.value) {
+                    dateError.innerText = "Моля, изберете начална и крайна дата.";
+                    dateError.style.display = "block";
+                    totalPriceInput.value = "";
+                    priceHiddenInput.value = "";
+                    return;
+                }
+
+                if (end < start) {
+                    dateError.innerText = "Крайната дата не може да е преди началната.";
+                    dateError.style.display = "block";
+                    totalPriceInput.value = "";
+                    priceHiddenInput.value = "";
+                    return;
+                }
+
+                let today = new Date();
+                today.setHours(0,0,0,0);
+                if (start < today) {
+                    dateError.innerText = "Началната дата не може да е в миналото.";
+                    dateError.style.display = "block";
+                    totalPriceInput.value = "";
+                    priceHiddenInput.value = "";
+                    return;
+                }
+
+                dateError.style.display = "none";
+
+                let days = Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
+                let total = (days * price).toFixed(2);
+
+                // Показваме с лв. за потребителя
+                totalPriceInput.value = total + " лв.";
+
+                // Подаваме към формата с българска запетая
+                priceHiddenInput.value = total.replace('.', ',');
+            }
         });
     </script>
 }

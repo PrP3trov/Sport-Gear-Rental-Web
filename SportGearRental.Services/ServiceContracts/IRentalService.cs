@@ -9,13 +9,10 @@ namespace SportGearRental.Services.ServiceContracts
 {
     public interface IRentalService
     {
-        Task<IEnumerable<RentalViewModel>> GetAllAsync();
-        Task<RentalDetailsViewModel?> GetByIdAsync(Guid id);
+        Task<IEnumerable<RentalViewModel>> GetAllAsync(string userId);
+        Task<RentalDetailsViewModel?> GetByIdAsync(Guid id, string userId);
         Task CreateAsync(RentalFormModel model, string userId);
-        Task UpdateAsync(Guid id, RentalFormModel model);
-        Task DeleteAsync(Guid id);
-
-        // Dropdown списък за екипировката
+        Task DeleteAsync(Guid id, string userId);
         Task<IEnumerable<SportGearDropdownViewModel>> GetSportGearsForDropdownAsync();
     }
 }

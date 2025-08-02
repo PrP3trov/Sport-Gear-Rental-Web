@@ -20,11 +20,11 @@ namespace SportGearRental.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<RentalViewModel>> GetAllAsync()
+        public async Task<IEnumerable<RentalViewModel>> GetAllAsync(string userId)
         {
             return await _context.Rentals
                 .Include(r => r.SportGear)
-                .Where(r => !r.IsDeleted)
+                .Where(r => !r.IsDeleted && r.UserId == userId)
                 .Select(r => new RentalViewModel
                 {
                     Id = r.Id,
@@ -37,19 +37,19 @@ namespace SportGearRental.Services
                 .ToListAsync();
         }
 
-        public async Task<RentalDetailsViewModel?> GetByIdAsync(Guid id)
+        public async Task<RentalDetailsViewModel?> GetByIdAsync(Guid id, string userId)
         {
             return await _context.Rentals
                 .Include(r => r.SportGear)
-                .Where(r => r.Id == id && !r.IsDeleted)
+                .Where(r => r.Id == id && !r.IsDeleted && r.UserId == userId)
                 .Select(r => new RentalDetailsViewModel
                 {
                     Id = r.Id,
                     SportGearName = r.SportGear.Name,
-                    StartDate = r.RentalStartDate,
-                    EndDate = r.RentalEndDate,
-                    Price = r.TotalPrice,
-                    UserId = r.UserId
+                    SportGearImageUrl = r.SportGear.ImageUrl,
+                    PricePerDay = r.SportGear.PricePerDay,
+                    RentalStartDate = r.RentalStartDate,
+                    RentalEndDate = r.RentalEndDate
                 })
                 .FirstOrDefaultAsync();
         }
@@ -63,33 +63,24 @@ namespace SportGearRental.Services
                 RentalStartDate = model.StartDate,
                 RentalEndDate = model.EndDate,
                 TotalPrice = model.Price,
-                UserId = userId
+                UserId = userId,
+                IsDeleted = false
             };
 
             _context.Rentals.Add(rental);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Guid id, RentalFormModel model)
+        public async Task DeleteAsync(Guid id, string userId)
         {
-            var rental = await _context.Rentals.FindAsync(id);
-            if (rental == null || rental.IsDeleted) return;
+            var rental = await _context.Rentals
+                .FirstOrDefaultAsync(r => r.Id == id && r.UserId == userId);
 
-            rental.SportGearId = model.SportGearId;
-            rental.RentalStartDate = model.StartDate;
-            rental.RentalEndDate = model.EndDate;
-            rental.TotalPrice = model.Price;
-
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeleteAsync(Guid id)
-        {
-            var rental = await _context.Rentals.FindAsync(id);
-            if (rental == null) return;
-
-            rental.IsDeleted = true;
-            await _context.SaveChangesAsync();
+            if (rental != null)
+            {
+                rental.IsDeleted = true;
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<IEnumerable<SportGearDropdownViewModel>> GetSportGearsForDropdownAsync()

@@ -16,21 +16,23 @@ namespace SportGearRental.Web.Controllers
             _rentalService = rentalService;
         }
 
-        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var rentals = await _rentalService.GetAllAsync();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var rentals = await _rentalService.GetAllAsync(userId);
             return View(rentals);
         }
 
-        [AllowAnonymous]
         public async Task<IActionResult> Details(Guid id)
         {
-            var rental = await _rentalService.GetByIdAsync(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var rental = await _rentalService.GetByIdAsync(id, userId);
+
             if (rental == null)
             {
                 return NotFound();
             }
+
             return View(rental);
         }
 
@@ -40,7 +42,6 @@ namespace SportGearRental.Web.Controllers
             {
                 SportGears = await _rentalService.GetSportGearsForDropdownAsync()
             };
-
             return View(model);
         }
 
@@ -59,47 +60,40 @@ namespace SportGearRental.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(Guid id)
-        {
-            var rental = await _rentalService.GetByIdAsync(id);
-            if (rental == null)
-            {
-                return NotFound();
-            }
-
-            var formModel = new RentalFormModel
-            {
-                SportGearId = id, 
-                StartDate = rental.StartDate,
-                EndDate = rental.EndDate,
-                Price = rental.Price,
-                SportGears = await _rentalService.GetSportGearsForDropdownAsync()
-            };
-
-            return View(formModel);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, RentalFormModel model)
+        public async Task<IActionResult> CreateQuickRental(RentalFormModel model)
         {
             if (!ModelState.IsValid)
             {
-                model.SportGears = await _rentalService.GetSportGearsForDropdownAsync();
-                return View(model);
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"Validation error: {error.ErrorMessage}");
+                }
+                Console.WriteLine($"SportGearId: {model.SportGearId}");
+                Console.WriteLine($"StartDate: {model.StartDate}");
+                Console.WriteLine($"EndDate: {model.EndDate}");
+                Console.WriteLine($"Price: {model.Price}");
+
+                return RedirectToAction("Index", "SportGear");
             }
 
-            await _rentalService.UpdateAsync(id, model);
-            return RedirectToAction(nameof(Index));
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            await _rentalService.CreateAsync(model, userId);
+
+            return RedirectToAction("Index", "Rental");
         }
 
         public async Task<IActionResult> Delete(Guid id)
         {
-            var rental = await _rentalService.GetByIdAsync(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var rental = await _rentalService.GetByIdAsync(id, userId);
+
             if (rental == null)
             {
                 return NotFound();
             }
+
             return View(rental);
         }
 
@@ -107,7 +101,8 @@ namespace SportGearRental.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            await _rentalService.DeleteAsync(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            await _rentalService.DeleteAsync(id, userId);
             return RedirectToAction(nameof(Index));
         }
     }
