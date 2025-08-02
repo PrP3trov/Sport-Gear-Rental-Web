@@ -17,11 +17,14 @@ namespace SportGearRental.Web.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchTerm, Guid? categoryId, Guid? brandId, Guid? conditionId, decimal? maxPrice, int? minRating)
         {
-            var gears = await _sportGearService.GetAllAsync();
-            return View(gears);
+            var model = await _sportGearService.GetFilteredAsync(
+                searchTerm, categoryId, brandId, conditionId, maxPrice, minRating);
+
+            return View(model);
         }
+
 
         [AllowAnonymous]
         public async Task<IActionResult> Details(Guid id)

@@ -3,30 +3,84 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SportGearRental.Web</title>
+    <title>@ViewData["Title"] - SportGearRental</title>
+
+    <!-- Bootstrap & основни стилове -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SportGearRental.Web.styles.css" asp-append-version="true" />
+
+    <!-- Запазване на стиловете за Login/Register -->
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+
+    <!-- Специални стилове за конкретни страници -->
+    @RenderSection("Styles", required: false)
+
+    <style>
+        /* Допълнителен модерен стил */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        nav.navbar {
+            background: linear-gradient(90deg, #00416A, #E4E5E6);
+        }
+
+            nav.navbar .navbar-brand {
+                font-weight: bold;
+                color: #fff !important;
+            }
+
+            nav.navbar .nav-link {
+                color: #f1f1f1 !important;
+                transition: color 0.2s ease-in-out;
+            }
+
+                nav.navbar .nav-link:hover {
+                    color: #FFD700 !important;
+                }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+            footer a {
+                color: #FFD700;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SportGearRental.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SportGearRental</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="SportGear" asp-action="Index">Спорнта екипировка</a>
+                            <a class="nav-link" asp-controller="SportGear" asp-action="Index">Спортна екипировка</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Rental" asp-action="Index">Rentals</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -34,20 +88,23 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <div class="container pb-3">
+        @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="text-center">
         <div class="container">
-            &copy; 2025 - SportGearRental.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - SportGearRental |
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <!-- JS библиотеки -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

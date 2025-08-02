@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SportGearRental.ViewModels.Rentals.RentalViewModel>
+
+<h2>Моите наеми</h2>
+
+@if (!Model.Any())
+{
+    <p>Нямате наети екипировки.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var rental in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="@rental.SportGearImageUrl" class="card-img-top" alt="@rental.SportGearName" />
+                    <div class="card-body">
+                        <h5 class="card-title">@rental.SportGearName</h5>
+                        <p><strong>Цена на ден:</strong> @rental.PricePerDay лв.</p>
+                        <p><strong>Дата на наемане:</strong> @rental.RentalStartDate.ToString("dd.MM.yyyy")</p>
+                        <p><strong>Дата за връщане:</strong> @rental.RentalEndDate.ToString("dd.MM.yyyy")</p>
+                        <p><strong>Остават дни:</strong> @rental.DaysRemaining</p>
+                        <a asp-action="Details" asp-route-id="@rental.Id" class="btn btn-primary btn-sm">Детайли</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

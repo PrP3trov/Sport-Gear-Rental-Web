@@ -24,5 +24,7 @@ namespace SportGearRental.Services.ServiceContracts
         Task<IEnumerable<BrandViewModel>> GetBrandOptionsAsync();
         Task<IEnumerable<GearConditionViewModel>> GetConditionOptionsAsync();
 
+        Task<SportGearQueryModel> GetFilteredAsync(string? searchTerm, Guid? categoryId, Guid? brandId, Guid? conditionId, decimal? maxPrice, int? minRating);
+
     }
 }

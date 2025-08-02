@@ -1,4 +1,4 @@
-﻿﻿@page
+﻿@page
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
@@ -27,7 +27,7 @@
                         <input asp-for="Input.Username" class="form-control shadow-sm border-1 rounded-2 py-2 pt-1r"
                                autocomplete="username" aria-required="true" placeholder="user123" />
                         <label asp-for="Input.Username" class="form-label">Username</label>
-                        
+                        <span asp-validation-for="Input.Username" class="text-danger"></span>
                     </div>
 
                     <div class="form-floating mb-4">

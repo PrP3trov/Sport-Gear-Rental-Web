@@ -19,5 +19,7 @@ namespace SportGearRental.ViewModels.SportGear
         public string Condition { get; set; } = null!;
 
         public string OwnerEmail { get; set; } = null!;
+
+        public string OwnerId { get; set; } = null!;
     }
 }

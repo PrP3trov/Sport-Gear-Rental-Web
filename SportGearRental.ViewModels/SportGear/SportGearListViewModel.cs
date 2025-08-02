@@ -12,5 +12,7 @@ namespace SportGearRental.ViewModels.SportGear
         public string Name { get; set; } = null!;
         public string ImageUrl { get; set; } = null!;
         public decimal PricePerDay { get; set; }
+
+        public string OwnerId { get; set; } = null!;
     }
 }

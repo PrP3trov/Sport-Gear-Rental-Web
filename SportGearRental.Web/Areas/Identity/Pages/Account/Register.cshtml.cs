@@ -2,14 +2,13 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-namespace FitnessApp.Web.Areas.Identity.Pages.Account
+namespace SportGearRental.Web.Areas.Identity.Pages.Account
 {
     using System.ComponentModel.DataAnnotations;
     using SportGearRental.Data.Models;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
-    using static SportGearRental.Common.EntityValidationConstants;
 
     public class RegisterModel : PageModel
     {

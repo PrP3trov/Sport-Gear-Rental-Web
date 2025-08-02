@@ -24,7 +24,8 @@ namespace SportGearRental.Services
                     Id = g.Id,
                     Name = g.Name,
                     ImageUrl = g.ImageUrl ?? "",
-                    PricePerDay = g.PricePerDay
+                    PricePerDay = g.PricePerDay,
+                    OwnerId = g.OwnerId 
                 })
                 .ToListAsync();
         }
@@ -43,7 +44,8 @@ namespace SportGearRental.Services
                     Category = g.Category.Name,
                     Brand = g.Brand.Name,
                     Condition = g.Condition.Name,
-                    OwnerEmail = g.Owner.Email
+                    OwnerEmail = g.Owner.Email,
+                    OwnerId = g.OwnerId 
                 })
                 .FirstOrDefaultAsync();
         }
@@ -156,6 +158,72 @@ namespace SportGearRental.Services
                     Name = c.Name
                 })
                 .ToListAsync();
+        }
+
+        public async Task<SportGearQueryModel> GetFilteredAsync(
+            string? searchTerm,
+            Guid? categoryId,
+            Guid? brandId,
+            Guid? conditionId,
+            decimal? maxPrice,
+            int? minRating)
+        {
+            var query = _context.SportGears
+                .Include(g => g.Category)
+                .Include(g => g.Brand)
+                .Include(g => g.Condition)
+                .Include(g => g.Reviews)
+                .Where(g => !g.IsDeleted)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string lowerTerm = searchTerm.ToLower();
+                query = query.Where(g =>
+                    g.Name.ToLower().Contains(lowerTerm) ||
+                    g.Description.ToLower().Contains(lowerTerm));
+            }
+
+            if (categoryId.HasValue && categoryId != Guid.Empty)
+                query = query.Where(g => g.CategoryId == categoryId);
+
+            if (brandId.HasValue && brandId != Guid.Empty)
+                query = query.Where(g => g.BrandId == brandId);
+
+            if (conditionId.HasValue && conditionId != Guid.Empty)
+                query = query.Where(g => g.ConditionId == conditionId);
+
+            if (maxPrice.HasValue)
+                query = query.Where(g => g.PricePerDay <= maxPrice.Value);
+
+            if (minRating.HasValue && minRating > 0)
+                query = query.Where(g => g.Reviews.Any() &&
+                                         g.Reviews.Average(r => r.Rating) >= minRating);
+
+            var gears = await query
+                .Select(g => new SportGearListViewModel
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    ImageUrl = g.ImageUrl ?? "",
+                    PricePerDay = g.PricePerDay,
+                    OwnerId = g.OwnerId
+                })
+                .ToListAsync();
+
+            return new SportGearQueryModel
+            {
+                SearchTerm = searchTerm,
+                CategoryId = categoryId,
+                BrandId = brandId,
+                ConditionId = conditionId,
+                MaxPrice = maxPrice,
+                MinRating = minRating,
+                Categories = await _context.Categories.Select(c => new CategoryViewModel { Id = c.Id, Name = c.Name }).ToListAsync(),
+                Brands = await _context.Brands.Select(b => new BrandViewModel { Id = b.Id, Name = b.Name }).ToListAsync(),
+                Conditions = await _context.GearConditions.Select(gc => new GearConditionViewModel { Id = gc.Id, Name = gc.Name }).ToListAsync(),
+                Gears = gears
+            };
         }
     }
 }

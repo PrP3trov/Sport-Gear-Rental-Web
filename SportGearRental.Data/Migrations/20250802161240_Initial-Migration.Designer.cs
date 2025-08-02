@@ -12,7 +12,7 @@ using SportGearRental.Data;
 namespace SportGearRental.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250730221005_Initial-Migration")]
+    [Migration("20250802161240_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -262,16 +262,16 @@ namespace SportGearRental.Data.Migrations
                         {
                             Id = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d7330888-08c8-43da-9ebf-7825b43dbca8",
+                            ConcurrencyStamp = "ff5f25cc-26c7-41d7-9aac-6aa7be45b0aa",
                             Email = "admin@gear.bg",
                             EmailConfirmed = true,
                             IsDeleted = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GEAR.BG",
                             NormalizedUserName = "ADMIN@GEAR.BG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEObmPFSAZX78QeszvsAYXdjDuqti0O51SlZsoxteBkzIWh8ynZ+Y9OCf81XdpGEOA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBElB+rTMwoPCIEvURa8T7l428h4mni9vqgZUfPmcOWzWRBjDBlTg4yFMHOTn0pI/g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7596a413-e822-4ea3-9dd2-24b724ab37e4",
+                            SecurityStamp = "166aef59-de46-427b-9fde-cc3e0aed0b2d",
                             TwoFactorEnabled = false,
                             UserName = "admin@gear.bg"
                         },
@@ -279,16 +279,16 @@ namespace SportGearRental.Data.Migrations
                         {
                             Id = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "54a451a0-109e-48aa-a4bc-19bd067ac742",
+                            ConcurrencyStamp = "28047789-2e7d-42f3-88d7-8d6bb789f9e6",
                             Email = "user@gear.bg",
                             EmailConfirmed = true,
                             IsDeleted = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@GEAR.BG",
                             NormalizedUserName = "USER@GEAR.BG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO1vTaZg5/p7TF9a6uwZgf4dWg6dH55jE/UBEQafus/bVFWuYZHYbtm93bTYuNgLyA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKrlghndJvDUdVjmlIXb3Zy4BPDwbxJ5JNYhKFeQpdU04tIQDUUIdlmpBj3lgoik6g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dfbb4a76-0ede-4772-b96c-32e91235001f",
+                            SecurityStamp = "238fcc05-7d84-435f-97dc-f608c0bbfdf3",
                             TwoFactorEnabled = false,
                             UserName = "user@gear.bg"
                         });

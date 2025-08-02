@@ -565,10 +565,6 @@
       },
       "System.Threading.Channels/6.0.0": {},
       "SportGearRental.Common/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.18",
-          "Microsoft.EntityFrameworkCore": "8.0.18"
-        },
         "runtime": {
           "SportGearRental.Common.dll": {
             "assemblyVersion": "1.0.0.0",
