@@ -29,7 +29,7 @@ namespace SportGearRental.Services
                 {
                     Id = r.Id,
                     SportGearName = r.SportGear.Name,
-                    SportGearImageUrl = r.SportGear.ImageUrl,
+                    SportGearImageUrl = r.SportGear.ImageUrl ?? string.Empty,
                     PricePerDay = r.SportGear.PricePerDay,
                     RentalStartDate = r.RentalStartDate,
                     RentalEndDate = r.RentalEndDate
@@ -46,7 +46,7 @@ namespace SportGearRental.Services
                 {
                     Id = r.Id,
                     SportGearName = r.SportGear.Name,
-                    SportGearImageUrl = r.SportGear.ImageUrl,
+                    SportGearImageUrl = r.SportGear.ImageUrl ?? string.Empty,
                     PricePerDay = r.SportGear.PricePerDay,
                     RentalStartDate = r.RentalStartDate,
                     RentalEndDate = r.RentalEndDate
@@ -56,13 +56,21 @@ namespace SportGearRental.Services
 
         public async Task CreateAsync(RentalFormModel model, string userId)
         {
+            var pricePerDay = await _context.SportGears
+                .Where(sg => sg.Id == model.SportGearId)
+                .Select(sg => sg.PricePerDay)
+                .FirstAsync();
+
+            int rentalDays = Math.Max((model.EndDate - model.StartDate).Days, 1);
+            decimal totalPrice = pricePerDay * rentalDays;
+
             var rental = new Rental
             {
                 Id = Guid.NewGuid(),
                 SportGearId = model.SportGearId,
                 RentalStartDate = model.StartDate,
                 RentalEndDate = model.EndDate,
-                TotalPrice = model.Price,
+                TotalPrice = totalPrice,
                 UserId = userId,
                 IsDeleted = false
             };

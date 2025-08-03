@@ -179,12 +179,11 @@
                         <input type="text" class="form-control" id="pricePerDay" readonly />
                     </div>
 
-                    <!-- Обща цена -->
-                    <div class="mb-3">
-                        <label class="form-label">Обща цена</label>
-                        <input type="text" class="form-control" id="totalPrice" readonly />
-                        <input type="hidden" id="priceHidden" name="Price" />
-                    </div>
+                      <!-- Обща цена -->
+                      <div class="mb-3">
+                          <label class="form-label">Обща цена</label>
+                          <input type="text" class="form-control" id="totalPrice" readonly />
+                      </div>
 
                     <!-- Поле за грешка -->
                     <div id="dateError" class="text-danger mb-2" style="display:none; font-weight:bold;"></div>
@@ -220,7 +219,6 @@
             let endDateInput = document.getElementById("endDate");
             let pricePerDayInput = document.getElementById("pricePerDay");
             let totalPriceInput = document.getElementById("totalPrice");
-            let priceHiddenInput = document.getElementById("priceHidden");
             let gearIdInput = document.getElementById("gearId");
             let dateError = document.getElementById("dateError");
             let rentalForm = document.getElementById("rentalForm");
@@ -235,7 +233,6 @@
                     gearIdInput.value = gearId;
 
                     totalPriceInput.value = "";
-                    priceHiddenInput.value = "";
                     startDateInput.value = "";
                     endDateInput.value = "";
                     dateError.style.display = "none";
@@ -255,7 +252,7 @@
             rentalForm.addEventListener("submit", function (e) {
                 updateTotalPrice(); // гарантираме, че цената е изчислена
 
-                if (!priceHiddenInput.value || parseFloat(priceHiddenInput.value.replace(',', '.')) <= 0) {
+                if (!totalPriceInput.value) {
                     e.preventDefault();
                     dateError.innerText = "Моля, изберете валидни дати, за да се изчисли цената.";
                     dateError.style.display = "block";
@@ -271,7 +268,6 @@
                     dateError.innerText = "Моля, изберете начална и крайна дата.";
                     dateError.style.display = "block";
                     totalPriceInput.value = "";
-                    priceHiddenInput.value = "";
                     return;
                 }
 
@@ -279,7 +275,6 @@
                     dateError.innerText = "Крайната дата не може да е преди началната.";
                     dateError.style.display = "block";
                     totalPriceInput.value = "";
-                    priceHiddenInput.value = "";
                     return;
                 }
 
@@ -289,7 +284,6 @@
                     dateError.innerText = "Началната дата не може да е в миналото.";
                     dateError.style.display = "block";
                     totalPriceInput.value = "";
-                    priceHiddenInput.value = "";
                     return;
                 }
 
@@ -300,9 +294,6 @@
 
                 // Показваме с лв. за потребителя
                 totalPriceInput.value = total + " лв.";
-
-                // Подаваме към формата с българска запетая
-                priceHiddenInput.value = total.replace('.', ',');
             }
         });
     </script>
