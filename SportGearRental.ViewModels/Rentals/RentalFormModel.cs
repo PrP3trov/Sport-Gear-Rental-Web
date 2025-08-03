@@ -20,10 +20,6 @@ namespace SportGearRental.ViewModels.Rentals
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
-        [Required]
-        [Range(0.01, 9999.99)]
-        public decimal Price { get; set; }
-
         public IEnumerable<SportGearDropdownViewModel> SportGears { get; set; }
             = new List<SportGearDropdownViewModel>();
 

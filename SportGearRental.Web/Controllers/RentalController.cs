@@ -73,7 +73,6 @@ namespace SportGearRental.Web.Controllers
                 Console.WriteLine($"SportGearId: {model.SportGearId}");
                 Console.WriteLine($"StartDate: {model.StartDate}");
                 Console.WriteLine($"EndDate: {model.EndDate}");
-                Console.WriteLine($"Price: {model.Price}");
 
                 return RedirectToAction("Index", "SportGear");
             }
