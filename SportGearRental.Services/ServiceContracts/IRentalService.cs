@@ -14,5 +14,7 @@ namespace SportGearRental.Services.ServiceContracts
         Task CreateAsync(RentalFormModel model, string userId);
         Task DeleteAsync(Guid id, string userId);
         Task<IEnumerable<SportGearDropdownViewModel>> GetSportGearsForDropdownAsync();
+        Task<bool> HasUserRentedGearAsync(Guid gearId, string userId);
+
     }
 }

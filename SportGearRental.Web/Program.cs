@@ -32,6 +32,7 @@ namespace SportGearRental.Web
 
             builder.Services.AddScoped<ISportGearService, SportGearService>();
             builder.Services.AddScoped<IRentalService, RentalService>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
 
             var app = builder.Build();
 

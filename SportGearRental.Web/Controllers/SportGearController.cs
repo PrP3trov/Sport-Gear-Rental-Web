@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SportGearRental.Services.ServiceContracts;
+using SportGearRental.ViewModels.Review;
 using SportGearRental.ViewModels.SportGear;
 using System.Security.Claims;
 
@@ -10,10 +11,12 @@ namespace SportGearRental.Web.Controllers
     public class SportGearController : Controller
     {
         private readonly ISportGearService _sportGearService;
+        private readonly IRentalService _rentalService;
 
-        public SportGearController(ISportGearService sportGearService)
+        public SportGearController(ISportGearService sportGearService, IRentalService rentalService)
         {
             _sportGearService = sportGearService;
+            _rentalService = rentalService;
         }
 
         [AllowAnonymous]
@@ -31,6 +34,12 @@ namespace SportGearRental.Web.Controllers
         {
             var model = await _sportGearService.GetDetailsByIdAsync(id);
             if (model == null) return NotFound();
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId != null && await _rentalService.HasUserRentedGearAsync(id, userId))
+            {
+                model.NewReview = new ReviewFormModel { SportGearId = id };
+            }
 
             return View(model);
         }

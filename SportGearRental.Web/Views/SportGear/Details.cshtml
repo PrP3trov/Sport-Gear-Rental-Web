@@ -2,11 +2,14 @@
 @using Microsoft.AspNetCore.Identity
 @using SportGearRental.Data.Models
 @inject UserManager<ApplicationUser> UserManager
+@inject SportGearRental.Services.ServiceContracts.IReviewService ReviewService
 
 @{
     ViewData["Title"] = "Sport Gear Details";
     var currentUserId = UserManager.GetUserId(User);
     bool isOwner = Model.OwnerId == currentUserId;
+    ViewData["GearId"] = Model.Id;
+    var reviews = await ReviewService.GetReviewsForGearAsync(Model.Id);
 }
 
 <h2 class="text-center">@Model.Name</h2>
@@ -52,6 +55,11 @@
             }
         </div>
     </div>
+</div>
+
+<div class="mt-5">
+    <partial name="~/Views/Review/Create.cshtml" model="new SportGearRental.ViewModels.Review.ReviewFormModel()" />
+    <partial name="~/Views/Review/Index.cshtml" model="reviews" />
 </div>
 
 <!-- Delete Confirmation Modal -->

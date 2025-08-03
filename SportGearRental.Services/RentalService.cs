@@ -101,5 +101,11 @@ namespace SportGearRental.Services
                 })
                 .ToListAsync();
         }
+
+        public async Task<bool> HasUserRentedGearAsync(Guid gearId, string userId)
+        {
+            return await _context.Rentals
+                .AnyAsync(r => !r.IsDeleted && r.SportGearId == gearId && r.UserId == userId);
+        }
     }
 }

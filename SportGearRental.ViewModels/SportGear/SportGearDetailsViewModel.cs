@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportGearRental.ViewModels.Review;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,5 +22,9 @@ namespace SportGearRental.ViewModels.SportGear
         public string OwnerEmail { get; set; } = null!;
 
         public string OwnerId { get; set; } = null!;
+
+        public IEnumerable<ReviewViewModel> Reviews { get; set; } = new List<ReviewViewModel>();
+
+        public ReviewFormModel? NewReview { get; set; }
     }
 }

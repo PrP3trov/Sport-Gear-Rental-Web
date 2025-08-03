@@ -11,6 +11,9 @@ namespace SportGearRental.ViewModels.Review
     public class ReviewFormModel
     {
         [Required]
+        public Guid SportGearId { get; set; }
+
+        [Required]
         [StringLength(ContentMaxLength, MinimumLength = ContentMinLength)]
         public string Content { get; set; } = null!;
 

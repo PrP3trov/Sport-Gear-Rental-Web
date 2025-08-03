@@ -9,10 +9,12 @@ namespace SportGearRental.Services
     public class SportGearService : ISportGearService
     {
         private readonly ApplicationDbContext _context;
+        private readonly IReviewService _reviewService;
 
-        public SportGearService(ApplicationDbContext context)
+        public SportGearService(ApplicationDbContext context, IReviewService reviewService)
         {
             _context = context;
+            _reviewService = reviewService;
         }
 
         public async Task<IEnumerable<SportGearListViewModel>> GetAllAsync()
@@ -32,7 +34,7 @@ namespace SportGearRental.Services
 
         public async Task<SportGearDetailsViewModel?> GetDetailsByIdAsync(Guid id)
         {
-            return await _context.SportGears
+            var model =  await _context.SportGears
                 .Where(g => g.Id == id && !g.IsDeleted)
                 .Select(g => new SportGearDetailsViewModel
                 {
@@ -48,6 +50,13 @@ namespace SportGearRental.Services
                     OwnerId = g.OwnerId 
                 })
                 .FirstOrDefaultAsync();
+
+            if (model != null)
+            {
+                model.Reviews = await _reviewService.GetReviewsForGearAsync(id);
+            }
+
+            return model;
         }
 
         public async Task<SportGearFormModel?> GetFormByIdAsync(Guid id, string userId)

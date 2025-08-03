@@ -1,0 +1,15 @@
+﻿@model SportGearRental.ViewModels.Review.ReviewFormModel
+
+<form asp-controller="Review" asp-action="Add" asp-route-gearId="@(ViewData["GearId"])" method="post">
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" class="form-control" type="number" min="1" max="5" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Add Review</button>
+</form>
