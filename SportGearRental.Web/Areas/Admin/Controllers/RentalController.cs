@@ -7,7 +7,6 @@ using System.Security.Claims;
 namespace SportGearRental.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Administrator")]
     [Authorize(Roles = "Admin")]
     public class RentalController : Controller
     {

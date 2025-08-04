@@ -1,0 +1,584 @@
+﻿@model SportGearRental.ViewModels.Review.ReviewViewModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+    }
+
+    .delete-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .delete-modal {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        overflow: hidden;
+        animation: modalSlideIn 0.5s ease-out;
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+    }
+
+    .modal-header {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        padding: 2rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient( 45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px );
+            animation: slidePattern 3s linear infinite;
+        }
+
+    .warning-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        animation: pulse 2s infinite;
+        position: relative;
+        z-index: 2;
+    }
+
+    .modal-title {
+        font-size: 2rem;
+        font-weight: 300;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .modal-subtitle {
+        opacity: 0.9;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .modal-body {
+        padding: 2.5rem;
+    }
+
+    .warning-message {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+        .warning-message h3 {
+            color: #e74c3c;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .warning-message p {
+            color: #7f8c8d;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+    .review-preview {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border-left: 5px solid #e74c3c;
+        position: relative;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+        .review-preview::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(231, 76, 60, 0.2);
+            position: absolute;
+            top: -0.5rem;
+            left: 1rem;
+            font-family: serif;
+        }
+
+    .review-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .user-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+    }
+
+    .user-details h4 {
+        margin: 0;
+        color: #2c3e50;
+        font-size: 1.3rem;
+    }
+
+    .rating-display {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .stars {
+        display: flex;
+        gap: 0.2rem;
+    }
+
+    .star {
+        color: #ffd700;
+        font-size: 1.2rem;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+        .star.empty {
+            color: #e1e8ed;
+        }
+
+    .rating-text {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .review-content {
+        color: #34495e;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        font-style: italic;
+        margin-left: 1rem;
+    }
+
+    .danger-zone {
+        background: linear-gradient(135deg, #fff5f5, #fed7d7);
+        border: 2px dashed #e74c3c;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+    }
+
+        .danger-zone h4 {
+            color: #e74c3c;
+            margin: 0 0 0.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .danger-zone p {
+            color: #c0392b;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+    .modal-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+
+    .action-btn {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 150px;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-delete {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        color: white;
+        animation: deleteButtonPulse 2s infinite;
+    }
+
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        color: white;
+    }
+
+        .btn-cancel:hover {
+            background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(149, 165, 166, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-back {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+    }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #2980b9, #21618c);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(52, 152, 219, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .confirmation-checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+        font-size: 1rem;
+        color: #7f8c8d;
+    }
+
+        .confirmation-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #e74c3c;
+        }
+
+    .floating-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .particle {
+        position: absolute;
+        background: rgba(231, 76, 60, 0.1);
+        border-radius: 50%;
+        animation: floatParticle 4s infinite ease-in-out;
+    }
+
+    @@keyframes modalSlideIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes pulse {
+        0%, 100%
+
+    {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    }
+
+    @@keyframes deleteButtonPulse {
+        0%, 100%
+
+    {
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+    }
+
+    }
+
+    @@keyframes slidePattern {
+        0%
+
+    {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(50px);
+    }
+
+    }
+
+    @@keyframes floatParticle {
+        0%, 100%
+
+    {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .delete-container
+
+    {
+        padding: 1rem;
+    }
+
+    .modal-header {
+        padding: 1.5rem;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .warning-icon {
+        font-size: 3rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .review-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    }
+</style>
+
+<div class="delete-container">
+    <div class="delete-modal">
+        <!-- Floating Particles -->
+        <div class="floating-particles">
+            <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 8px; height: 8px; top: 60%; left: 80%; animation-delay: 1s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; top: 40%; left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 6px; height: 6px; top: 80%; left: 60%; animation-delay: 1.5s;"></div>
+        </div>
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <div class="warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2 class="modal-title">Delete Review</h2>
+            <p class="modal-subtitle">This action cannot be undone</p>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <div class="warning-message">
+                <h3>
+                    <i class="fas fa-trash-alt"></i>
+                    Are you sure you want to delete this review?
+                </h3>
+                <p>Once deleted, this review will be permanently removed from your system and cannot be recovered.</p>
+            </div>
+
+            <!-- Review Preview -->
+            <div class="review-preview">
+                <div class="review-header">
+                    <div class="user-avatar">
+                        @Model.UserName.FirstOrDefault()
+                    </div>
+                    <div class="user-details">
+                        <h4>@Model.UserName</h4>
+                        <div class="rating-display">
+                            <div class="stars">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <i class="fas fa-star @(i <= Model.Rating ? "" : "empty")"></i>
+                                }
+                            </div>
+                            <span class="rating-text">@Model.Rating/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-content">
+                    "@Model.Content"
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="danger-zone">
+                <h4>
+                    <i class="fas fa-exclamation-circle"></i>
+                    Danger Zone
+                </h4>
+                <p>This review will be permanently deleted and removed from all statistics and reports.</p>
+            </div>
+
+            <!-- Confirmation Checkbox -->
+            <div class="confirmation-checkbox">
+                <input type="checkbox" id="confirmDelete" required>
+                <label for="confirmDelete">I understand this action cannot be undone</label>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="modal-actions">
+                <form asp-area="Admin" asp-controller="Review" asp-action="Delete" asp-route-id="@Model.Id" method="post" style="display: inline;">
+                    <button type="submit" class="action-btn btn-delete" id="deleteButton" disabled>
+                        <i class="fas fa-trash-alt"></i>
+                        Delete Forever
+                    </button>
+                </form>
+
+                <a asp-area="Admin" asp-controller="Review" asp-action="Index" class="action-btn btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Reviews
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const confirmCheckbox = document.getElementById('confirmDelete');
+        const deleteButton = document.getElementById('deleteButton');
+
+        // Enable/disable delete button based on checkbox
+        confirmCheckbox.addEventListener('change', function() {
+            deleteButton.disabled = !this.checked;
+
+            if (this.checked) {
+                deleteButton.style.opacity = '1';
+                deleteButton.style.cursor = 'pointer';
+            } else {
+                deleteButton.style.opacity = '0.5';
+                deleteButton.style.cursor = 'not-allowed';
+            }
+        });
+
+        // Add confirmation dialog on delete
+        deleteButton.addEventListener('click', function(e) {
+            if (!confirmCheckbox.checked) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Final confirmation
+            if (!confirm('⚠️ FINAL WARNING: This review will be permanently deleted. Are you absolutely sure?')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Add floating animation to particles
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 4 + 's';
+        });
+
+        // Add shake animation to modal on load
+        const modal = document.querySelector('.delete-modal');
+        setTimeout(() => {
+            modal.style.animation = 'modalSlideIn 0.5s ease-out, shake 0.5s ease-in-out 0.5s';
+        }, 100);
+    });
+
+    // Add shake keyframe
+    const style = document.createElement('style');
+    style.textContent = `
+    @@keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>

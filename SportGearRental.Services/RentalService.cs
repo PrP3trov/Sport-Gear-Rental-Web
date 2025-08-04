@@ -24,7 +24,7 @@ namespace SportGearRental.Services
         {
             var query = _context.Rentals
                            .Include(r => r.SportGear)
-                           .Where(r => !r.IsDeleted && r.UserId == userId)
+                           .Include(r => r.User)
                            .Where(r => !r.IsDeleted);
 
             if (!string.IsNullOrEmpty(userId))
@@ -40,7 +40,8 @@ namespace SportGearRental.Services
                     SportGearImageUrl = r.SportGear.ImageUrl ?? string.Empty,
                     PricePerDay = r.SportGear.PricePerDay,
                     RentalStartDate = r.RentalStartDate,
-                    RentalEndDate = r.RentalEndDate
+                    RentalEndDate = r.RentalEndDate,
+                    UserName = r.User.UserName
                 })
                 .ToListAsync();
         }
@@ -48,9 +49,9 @@ namespace SportGearRental.Services
         public async Task<RentalDetailsViewModel?> GetByIdAsync(Guid id, string? userId = null)
         {
             var query = _context.Rentals
-                 .Include(r => r.SportGear)
-                 .Where(r => r.Id == id && !r.IsDeleted && r.UserId == userId)
-                 .Where(r => r.Id == id && !r.IsDeleted);
+                .Include(r => r.SportGear)
+                .Include(r => r.User)
+                .Where(r => r.Id == id && !r.IsDeleted);
 
             if (!string.IsNullOrEmpty(userId))
             {
@@ -65,7 +66,8 @@ namespace SportGearRental.Services
                     SportGearImageUrl = r.SportGear.ImageUrl ?? string.Empty,
                     PricePerDay = r.SportGear.PricePerDay,
                     RentalStartDate = r.RentalStartDate,
-                    RentalEndDate = r.RentalEndDate
+                    RentalEndDate = r.RentalEndDate,
+                    UserName = r.User.UserName
                 })
                 .FirstOrDefaultAsync();
         }

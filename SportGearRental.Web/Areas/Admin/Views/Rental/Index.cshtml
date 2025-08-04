@@ -1,5 +1,32 @@
-﻿@{
+﻿@model IEnumerable<SportGearRental.ViewModels.Rentals.RentalViewModel>
+@{
     Layout = "_AdminLayout";
 }
 
 <h2>Rental Management</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Sport Gear</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rental in Model)
+        {
+            <tr>
+                <td>@rental.UserName</td>
+                <td>@rental.SportGearName</td>
+                <td>@rental.RentalStartDate.ToShortDateString()</td>
+                <td>@rental.RentalEndDate.ToShortDateString()</td>
+                <td>
+                    <a class="btn btn-sm btn-danger" asp-area="Admin" asp-controller="Rental" asp-action="Delete" asp-route-id="@rental.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

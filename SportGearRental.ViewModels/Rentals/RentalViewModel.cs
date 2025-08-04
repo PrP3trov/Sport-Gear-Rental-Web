@@ -15,6 +15,7 @@ namespace SportGearRental.ViewModels.Rentals
         public DateTime RentalStartDate { get; set; }
         public DateTime RentalEndDate { get; set; }
 
+        public string UserName { get; set; } = string.Empty;
         public int DaysRemaining => Math.Max((RentalEndDate - DateTime.Now).Days, 0);
     }
 }
