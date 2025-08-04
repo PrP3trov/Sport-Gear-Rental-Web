@@ -1,0 +1,14 @@
+﻿@using SportGearRental.ViewModels
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Server Error";
+}
+
+<h1 class="text-danger">500 - Server Error</h1>
+<p>An unexpected error occurred.</p>
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
