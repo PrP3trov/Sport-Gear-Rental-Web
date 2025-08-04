@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - SportGearRental</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Panel</a>
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Back to Site</a>
+    </nav>
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+</body>
+</html>
