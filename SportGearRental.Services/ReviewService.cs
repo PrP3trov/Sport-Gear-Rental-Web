@@ -34,6 +34,19 @@ namespace SportGearRental.Services
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<ReviewViewModel>> GetAllAsync()
+        {
+            return await _context.Reviews
+                .Select(r => new ReviewViewModel
+                {
+                    Id = r.Id,
+                    Content = r.Content,
+                    Rating = r.Rating,
+                    UserName = r.User.UserName
+                })
+                .ToListAsync();
+        }
+
         public async Task AddReviewAsync(Guid gearId, string userId, ReviewFormModel model)
         {
             bool hasRented = await _context.Rentals
@@ -63,6 +76,16 @@ namespace SportGearRental.Services
 
             _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            var review = await _context.Reviews.FirstOrDefaultAsync(r => r.Id == id);
+            if (review != null)
+            {
+                review.IsDeleted = true;
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

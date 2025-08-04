@@ -59,11 +59,17 @@ namespace SportGearRental.Services
             return model;
         }
 
-        public async Task<SportGearFormModel?> GetFormByIdAsync(Guid id, string userId)
+        public async Task<SportGearFormModel?> GetFormByIdAsync(Guid id, string? userId)
         {
-            var gear = await _context.SportGears
-                .Where(g => g.Id == id && g.OwnerId == userId && !g.IsDeleted)
-                .FirstOrDefaultAsync();
+            var query = _context.SportGears
+                            .Where(g => g.Id == id && !g.IsDeleted);
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                query = query.Where(g => g.OwnerId == userId);
+            }
+
+            var gear = await query.FirstOrDefaultAsync();
 
             if (gear == null) return null;
 

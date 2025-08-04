@@ -10,6 +10,8 @@ namespace SportGearRental.Services.ServiceContracts
     public interface IReviewService
     {
         Task<IEnumerable<ReviewViewModel>> GetReviewsForGearAsync(Guid gearId);
+        Task<IEnumerable<ReviewViewModel>> GetAllAsync();
         Task AddReviewAsync(Guid gearId, string userId, ReviewFormModel model);
+        Task DeleteAsync(Guid id);
     }
 }

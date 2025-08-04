@@ -20,11 +20,19 @@ namespace SportGearRental.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<RentalViewModel>> GetAllAsync(string userId)
+        public async Task<IEnumerable<RentalViewModel>> GetAllAsync(string? userId = null)
         {
-            return await _context.Rentals
-                .Include(r => r.SportGear)
-                .Where(r => !r.IsDeleted && r.UserId == userId)
+            var query = _context.Rentals
+                           .Include(r => r.SportGear)
+                           .Where(r => !r.IsDeleted && r.UserId == userId)
+                           .Where(r => !r.IsDeleted);
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                query = query.Where(r => r.UserId == userId);
+            }
+
+            return await query
                 .Select(r => new RentalViewModel
                 {
                     Id = r.Id,
@@ -37,11 +45,19 @@ namespace SportGearRental.Services
                 .ToListAsync();
         }
 
-        public async Task<RentalDetailsViewModel?> GetByIdAsync(Guid id, string userId)
+        public async Task<RentalDetailsViewModel?> GetByIdAsync(Guid id, string? userId = null)
         {
-            return await _context.Rentals
-                .Include(r => r.SportGear)
-                .Where(r => r.Id == id && !r.IsDeleted && r.UserId == userId)
+            var query = _context.Rentals
+                 .Include(r => r.SportGear)
+                 .Where(r => r.Id == id && !r.IsDeleted && r.UserId == userId)
+                 .Where(r => r.Id == id && !r.IsDeleted);
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                query = query.Where(r => r.UserId == userId);
+            }
+
+            return await query
                 .Select(r => new RentalDetailsViewModel
                 {
                     Id = r.Id,
@@ -79,10 +95,16 @@ namespace SportGearRental.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(Guid id, string userId)
+        public async Task DeleteAsync(Guid id, string? userId = null)
         {
-            var rental = await _context.Rentals
-                .FirstOrDefaultAsync(r => r.Id == id && r.UserId == userId);
+            var query = _context.Rentals.Where(r => r.Id == id);
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                query = query.Where(r => r.UserId == userId);
+            }
+
+            var rental = await query.FirstOrDefaultAsync();
 
             if (rental != null)
             {

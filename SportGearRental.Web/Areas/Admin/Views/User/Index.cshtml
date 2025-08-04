@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SportGearRental.ViewModels.Users.UserListViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Is Admin</th>
+            <th>Disabled</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Email</td>
+                <td>@u.IsAdmin</td>
+                <td>@u.IsDisabled</td>
+            </tr>
+        }
+    </tbody>
+</table>

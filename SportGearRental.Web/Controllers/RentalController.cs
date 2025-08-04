@@ -19,14 +19,14 @@ namespace SportGearRental.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var rentals = await _rentalService.GetAllAsync(userId);
+            var rentals = await _rentalService.GetAllAsync(User.IsInRole("Admin") ? null : userId);
             return View(rentals);
         }
 
         public async Task<IActionResult> Details(Guid id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var rental = await _rentalService.GetByIdAsync(id, userId);
+            var rental = await _rentalService.GetByIdAsync(id, User.IsInRole("Admin") ? null : userId);
 
             if (rental == null)
             {
@@ -86,7 +86,7 @@ namespace SportGearRental.Web.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var rental = await _rentalService.GetByIdAsync(id, userId);
+            var rental = await _rentalService.GetByIdAsync(id, User.IsInRole("Admin") ? null : userId);
 
             if (rental == null)
             {
@@ -101,7 +101,7 @@ namespace SportGearRental.Web.Controllers
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _rentalService.DeleteAsync(id, userId);
+            await _rentalService.DeleteAsync(id, User.IsInRole("Admin") ? null : userId);
             return RedirectToAction(nameof(Index));
         }
     }
