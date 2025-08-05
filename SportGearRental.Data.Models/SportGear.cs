@@ -64,5 +64,7 @@ namespace SportGearRental.Data.Models
 
         public virtual ICollection<Rental> Rentals { get; set; } = new HashSet<Rental>();
         public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
+
+        public virtual ICollection<Favorite> Favorites { get; set; } = new HashSet<Favorite>();
     }
 }

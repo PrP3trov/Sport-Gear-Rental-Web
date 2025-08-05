@@ -19,6 +19,8 @@ namespace SportGearRental.Data
         public virtual DbSet<Rental> Rentals { get; set; } = null!;
         public virtual DbSet<Review> Reviews { get; set; } = null!;
 
+        public virtual DbSet<Favorite> Favorites { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -47,6 +49,18 @@ namespace SportGearRental.Data
                 .HasForeignKey(g => g.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<Favorite>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Favorites)
+                .HasForeignKey(f => f.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Favorite>()
+                .HasOne(f => f.SportGear)
+                .WithMany(g => g.Favorites)
+                .HasForeignKey(f => f.SportGearId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.Entity<Rental>()
                 .Property(r => r.TotalPrice)
                 .HasColumnType("decimal(18,2)");
@@ -54,6 +68,7 @@ namespace SportGearRental.Data
                         builder.Entity<SportGear>().HasQueryFilter(g => !g.IsDeleted);
             builder.Entity<Rental>().HasQueryFilter(r => !r.IsDeleted);
             builder.Entity<Review>().HasQueryFilter(r => !r.IsDeleted);
+            builder.Entity<Favorite>().HasQueryFilter(f => !f.IsDeleted);
 
             // Роли
             var adminRoleId = "a1f2e3d4-c5b6-47f8-9876-123456789abc";
