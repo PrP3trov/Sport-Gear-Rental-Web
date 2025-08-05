@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\areas\\admin\\views\\rental\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\areas\\admin\\views\\rental\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\areas\\admin\\views\\rental\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\areas\\admin\\views\\rental\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\areas\\admin\\views\\rental\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\areas\\admin\\views\\rental\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\areas\\admin\\views\\review\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\areas\\admin\\views\\review\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\controllers\\rentalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,32 +47,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Delete.cshtml",
+              "RelativeDocumentMoniker": "SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Delete.cshtml",
+              "RelativeToolTip": "SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Delete.cshtml",
+              "ViewState": "AgIAAGIBAAAAAAAAAAASwHkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-05T18:44:08.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Review\\Delete.cshtml",
+              "RelativeDocumentMoniker": "SportGearRental.Web\\Areas\\Admin\\Views\\Review\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Review\\Delete.cshtml",
+              "RelativeToolTip": "SportGearRental.Web\\Areas\\Admin\\Views\\Review\\Delete.cshtml",
+              "ViewState": "AgIAANkBAAAAAAAAAAAAAOwBAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-05T18:41:28.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Index.cshtml",
               "RelativeDocumentMoniker": "SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Index.cshtml",
               "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Index.cshtml",
               "RelativeToolTip": "SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Index.cshtml",
-              "ViewState": "AgIAAE4CAAAAAAAAAAAmwGICAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADoCAAAAAAAAAAAwwGICAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-05T18:12:01.121Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Edit.cshtml",
               "RelativeDocumentMoniker": "SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Edit.cshtml",
               "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Edit.cshtml",
               "RelativeToolTip": "SportGearRental.Web\\Areas\\Admin\\Views\\Rental\\Edit.cshtml",
-              "ViewState": "AgIAAMUBAAAAAAAAAAAEwOABAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAK0CAAAAAAAAAAAiwNYCAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-05T18:10:39.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "RentalController.cs",
               "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Areas\\Admin\\Controllers\\RentalController.cs",
               "RelativeDocumentMoniker": "SportGearRental.Web\\Areas\\Admin\\Controllers\\RentalController.cs",
@@ -76,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Views\\Rental\\Index.cshtml",
               "RelativeDocumentMoniker": "SportGearRental.Web\\Views\\Rental\\Index.cshtml",
@@ -88,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Views\\Rental\\Details.cshtml",
               "RelativeDocumentMoniker": "SportGearRental.Web\\Views\\Rental\\Details.cshtml",
@@ -100,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "RentalController.cs",
               "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Controllers\\RentalController.cs",
               "RelativeDocumentMoniker": "SportGearRental.Web\\Controllers\\RentalController.cs",
@@ -108,8 +142,7 @@
               "RelativeToolTip": "SportGearRental.Web\\Controllers\\RentalController.cs",
               "ViewState": "AgIAAEEAAAAAAAAAAAAUwFMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T21:46:49.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T21:46:49.267Z"
             }
           ]
         }

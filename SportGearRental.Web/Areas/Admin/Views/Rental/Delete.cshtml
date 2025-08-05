@@ -3,23 +3,560 @@
     Layout = "_AdminLayout";
 }
 
-<h2>Delete Rental</h2>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+    }
 
-<div>
-    <h4>Are you sure you want to delete this rental?</h4>
-    <dl class="row">
-        <dt class="col-sm-2">User</dt>
-        <dd class="col-sm-10">@Model.UserName</dd>
-        <dt class="col-sm-2">Sport Gear</dt>
-        <dd class="col-sm-10">@Model.SportGearName</dd>
-        <dt class="col-sm-2">Start Date</dt>
-        <dd class="col-sm-10">@Model.RentalStartDate.ToShortDateString()</dd>
-        <dt class="col-sm-2">End Date</dt>
-        <dd class="col-sm-10">@Model.RentalEndDate.ToShortDateString()</dd>
-    </dl>
-    <form asp-action="Delete" method="post">
-        <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-danger">Delete</button>
-        <a asp-area="Admin" asp-controller="Rental" asp-action="Index" class="btn btn-secondary">Cancel</a>
-    </form>
+    .delete-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .delete-form-wrapper {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        overflow: hidden;
+        width: 100%;
+        animation: formSlideIn 0.6s ease-out;
+        position: relative;
+    }
+
+    .form-header {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        padding: 2.5rem 2rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient( 45deg, transparent, transparent 15px, rgba(255,255,255,0.1) 15px, rgba(255,255,255,0.1) 30px );
+            animation: slidePattern 4s linear infinite;
+        }
+
+    .form-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: bounce 2s infinite;
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-title {
+        font-size: 2.2rem;
+        font-weight: 300;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-subtitle {
+        opacity: 0.9;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-body {
+        padding: 3rem;
+    }
+
+    .warning-message {
+        background: linear-gradient(135deg, #fff5f5, #fed7d7);
+        border: 2px solid #e74c3c;
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        animation: slideInLeft 0.5s ease-out;
+    }
+
+        .warning-message h4 {
+            color: #e74c3c;
+            margin: 0 0 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .warning-message p {
+            color: #c0392b;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+    .rental-details {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 15px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease-out;
+        border-left: 4px solid #e74c3c;
+    }
+
+    .detail-row {
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #dee2e6;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .detail-row:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .detail-row:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .detail-row:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+    .detail-label {
+        font-weight: 600;
+        color: #2c3e50;
+        min-width: 150px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+        .detail-label i {
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+    .detail-value {
+        color: #495057;
+        font-size: 1.1rem;
+        flex: 1;
+        padding: 0.5rem 1rem;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid #dee2e6;
+        margin-left: 1rem;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 2px solid #f0f0f0;
+    }
+
+    .action-btn {
+        padding: 1rem 2.5rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        min-width: 150px;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-delete {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        color: white;
+        animation: deleteButtonPulse 3s infinite;
+    }
+
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        color: white;
+    }
+
+        .btn-cancel:hover {
+            background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(149, 165, 166, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .floating-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+    }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 70%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+    @@keyframes formSlideIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes slideInLeft {
+        from
+
+    {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    }
+
+    @@keyframes bounce {
+        0%, 20%, 50%, 80%, 100%
+
+    {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+
+    }
+
+    @@keyframes deleteButtonPulse {
+        0%, 100%
+
+    {
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+    }
+
+    }
+
+    @@keyframes slidePattern {
+        0%
+
+    {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(50px);
+    }
+
+    }
+
+    @@keyframes float {
+        0%, 100%
+
+    {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+
+    }
+
+    @@keyframes shake {
+        0%, 100%
+
+    {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .delete-container
+
+    {
+        padding: 1rem;
+    }
+
+    .form-header {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-title {
+        font-size: 1.8rem;
+    }
+
+    .form-icon {
+        font-size: 2.5rem;
+    }
+
+    .form-body {
+        padding: 2rem 1.5rem;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .detail-label {
+        min-width: auto;
+    }
+
+    .detail-value {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    }
+</style>
+
+<div class="delete-container">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape">
+            <i class="fas fa-exclamation-triangle" style="font-size: 40px; color: #e74c3c;"></i>
+        </div>
+        <div class="shape">
+            <i class="fas fa-trash-alt" style="font-size: 35px; color: #e74c3c;"></i>
+        </div>
+        <div class="shape">
+            <i class="fas fa-ban" style="font-size: 45px; color: #e74c3c;"></i>
+        </div>
+    </div>
+
+    <div class="delete-form-wrapper">
+        <!-- Form Header -->
+        <div class="form-header">
+            <div class="form-icon">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+            <h2 class="form-title">Delete Rental</h2>
+            <p class="form-subtitle">Permanently remove this rental record</p>
+        </div>
+
+        <!-- Form Body -->
+        <div class="form-body">
+            <!-- Warning Message -->
+            <div class="warning-message">
+                <h4>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Are you sure you want to delete this rental?
+                </h4>
+                <p>This action cannot be undone. The rental record will be permanently removed from the system.</p>
+            </div>
+
+            <!-- Rental Details -->
+            <div class="rental-details">
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-user"></i>
+                        User
+                    </div>
+                    <div class="detail-value">@Model.UserName</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-dumbbell"></i>
+                        Sport Gear
+                    </div>
+                    <div class="detail-value">@Model.SportGearName</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-play-circle"></i>
+                        Start Date
+                    </div>
+                    <div class="detail-value">@Model.RentalStartDate.ToShortDateString()</div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">
+                        <i class="fas fa-stop-circle"></i>
+                        End Date
+                    </div>
+                    <div class="detail-value">@Model.RentalEndDate.ToShortDateString()</div>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <form asp-action="Delete" method="post" id="deleteRentalForm">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-actions">
+                    <button type="submit" class="action-btn btn-delete">
+                        <i class="fas fa-trash-alt"></i>
+                        Delete Rental
+                    </button>
+                    <a asp-area="Admin" asp-controller="Rental" asp-action="Index" class="action-btn btn-cancel">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add floating animation to shapes with random positions
+        const shapes = document.querySelectorAll('.shape');
+        shapes.forEach((shape, index) => {
+            shape.style.left = Math.random() * 80 + 10 + '%';
+            shape.style.top = Math.random() * 80 + 10 + '%';
+            shape.style.animationDelay = Math.random() * 6 + 's';
+        });
+
+        // Form submission with loading state
+        const form = document.getElementById('deleteRentalForm');
+        form.addEventListener('submit', function(e) {
+            // Show confirmation dialog
+            if (!confirm('⚠️ Are you absolutely sure you want to delete this rental? This action cannot be undone!')) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Add loading state to delete button
+            const deleteBtn = document.querySelector('.btn-delete');
+            deleteBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
+            deleteBtn.disabled = true;
+        });
+
+        // Enhanced hover effects for detail rows
+        const detailRows = document.querySelectorAll('.detail-row');
+        detailRows.forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.transition = 'all 0.3s ease';
+            });
+
+            row.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Add pulse effect to warning message
+        const warningMessage = document.querySelector('.warning-message');
+        setInterval(() => {
+            warningMessage.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                warningMessage.style.transform = 'scale(1)';
+            }, 200);
+        }, 3000);
+    });
+</script>
