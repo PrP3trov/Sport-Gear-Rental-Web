@@ -3,31 +3,728 @@
     Layout = "_AdminLayout";
 }
 
-<h2>Edit Rental</h2>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+    }
 
-<form asp-action="Edit" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    .edit-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-    <div class="form-group">
-        <label asp-for="SportGearId" class="control-label"></label>
-        <select asp-for="SportGearId" class="form-control" asp-items="@(new SelectList(Model.SportGears, "Id", "Name"))">
-            <option value="">-- Select Gear --</option>
-        </select>
-        <span asp-validation-for="SportGearId" class="text-danger"></span>
+    .edit-form-wrapper {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        overflow: hidden;
+        width: 100%;
+        animation: formSlideIn 0.6s ease-out;
+        position: relative;
+    }
+
+    .form-header {
+        background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        padding: 2.5rem 2rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient( 45deg, transparent, transparent 15px, rgba(255,255,255,0.1) 15px, rgba(255,255,255,0.1) 30px );
+            animation: slidePattern 4s linear infinite;
+        }
+
+    .form-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: bounce 2s infinite;
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-title {
+        font-size: 2.2rem;
+        font-weight: 300;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-subtitle {
+        opacity: 0.9;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-body {
+        padding: 3rem;
+    }
+
+    .form-section {
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+        .form-section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .form-section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .form-section:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+    .form-group {
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .form-label i {
+            color: #4ecdc4;
+            font-size: 1.2rem;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: 2px solid #e1e8ed;
+        border-radius: 15px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+        box-sizing: border-box;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-control:hover {
+            border-color: #4ecdc4;
+            background: white;
+        }
+
+    select.form-control {
+        cursor: pointer;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%234ecdc4" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 12px;
+        appearance: none;
+        padding-right: 3rem;
+    }
+
+    .form-validation {
+        color: #e74c3c;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        animation: shake 0.5s ease-in-out;
+    }
+
+    .validation-summary {
+        background: linear-gradient(135deg, #fff5f5, #fed7d7);
+        border: 2px solid #e74c3c;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        animation: slideInLeft 0.5s ease-out;
+    }
+
+        .validation-summary h4 {
+            color: #e74c3c;
+            margin: 0 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .validation-summary ul {
+            margin: 0;
+            padding-left: 1.5rem;
+            color: #c0392b;
+        }
+
+    .gear-preview {
+        background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(68, 160, 141, 0.1));
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-top: 1rem;
+        border-left: 4px solid #4ecdc4;
+        display: none;
+        animation: fadeInUp 0.5s ease-out;
+    }
+
+        .gear-preview.show {
+            display: block;
+        }
+
+        .gear-preview h4 {
+            color: #2c3e50;
+            margin: 0 0 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gear-preview p {
+            color: #7f8c8d;
+            margin: 0;
+        }
+
+    .date-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .date-info {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 1rem;
+        text-align: center;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+        .date-info.start-date {
+            border-color: #2ecc71;
+        }
+
+        .date-info.end-date {
+            border-color: #e74c3c;
+        }
+
+        .date-info h5 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .date-info.start-date h5 {
+            color: #2ecc71;
+        }
+
+        .date-info.end-date h5 {
+            color: #e74c3c;
+        }
+
+    .duration-display {
+        background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        color: white;
+        padding: 1rem;
+        border-radius: 15px;
+        text-align: center;
+        margin: 1rem 0;
+        font-weight: 600;
+        display: none;
+        animation: fadeInUp 0.5s ease-out;
+    }
+
+        .duration-display.show {
+            display: block;
+        }
+
+    .form-actions {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 2px solid #f0f0f0;
+    }
+
+    .action-btn {
+        padding: 1rem 2.5rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        min-width: 150px;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-save {
+        background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        color: white;
+        animation: saveButtonPulse 3s infinite;
+    }
+
+        .btn-save:hover {
+            background: linear-gradient(135deg, #44a08d, #3d8b7a);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(78, 205, 196, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-cancel {
+        background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        color: white;
+    }
+
+        .btn-cancel:hover {
+            background: linear-gradient(135deg, #7f8c8d, #6c7b7d);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(149, 165, 166, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+    .floating-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+    }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 70%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+    @@keyframes formSlideIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes slideInLeft {
+        from
+
+    {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    }
+
+    @@keyframes bounce {
+        0%, 20%, 50%, 80%, 100%
+
+    {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+
+    }
+
+    @@keyframes saveButtonPulse {
+        0%, 100%
+
+    {
+        box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 8px 20px rgba(78, 205, 196, 0.6);
+    }
+
+    }
+
+    @@keyframes slidePattern {
+        0%
+
+    {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(50px);
+    }
+
+    }
+
+    @@keyframes float {
+        0%, 100%
+
+    {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+
+    }
+
+    @@keyframes shake {
+        0%, 100%
+
+    {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .edit-container
+
+    {
+        padding: 1rem;
+    }
+
+    .form-header {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-title {
+        font-size: 1.8rem;
+    }
+
+    .form-icon {
+        font-size: 2.5rem;
+    }
+
+    .form-body {
+        padding: 2rem 1.5rem;
+    }
+
+    .date-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    }
+</style>
+
+<div class="edit-container">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape">
+            <i class="fas fa-calendar-alt" style="font-size: 40px; color: #4ecdc4;"></i>
+        </div>
+        <div class="shape">
+            <i class="fas fa-dumbbell" style="font-size: 35px; color: #4ecdc4;"></i>
+        </div>
+        <div class="shape">
+            <i class="fas fa-edit" style="font-size: 45px; color: #4ecdc4;"></i>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label asp-for="StartDate" class="control-label"></label>
-        <input asp-for="StartDate" class="form-control" type="date" />
-        <span asp-validation-for="StartDate" class="text-danger"></span>
-    </div>
+    <div class="edit-form-wrapper">
+        <!-- Form Header -->
+        <div class="form-header">
+            <div class="form-icon">
+                <i class="fas fa-edit"></i>
+            </div>
+            <h2 class="form-title">Edit Rental</h2>
+            <p class="form-subtitle">Modify rental details and save changes</p>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="EndDate" class="control-label"></label>
-        <input asp-for="EndDate" class="form-control" type="date" />
-        <span asp-validation-for="EndDate" class="text-danger"></span>
-    </div>
+        <!-- Form Body -->
+        <div class="form-body">
+            <form asp-action="Edit" method="post" id="editRentalForm">
+                <!-- Validation Summary -->
+                <div asp-validation-summary="ModelOnly" class="validation-summary">
+                    <h4>
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Please correct the following errors:
+                    </h4>
+                </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-area="Admin" asp-controller="Rental" asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
+                <!-- Sport Gear Selection -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label asp-for="SportGearId" class="form-label">
+                            <i class="fas fa-dumbbell"></i>
+                            Sport Equipment
+                        </label>
+                        <select asp-for="SportGearId" class="form-control" asp-items="@(new SelectList(Model.SportGears, "Id", "Name"))" id="sportGearSelect">
+                            <option value="">-- Select Sport Equipment --</option>
+                        </select>
+                        <span asp-validation-for="SportGearId" class="form-validation">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+
+                        <!-- Gear Preview -->
+                        <div class="gear-preview" id="gearPreview">
+                            <h4>
+                                <i class="fas fa-info-circle"></i>
+                                Selected Equipment
+                            </h4>
+                            <p id="gearPreviewText">Equipment details will appear here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date Selection -->
+                <div class="form-section">
+                    <div class="date-container">
+                        <!-- Start Date -->
+                        <div class="date-info start-date">
+                            <h5>
+                                <i class="fas fa-play-circle"></i>
+                                Start Date
+                            </h5>
+                            <div class="form-group">
+                                <input asp-for="StartDate" class="form-control" type="date" id="startDateInput" />
+                                <span asp-validation-for="StartDate" class="form-validation">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- End Date -->
+                        <div class="date-info end-date">
+                            <h5>
+                                <i class="fas fa-stop-circle"></i>
+                                End Date
+                            </h5>
+                            <div class="form-group">
+                                <input asp-for="EndDate" class="form-control" type="date" id="endDateInput" />
+                                <span asp-validation-for="EndDate" class="form-validation">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duration Display -->
+                    <div class="duration-display" id="durationDisplay">
+                        <i class="fas fa-clock"></i>
+                        <span id="durationText">Duration will be calculated</span>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit" class="action-btn btn-save">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                    <a asp-area="Admin" asp-controller="Rental" asp-action="Index" class="action-btn btn-cancel">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sportGearSelect = document.getElementById('sportGearSelect');
+        const gearPreview = document.getElementById('gearPreview');
+        const gearPreviewText = document.getElementById('gearPreviewText');
+        const startDateInput = document.getElementById('startDateInput');
+        const endDateInput = document.getElementById('endDateInput');
+        const durationDisplay = document.getElementById('durationDisplay');
+        const durationText = document.getElementById('durationText');
+
+        // Sport gear selection handler
+        sportGearSelect.addEventListener('change', function() {
+            if (this.value) {
+                const selectedOption = this.options[this.selectedIndex];
+                gearPreviewText.textContent = `Selected: ${selectedOption.text}`;
+                gearPreview.classList.add('show');
+            } else {
+                gearPreview.classList.remove('show');
+            }
+        });
+
+        // Date calculation handler
+        function calculateDuration() {
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+
+            if (startDateInput.value && endDateInput.value) {
+                const timeDiff = endDate.getTime() - startDate.getTime();
+                const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                if (dayDiff > 0) {
+                    durationText.textContent = `Rental Duration: ${dayDiff} day${dayDiff !== 1 ? 's' : ''}`;
+                    durationDisplay.classList.add('show');
+                    durationDisplay.style.background = 'linear-gradient(135deg, #4ecdc4, #44a08d)';
+                } else if (dayDiff === 0) {
+                    durationText.textContent = 'Same day rental (less than 24 hours)';
+                    durationDisplay.classList.add('show');
+                    durationDisplay.style.background = 'linear-gradient(135deg, #f39c12, #e67e22)';
+                } else {
+                    durationText.textContent = 'End date must be after start date';
+                    durationDisplay.classList.add('show');
+                    durationDisplay.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
+                }
+            } else {
+                durationDisplay.classList.remove('show');
+            }
+        }
+
+        startDateInput.addEventListener('change', calculateDuration);
+        endDateInput.addEventListener('change', calculateDuration);
+
+        // Form validation enhancement
+        const form = document.getElementById('editRentalForm');
+        form.addEventListener('submit', function(e) {
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+
+            if (endDate <= startDate) {
+                e.preventDefault();
+                alert('⚠️ End date must be after start date!');
+                endDateInput.focus();
+                return false;
+            }
+
+            // Add loading state to save button
+            const saveBtn = document.querySelector('.btn-save');
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+            saveBtn.disabled = true;
+        });
+
+        // Initialize if values are already set
+        if (sportGearSelect.value) {
+            const selectedOption = sportGearSelect.options[sportGearSelect.selectedIndex];
+            gearPreviewText.textContent = `Selected: ${selectedOption.text}`;
+            gearPreview.classList.add('show');
+        }
+
+        calculateDuration();
+
+        // Add floating animation to shapes
+        const shapes = document.querySelectorAll('.shape');
+        shapes.forEach((shape, index) => {
+            shape.style.left = Math.random() * 80 + 10 + '%';
+            shape.style.top = Math.random() * 80 + 10 + '%';
+            shape.style.animationDelay = Math.random() * 6 + 's';
+        });
+
+        // Enhanced form interactions
+        const formControls = document.querySelectorAll('.form-control');
+        formControls.forEach(control => {
+            control.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+
+            control.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    });
+</script>

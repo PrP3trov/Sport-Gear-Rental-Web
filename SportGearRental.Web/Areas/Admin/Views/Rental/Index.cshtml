@@ -3,31 +3,801 @@
     Layout = "_AdminLayout";
 }
 
-<h2>Rental Management</h2>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>User</th>
-            <th>Sport Gear</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var rental in Model)
-        {
-            <tr>
-                <td>@rental.UserName</td>
-                <td>@rental.SportGearName</td>
-                <td>@rental.RentalStartDate.ToShortDateString()</td>
-                <td>@rental.RentalEndDate.ToShortDateString()</td>
-                <td>
-                    <a class="btn btn-sm btn-primary" asp-area="Admin" asp-controller="Rental" asp-action="Edit" asp-route-id="@rental.Id">Edit</a>
-                    <a class="btn btn-sm btn-danger" asp-area="Admin" asp-controller="Rental" asp-action="Delete" asp-route-id="@rental.Id">Delete</a>
-                </td>
-            </tr>
+    .rental-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .page-header {
+        background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        color: white;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(78, 205, 196, 0.3);
+        animation: slideInDown 0.6s ease-out;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient( 45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px );
+            animation: slidePattern 4s linear infinite;
         }
-    </tbody>
-</table>
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+    .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+            .stat-card:hover::before {
+                transform: scaleX(1);
+            }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4ecdc4;
+        display: block;
+    }
+
+    .stat-label {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+        color: #4ecdc4;
+        margin-bottom: 0.5rem;
+    }
+
+    .controls-section {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .search-box {
+        position: relative;
+        flex: 1;
+        min-width: 250px;
+    }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .search-box input:focus {
+                outline: none;
+                border-color: #4ecdc4;
+                box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+            }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+
+    .filter-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        border: 2px solid #e1e8ed;
+        background: white;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #4ecdc4;
+            color: white;
+            border-color: #4ecdc4;
+        }
+
+    .add-rental-btn {
+        background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+    }
+
+        .add-rental-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.6);
+            text-decoration: none;
+            color: white;
+        }
+
+    .rentals-grid {
+        display: grid;
+        gap: 1.5rem;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .rental-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #f0f0f0;
+    }
+
+        .rental-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .rental-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .rental-card:hover::before {
+            transform: scaleX(1);
+        }
+
+    .rental-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .user-details h4 {
+        margin: 0;
+        color: #2c3e50;
+        font-size: 1.2rem;
+    }
+
+    .rental-id {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-top: 0.2rem;
+    }
+
+    .rental-status {
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .status-active {
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+        color: white;
+    }
+
+    .status-pending {
+        background: linear-gradient(135deg, #f39c12, #e67e22);
+        color: white;
+    }
+
+    .status-overdue {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        color: white;
+    }
+
+    .status-completed {
+        background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        color: white;
+    }
+
+    .gear-info {
+        background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(68, 160, 141, 0.1));
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-left: 4px solid #4ecdc4;
+    }
+
+    .gear-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .rental-dates {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .date-info {
+        text-align: center;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+        .date-info:hover {
+            border-color: #4ecdc4;
+        }
+
+    .date-label {
+        font-size: 0.8rem;
+        color: #7f8c8d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .date-value {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #2c3e50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .duration-badge {
+        background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        display: inline-block;
+    }
+
+    .rental-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .action-btn {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .btn-edit {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+    }
+
+        .btn-edit:hover {
+            background: linear-gradient(135deg, #2980b9, #21618c);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-delete {
+        background: linear-gradient(135deg, #e74c3c, #c0392b);
+        color: white;
+    }
+
+        .btn-delete:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+    .btn-extend {
+        background: linear-gradient(135deg, #f39c12, #e67e22);
+        color: white;
+    }
+
+        .btn-extend:hover {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+    .no-rentals {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+        .no-rentals i {
+            font-size: 4rem;
+            color: #bdc3c7;
+            margin-bottom: 1rem;
+        }
+
+        .no-rentals h3 {
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-rentals p {
+            color: #95a5a6;
+        }
+
+    @@keyframes slideInDown {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes slidePattern {
+        0%
+
+    {
+        transform: translateX(-50px);
+    }
+
+    100% {
+        transform: translateX(50px);
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .rental-container
+
+    {
+        padding: 1rem;
+    }
+
+    .page-header h2 {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .controls-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .rental-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .rental-dates {
+        grid-template-columns: 1fr;
+    }
+
+    .rental-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    }
+</style>
+
+<div class="rental-container">
+    <!-- Page Header -->
+    <div class="page-header">
+        <h2>
+            <i class="fas fa-calendar-alt"></i>
+            Rental Management
+        </h2>
+        <p>Manage and track all sport gear rentals in your system</p>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <!-- Statistics Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-list"></i>
+                </div>
+                <span class="stat-value">@Model.Count()</span>
+                <div class="stat-label">Total Rentals</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <span class="stat-value">@Model.Where(r => r.RentalEndDate >= DateTime.Now && r.RentalStartDate <= DateTime.Now).Count()</span>
+                <div class="stat-label">Active Rentals</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <span class="stat-value">@Model.Where(r => r.RentalStartDate > DateTime.Now).Count()</span>
+                <div class="stat-label">Upcoming</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <span class="stat-value">@Model.Where(r => r.RentalEndDate < DateTime.Now).Count()</span>
+                <div class="stat-label">Overdue</div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search by user or gear name...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i> All
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    <i class="fas fa-play-circle"></i> Active
+                </button>
+                <button class="filter-btn" data-filter="upcoming">
+                    <i class="fas fa-clock"></i> Upcoming
+                </button>
+                <button class="filter-btn" data-filter="overdue">
+                    <i class="fas fa-exclamation-triangle"></i> Overdue
+                </button>
+            </div>
+        </div>
+
+        <!-- Rentals Grid -->
+        <div class="rentals-grid">
+            @foreach (var rental in Model)
+            {
+                var now = DateTime.Now;
+                var status = "";
+                var statusClass = "";
+
+                if (rental.RentalEndDate < now)
+                {
+                    status = "Overdue";
+                    statusClass = "status-overdue";
+                }
+                else if (rental.RentalStartDate > now)
+                {
+                    status = "Upcoming";
+                    statusClass = "status-pending";
+                }
+                else if (rental.RentalStartDate <= now && rental.RentalEndDate >= now)
+                {
+                    status = "Active";
+                    statusClass = "status-active";
+                }
+                else
+                {
+                    status = "Completed";
+                    statusClass = "status-completed";
+                }
+
+                var duration = (rental.RentalEndDate - rental.RentalStartDate).Days;
+
+                <div class="rental-card"
+                     data-status="@status.ToLower()"
+                     data-username="@rental.UserName.ToLower()"
+                     data-gear="@rental.SportGearName.ToLower()">
+
+                    <div class="rental-header">
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                @rental.UserName.FirstOrDefault()
+                            </div>
+                            <div class="user-details">
+                                <h4>@rental.UserName</h4>
+                                <div class="rental-id">Rental #@rental.Id</div>
+                            </div>
+                        </div>
+
+                        <div class="rental-status @statusClass">
+                            @status
+                        </div>
+                    </div>
+
+                    <div class="gear-info">
+                        <div class="gear-name">
+                            <i class="fas fa-dumbbell"></i>
+                            @rental.SportGearName
+                        </div>
+                        <div class="duration-badge">
+                            @duration day@(duration != 1 ? "s" : "") rental
+                        </div>
+                    </div>
+
+                    <div class="rental-dates">
+                        <div class="date-info">
+                            <div class="date-label">Start Date</div>
+                            <div class="date-value">
+                                <i class="fas fa-calendar-check"></i>
+                                @rental.RentalStartDate.ToString("MMM dd, yyyy")
+                            </div>
+                        </div>
+                        <div class="date-info">
+                            <div class="date-label">End Date</div>
+                            <div class="date-value">
+                                <i class="fas fa-calendar-times"></i>
+                                @rental.RentalEndDate.ToString("MMM dd, yyyy")
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rental-actions">
+                        @if (status == "Active" || status == "Upcoming")
+                        {
+                            <a href="#" class="action-btn btn-extend">
+                                <i class="fas fa-plus-circle"></i>
+                                Extend
+                            </a>
+                        }
+                        <a asp-area="Admin" asp-controller="Rental" asp-action="Edit" asp-route-id="@rental.Id" class="action-btn btn-edit">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                        </a>
+                        <a asp-area="Admin" asp-controller="Rental" asp-action="Delete" asp-route-id="@rental.Id"
+                           class="action-btn btn-delete"
+                           onclick="return confirm('Are you sure you want to delete this rental?')">
+                            <i class="fas fa-trash-alt"></i>
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="no-rentals">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>No Rentals Yet</h3>
+            <p>When customers rent sport gear, their rentals will appear here for you to manage.</p>
+            <a href="#" class="add-rental-btn" style="margin-top: 1rem;">
+                <i class="fas fa-plus"></i>
+                Create First Rental
+            </a>
+        </div>
+    }
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const rentalCards = document.querySelectorAll('.rental-card');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            rentalCards.forEach(card => {
+                const username = card.dataset.username;
+                const gear = card.dataset.gear;
+                const isVisible = username.includes(searchTerm) || gear.includes(searchTerm);
+                card.style.display = isVisible ? 'block' : 'none';
+            });
+        });
+
+        // Filter functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const filter = this.dataset.filter;
+                rentalCards.forEach(card => {
+                    const status = card.dataset.status;
+                    let isVisible = true;
+
+                    switch(filter) {
+                        case 'all':
+                            isVisible = true;
+                            break;
+                        case 'active':
+                            isVisible = status === 'active';
+                            break;
+                        case 'upcoming':
+                            isVisible = status === 'upcoming';
+                            break;
+                        case 'overdue':
+                            isVisible = status === 'overdue';
+                            break;
+                    }
+
+                    card.style.display = isVisible ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Add smooth animations to cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                }
+            });
+        });
+
+        rentalCards.forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add click effect to cards
+        rentalCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('.rental-actions')) {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+    });
+</script>
