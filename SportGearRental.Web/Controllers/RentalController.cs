@@ -45,6 +45,7 @@ namespace SportGearRental.Web.Controllers
             return View(model);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(RentalFormModel model)
@@ -57,6 +58,34 @@ namespace SportGearRental.Web.Controllers
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             await _rentalService.CreateAsync(model, userId);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var model = await _rentalService.GetFormByIdAsync(id, User.IsInRole("Admin") ? null : userId);
+
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, RentalFormModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.SportGears = await _rentalService.GetSportGearsForDropdownAsync();
+                return View(model);
+            }
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            await _rentalService.EditAsync(id, model, User.IsInRole("Admin") ? null : userId);
             return RedirectToAction(nameof(Index));
         }
 

@@ -97,6 +97,60 @@ namespace SportGearRental.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<RentalFormModel?> GetFormByIdAsync(Guid id, string? userId = null)
+        {
+            var query = _context.Rentals.Where(r => r.Id == id && !r.IsDeleted);
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                query = query.Where(r => r.UserId == userId);
+            }
+
+            var rental = await query.FirstOrDefaultAsync();
+            if (rental == null)
+            {
+                return null;
+            }
+
+            return new RentalFormModel
+            {
+                SportGearId = rental.SportGearId,
+                StartDate = rental.RentalStartDate,
+                EndDate = rental.RentalEndDate,
+                SportGears = await GetSportGearsForDropdownAsync()
+            };
+        }
+
+        public async Task EditAsync(Guid id, RentalFormModel model, string? userId = null)
+        {
+            var query = _context.Rentals.Where(r => r.Id == id && !r.IsDeleted);
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                query = query.Where(r => r.UserId == userId);
+            }
+
+            var rental = await query.FirstOrDefaultAsync();
+            if (rental == null)
+            {
+                return;
+            }
+
+            rental.SportGearId = model.SportGearId;
+            rental.RentalStartDate = model.StartDate;
+            rental.RentalEndDate = model.EndDate;
+
+            var pricePerDay = await _context.SportGears
+                .Where(sg => sg.Id == model.SportGearId)
+                .Select(sg => sg.PricePerDay)
+                .FirstAsync();
+
+            int rentalDays = Math.Max((model.EndDate - model.StartDate).Days, 1);
+            rental.TotalPrice = pricePerDay * rentalDays;
+
+            await _context.SaveChangesAsync();
+        }
+
         public async Task DeleteAsync(Guid id, string? userId = null)
         {
             var query = _context.Rentals.Where(r => r.Id == id);
