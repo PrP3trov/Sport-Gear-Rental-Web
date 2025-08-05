@@ -24,6 +24,7 @@
                 <td>@rental.RentalStartDate.ToShortDateString()</td>
                 <td>@rental.RentalEndDate.ToShortDateString()</td>
                 <td>
+                    <a class="btn btn-sm btn-primary" asp-area="Admin" asp-controller="Rental" asp-action="Edit" asp-route-id="@rental.Id">Edit</a>
                     <a class="btn btn-sm btn-danger" asp-area="Admin" asp-controller="Rental" asp-action="Delete" asp-route-id="@rental.Id">Delete</a>
                 </td>
             </tr>

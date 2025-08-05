@@ -61,10 +61,11 @@ namespace SportGearRental.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var model = await _rentalService.GetFormByIdAsync(id, User.IsInRole("Admin") ? null : userId);
+            var model = await _rentalService.GetFormByIdAsync(id);
 
             if (model == null)
             {
@@ -75,6 +76,7 @@ namespace SportGearRental.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, RentalFormModel model)
         {
@@ -85,7 +87,7 @@ namespace SportGearRental.Web.Controllers
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _rentalService.EditAsync(id, model, User.IsInRole("Admin") ? null : userId);
+            await _rentalService.EditAsync(id, model);
             return RedirectToAction(nameof(Index));
         }
 

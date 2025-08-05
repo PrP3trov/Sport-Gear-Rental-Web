@@ -15,7 +15,10 @@
 
                 <div class="d-flex gap-2">
                     <a asp-action="Index" class="btn btn-secondary btn-sm">Назад</a>
-                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Редактирай</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Редактирай</a>
+                    }
                     <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Премахни</a>
                 </div>
             </div>

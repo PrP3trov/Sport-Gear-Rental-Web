@@ -54,6 +54,27 @@ namespace SportGearRental.Web.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var model = await _rentalService.GetFormByIdAsync(id);
+            if (model == null) return NotFound();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, RentalFormModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                model.SportGears = await _rentalService.GetSportGearsForDropdownAsync();
+                return View(model);
+            }
+
+            await _rentalService.EditAsync(id, model);
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Delete(Guid id)
         {
             var rental = await _rentalService.GetByIdAsync(id);
