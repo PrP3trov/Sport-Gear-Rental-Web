@@ -42,6 +42,14 @@
 
         <div class="mt-4">
             <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            @if (User.Identity?.IsAuthenticated ?? false && !isOwner)
+            {
+                <form asp-controller="Favorite" asp-action="Add" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="gearId" value="@Model.Id" />
+                    <button type="submit" class="btn btn-primary">Add to Favourite</button>
+                </form>
+            }
             @if (isOwner)
             {
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>

@@ -82,6 +82,12 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Rental" asp-action="Index">Rentals</a>
                         </li>
+                        @if (User.Identity?.IsAuthenticated ?? false)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Favorite" asp-action="Index">Favorites</a>
+                            </li>
+                        }
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">

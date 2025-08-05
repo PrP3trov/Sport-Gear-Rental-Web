@@ -1,0 +1,38 @@
+﻿@using System.Linq
+@model IEnumerable<SportGearRental.ViewModels.SportGear.SportGearListViewModel>
+
+@{
+    ViewData["Title"] = "My Favorites";
+}
+
+<h2 class="text-center">My Favorites</h2>
+<hr />
+
+@if (!Model.Any())
+{
+    <p>You have no favorite gear.</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var gear in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@gear.ImageUrl" class="card-img-top" alt="@gear.Name" style="height:250px; object-fit:cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@gear.Name</h5>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-controller="SportGear" asp-action="Details" asp-route-id="@gear.Id" class="btn btn-outline-primary btn-sm">Details</a>
+                        <form asp-action="Remove" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="gearId" value="@gear.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

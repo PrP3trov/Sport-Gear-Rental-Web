@@ -241,6 +241,32 @@ namespace SportGearRental.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Favorites",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SportGearId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, comment: "Is the entity deleted (soft delete)?")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Favorites", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Favorites_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Favorites_SportGears_SportGearId",
+                        column: x => x.SportGearId,
+                        principalTable: "SportGears",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Rentals",
                 columns: table => new
                 {
@@ -311,8 +337,8 @@ namespace SportGearRental.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "IsDeleted", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "c3d4e5f6-7890-4abc-def1-234567890abc", 0, "ff5f25cc-26c7-41d7-9aac-6aa7be45b0aa", "admin@gear.bg", true, false, false, null, "ADMIN@GEAR.BG", "ADMIN@GEAR.BG", "AQAAAAIAAYagAAAAEBElB+rTMwoPCIEvURa8T7l428h4mni9vqgZUfPmcOWzWRBjDBlTg4yFMHOTn0pI/g==", null, false, "166aef59-de46-427b-9fde-cc3e0aed0b2d", false, "admin@gear.bg" },
-                    { "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 0, "28047789-2e7d-42f3-88d7-8d6bb789f9e6", "user@gear.bg", true, false, false, null, "USER@GEAR.BG", "USER@GEAR.BG", "AQAAAAIAAYagAAAAEKrlghndJvDUdVjmlIXb3Zy4BPDwbxJ5JNYhKFeQpdU04tIQDUUIdlmpBj3lgoik6g==", null, false, "238fcc05-7d84-435f-97dc-f608c0bbfdf3", false, "user@gear.bg" }
+                    { "c3d4e5f6-7890-4abc-def1-234567890abc", 0, "c6e1728e-7f9b-4a00-bcff-0cbad12398f1", "admin@gear.bg", true, false, false, null, "ADMIN@GEAR.BG", "ADMIN@GEAR.BG", "AQAAAAIAAYagAAAAEAXfE1MIsuOaZlGFTSazmiuatT/+9RSfC5uRw+cvuV1hToNzDceW2tCgQ2/50s+1vQ==", null, false, "d33cff64-636e-4fa7-95a8-f3b837b5ddc4", false, "admin@gear.bg" },
+                    { "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 0, "d0b0500b-d4ef-4835-9aa7-6e6f025eeb39", "user@gear.bg", true, false, false, null, "USER@GEAR.BG", "USER@GEAR.BG", "AQAAAAIAAYagAAAAEKEQvbUYBdBSXfqBtUVsqaeiP18ZwoB6otJ3oKf17JKMJTXAunqAE79ZluYNjU+eBw==", null, false, "2b8bb44c-4702-46e4-8702-21b5ecdf1806", false, "user@gear.bg" }
                 });
 
             migrationBuilder.InsertData(
@@ -440,6 +466,16 @@ namespace SportGearRental.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Favorites_SportGearId",
+                table: "Favorites",
+                column: "SportGearId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Favorites_UserId",
+                table: "Favorites",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Rentals_SportGearId",
                 table: "Rentals",
                 column: "SportGearId");
@@ -497,6 +533,9 @@ namespace SportGearRental.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Favorites");
 
             migrationBuilder.DropTable(
                 name: "Rentals");

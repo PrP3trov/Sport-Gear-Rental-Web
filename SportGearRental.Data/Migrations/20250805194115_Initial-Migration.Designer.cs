@@ -12,7 +12,7 @@ using SportGearRental.Data;
 namespace SportGearRental.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250802161240_Initial-Migration")]
+    [Migration("20250805194115_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -262,16 +262,16 @@ namespace SportGearRental.Data.Migrations
                         {
                             Id = "c3d4e5f6-7890-4abc-def1-234567890abc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ff5f25cc-26c7-41d7-9aac-6aa7be45b0aa",
+                            ConcurrencyStamp = "c6e1728e-7f9b-4a00-bcff-0cbad12398f1",
                             Email = "admin@gear.bg",
                             EmailConfirmed = true,
                             IsDeleted = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GEAR.BG",
                             NormalizedUserName = "ADMIN@GEAR.BG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBElB+rTMwoPCIEvURa8T7l428h4mni9vqgZUfPmcOWzWRBjDBlTg4yFMHOTn0pI/g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAXfE1MIsuOaZlGFTSazmiuatT/+9RSfC5uRw+cvuV1hToNzDceW2tCgQ2/50s+1vQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "166aef59-de46-427b-9fde-cc3e0aed0b2d",
+                            SecurityStamp = "d33cff64-636e-4fa7-95a8-f3b837b5ddc4",
                             TwoFactorEnabled = false,
                             UserName = "admin@gear.bg"
                         },
@@ -279,16 +279,16 @@ namespace SportGearRental.Data.Migrations
                         {
                             Id = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "28047789-2e7d-42f3-88d7-8d6bb789f9e6",
+                            ConcurrencyStamp = "d0b0500b-d4ef-4835-9aa7-6e6f025eeb39",
                             Email = "user@gear.bg",
                             EmailConfirmed = true,
                             IsDeleted = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@GEAR.BG",
                             NormalizedUserName = "USER@GEAR.BG",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKrlghndJvDUdVjmlIXb3Zy4BPDwbxJ5JNYhKFeQpdU04tIQDUUIdlmpBj3lgoik6g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKEQvbUYBdBSXfqBtUVsqaeiP18ZwoB6otJ3oKf17JKMJTXAunqAE79ZluYNjU+eBw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "238fcc05-7d84-435f-97dc-f608c0bbfdf3",
+                            SecurityStamp = "2b8bb44c-4702-46e4-8702-21b5ecdf1806",
                             TwoFactorEnabled = false,
                             UserName = "user@gear.bg"
                         });
@@ -378,6 +378,32 @@ namespace SportGearRental.Data.Migrations
                             Id = new Guid("6fa459ea-ee8a-3ca4-894e-db77e160355e"),
                             Name = "Велосипеди"
                         });
+                });
+
+            modelBuilder.Entity("SportGearRental.Data.Models.Favorite", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Is the entity deleted (soft delete)?");
+
+                    b.Property<Guid>("SportGearId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SportGearId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
                 });
 
             modelBuilder.Entity("SportGearRental.Data.Models.GearCondition", b =>
@@ -828,6 +854,25 @@ namespace SportGearRental.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SportGearRental.Data.Models.Favorite", b =>
+                {
+                    b.HasOne("SportGearRental.Data.Models.SportGear", "SportGear")
+                        .WithMany("Favorites")
+                        .HasForeignKey("SportGearId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SportGearRental.Data.Models.ApplicationUser", "User")
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SportGear");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("SportGearRental.Data.Models.Rental", b =>
                 {
                     b.HasOne("SportGearRental.Data.Models.SportGear", "SportGear")
@@ -903,6 +948,8 @@ namespace SportGearRental.Data.Migrations
 
             modelBuilder.Entity("SportGearRental.Data.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Favorites");
+
                     b.Navigation("Rentals");
 
                     b.Navigation("Reviews");
@@ -925,6 +972,8 @@ namespace SportGearRental.Data.Migrations
 
             modelBuilder.Entity("SportGearRental.Data.Models.SportGear", b =>
                 {
+                    b.Navigation("Favorites");
+
                     b.Navigation("Rentals");
 
                     b.Navigation("Reviews");

@@ -33,6 +33,7 @@ namespace SportGearRental.Web
             builder.Services.AddScoped<ISportGearService, SportGearService>();
             builder.Services.AddScoped<IRentalService, RentalService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<IFavoriteService, FavoriteService>();
 
             var app = builder.Build();
 
