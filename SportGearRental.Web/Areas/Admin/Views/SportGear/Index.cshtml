@@ -545,11 +545,6 @@
                 </div>
             </div>
         </div>
-
-        <a asp-action="Create" class="add-gear-btn">
-            <i class="fas fa-plus"></i>
-            Add New Gear
-        </a>
     </div>
 
     <!-- Gear Grid -->
@@ -595,15 +590,15 @@
                     </div>
 
                     <div class="gear-actions">
-                        <a asp-action="Details" asp-route-id="@gear.value.Id" class="action-btn btn-details">
+                        <a asp-area="" asp-controller="SportGear" asp-action="Details" asp-route-id="@gear.value.Id" class="action-btn btn-details">
                             <i class="fas fa-eye"></i>
                             Details
                         </a>
-                        <a asp-action="Edit" asp-route-id="@gear.value.Id" class="action-btn btn-edit">
+                        <a asp-area="" asp-controller="SportGear" asp-action="Edit" asp-route-id="@gear.value.Id" class="action-btn btn-edit">
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>
-                        <a asp-action="Delete" asp-route-id="@gear.value.Id" class="action-btn btn-delete">
+                        <a asp-area="" asp-controller="SportGear" asp-action="Delete" asp-route-id="@gear.value.Id" class="action-btn btn-delete">
                             <i class="fas fa-trash-alt"></i>
                             Delete
                         </a>

@@ -1,8 +1,469 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Sport Gear Rental - Premium Equipment for Every Adventure";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+        background: #0a0a0a;
+        color: #ffffff;
+    }
+
+    .hero-section {
+        min-height: 50vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,0 1000,300 1000,1000 0,700"/><polygon fill="%23ffffff05" points="0,300 1000,0 1000,400 0,1000"/></svg>');
+        animation: float 20s ease-in-out infinite;
+    }
+
+    .hero-content {
+        text-align: center;
+        z-index: 2;
+        max-width: 1200px;
+        padding: 0 2rem;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 8vw, 8rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        font-weight: 300;
+        letter-spacing: 1px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+    .features-section {
+        padding: 5rem 2rem;
+        background: #111;
+        position: relative;
+    }
+
+    .features-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .feature-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #4ecdc4;
+    }
+
+    .feature-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+
+    .feature-description {
+        color: #cccccc;
+        line-height: 1.6;
+    }
+
+    .stats-section {
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .stats-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .stat-item {
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 900;
+        color: #ffffff;
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 0.5rem;
+    }
+
+    .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .floating-element {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: floatAround 15s infinite linear;
+    }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes gradientShift {
+        0%, 100%
+
+    {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    }
+
+    @@keyframes float {
+        0%, 100%
+
+    {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+
+    }
+
+    @@keyframes floatAround {
+        0%
+
+    {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    25% {
+        transform: translateY(-100px) translateX(100px);
+    }
+
+    50% {
+        transform: translateY(0px) translateX(200px);
+    }
+
+    75% {
+        transform: translateY(100px) translateX(100px);
+    }
+
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .hero-section
+
+    {
+        padding: 2rem 1rem;
+    }
+
+    .features-section {
+        padding: 3rem 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    }
+</style>
+
+<div class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="hero-content">
+        <h1 class="hero-title">GEAR UP</h1>
+        <p class="hero-subtitle">Premium Sport Equipment Rentals for Every Adventure</p>
+        <a href="#features" class="cta-button">Explore Equipment</a>
+    </div>
 </div>
+
+<div class="stats-section">
+    <div class="stats-container">
+        <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Premium Gear Items</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">10K+</span>
+            <span class="stat-label">Happy Customers</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Sport Categories</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Customer Support</span>
+        </div>
+    </div>
+</div>
+
+<div class="features-section" id="features">
+    <div class="features-container">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏔️</div>
+                <h3 class="feature-title">Premium Quality</h3>
+                <p class="feature-description">Top-tier equipment from leading brands, meticulously maintained and regularly updated for peak performance.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Instant Booking</h3>
+                <p class="feature-description">Book your gear in seconds with our streamlined process. Available 24/7 with flexible pickup and delivery options.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Fully Insured</h3>
+                <p class="feature-description">Complete coverage and peace of mind. All equipment comes with comprehensive insurance and damage protection.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3 class="feature-title">Expert Support</h3>
+                <p class="feature-description">Our team of adventure specialists provides personalized recommendations and technical support for your activities.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3 class="feature-title">Best Prices</h3>
+                <p class="feature-description">Competitive rates with flexible rental periods. Save up to 70% compared to buying new equipment.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3 class="feature-title">Free Delivery</h3>
+                <p class="feature-description">Complimentary delivery and pickup within 50 miles. Get your gear delivered right to your adventure starting point.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+            }
+        });
+    }, observerOptions);
+
+    // Observe feature cards
+    document.querySelectorAll('.feature-card').forEach(card => {
+        observer.observe(card);
+    });
+
+    // Add dynamic counter animation
+    function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const target = parseInt(counter.textContent.replace(/\D/g, ''));
+            const suffix = counter.textContent.replace(/[0-9]/g, '');
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    counter.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current) + suffix;
+                }
+            }, 20);
+        });
+    }
+
+    // Trigger counter animation when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statsObserver.observe(document.querySelector('.stats-section'));
+</script>
