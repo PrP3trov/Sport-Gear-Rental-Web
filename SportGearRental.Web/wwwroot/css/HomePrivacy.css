@@ -1,0 +1,144 @@
+﻿﻿ /* privacy-policy.css */
+#privacy-policy {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+#privacy-policy .page-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+#privacy-policy .card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#privacy-policy .intro-text {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+#privacy-policy .collapsible-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+}
+
+    #privacy-policy .collapsible-header:hover h2 {
+        color: #3182ce;
+    }
+
+    #privacy-policy .collapsible-header h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2d3748;
+        margin: 0;
+        transition: color 0.2s;
+    }
+
+#privacy-policy .toggle-icon {
+    font-size: 1.5rem;
+    color: #3182ce;
+    transition: transform 0.3s ease;
+}
+
+#privacy-policy .collapsible-section.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+#privacy-policy .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#privacy-policy .collapsible-section.active .collapsible-content {
+    max-height: 1000px; 
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#privacy-policy ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#privacy-policy li {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+    #privacy-policy li::before {
+        content: "•";
+        color: #3182ce;
+        margin-right: 0.5rem;
+        font-size: 1.25rem;
+        line-height: 1.2;
+    }
+
+#privacy-policy .contact-info {
+    margin-top: 1rem;
+}
+
+    #privacy-policy .contact-info p {
+        margin: 0.5rem 0;
+        color: #4a5568;
+    }
+
+    #privacy-policy .contact-info a {
+        color: #3182ce;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+        #privacy-policy .contact-info a:hover {
+            color: #2c5282;
+            text-decoration: underline;
+        }
+
+#privacy-policy .last-updated {
+    text-align: center;
+    color: #718096;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #privacy-policy {
+        padding: 1rem;
+    }
+
+    .page-title {
+        font-size: 1.875rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .collapsible-header h2 {
+        font-size: 1.25rem;
+    }
+}

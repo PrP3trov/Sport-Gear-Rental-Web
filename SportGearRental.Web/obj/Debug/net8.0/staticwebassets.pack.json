@@ -5,12 +5,36 @@
       "PackagePath": "staticwebassets\\SportGearRental.Web.eij1yx38v9.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomeIndex.css",
+      "PackagePath": "staticwebassets\\css\\HomeIndex.css"
+    },
+    {
+      "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
+      "PackagePath": "staticwebassets\\css\\HomePrivacy.css"
+    },
+    {
+      "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\SportGearIndex.css",
+      "PackagePath": "staticwebassets\\css\\SportGearIndex.css"
+    },
+    {
       "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomeIndex.js",
+      "PackagePath": "staticwebassets\\js\\HomeIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
+      "PackagePath": "staticwebassets\\js\\HomePrivacy.js"
+    },
+    {
+      "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\SportGearIndex.js",
+      "PackagePath": "staticwebassets\\js\\SportGearIndex.js"
     },
     {
       "Id": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\site.js",

@@ -1,6 +1,92 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div id="privacy-policy">
+    <h1 class="page-title">@ViewData["Title"]</h1>
+
+
+    <p class="intro-text">
+        Your privacy is important to us. This privacy policy explains how we collect, use, and protect your data.
+    </p>
+
+
+    <div class="card collapsible-section">
+        <button class="collapsible-header">
+            <h2>What Data We Collect</h2>
+            <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+            <ul>
+                <li>Username</li>
+                <li>Email address</li>
+                <li>Profile picture</li>
+                <li>IP address</li>
+                <li>Device information</li>
+                <li>Location data (if you grant permission)</li>
+                <li>Browser type and version</li>
+                <li>Usage data (e.g., pages visited, time spent on the application)</li>
+                <li>Any other personal data you provide, such as feedback or support inquiries</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card collapsible-section">
+        <button class="collapsible-header">
+            <h2>How We Use Your Data</h2>
+            <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+            <ul>
+                <li>Provide and improve the application functionality</li>
+                <li>Customize your experience</li>
+                <li>Send you updates, notifications, and relevant information about the app</li>
+                <li>Respond to your inquiries and support requests</li>
+                <li>Ensure the security and integrity of the application</li>
+                <li>Analyze usage patterns to improve user experience</li>
+                <li>Comply with legal obligations</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card collapsible-section">
+        <button class="collapsible-header">
+            <h2>Your Rights</h2>
+            <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+            <ul>
+                <li>Access: You can request a copy of your personal data we hold</li>
+                <li>Correction: You can ask us to correct inaccurate or incomplete data</li>
+                <li>Deletion: You can request that we delete your personal data, subject to applicable laws</li>
+                <li>Restriction: You can request restrictions on how we use your data</li>
+                <li>Portability: You can request a copy of your data in a structured, machine-readable format</li>
+                <li>Objection: You can object to our processing of your data in certain situations</li>
+                <li>Withdraw Consent: If you have provided consent for data processing, you can withdraw it at any time</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card collapsible-section">
+        <button class="collapsible-header">
+            <h2>Contact Us</h2>
+            <span class="toggle-icon">+</span>
+        </button>
+        <div class="collapsible-content">
+            <p>If you have any questions, concerns, or feedback regarding our privacy policy, please reach out to us:</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:sportgear_rental@gmail.com">sportgear_rental@gmail.com</a></p>
+                <p>Address: Sofia, Center, Todor Alexandrov №17</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/HomePrivacy.css" />
+}
+
+@section Scripts {
+    <script src="~/js/HomePrivacy.js" asp-append-version="true"></script>
+}

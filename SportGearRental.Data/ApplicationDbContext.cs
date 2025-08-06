@@ -167,7 +167,7 @@ namespace SportGearRental.Data
                     Name = "Nike Air Zoom Pegasus",
                     Description = "Леки маратонки за бягане с въздушна възглавница.",
                     PricePerDay = 12.50m,
-                    ImageUrl = "https://example.com/images/nike-pegasus.jpg",
+                    ImageUrl = "https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/d15d9326-cb42-430d-9abb-58a923e80205/AIR+ZOOM+PEGASUS+41+WIDE.png",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("f47ac10b-58cc-4372-a567-0e02b2c3d479"),
                     BrandId = Guid.Parse("c9bf9e57-1685-4c89-bafb-ff5af830be8a"),
@@ -180,7 +180,7 @@ namespace SportGearRental.Data
                     Name = "Adidas Terrex Jacket",
                     Description = "Водоустойчиво яке за планина.",
                     PricePerDay = 15.00m,
-                    ImageUrl = "https://example.com/images/adidas-terrex.jpg",
+                    ImageUrl = "https://cdn.sportdepot.bg/files/catalog/detail/JI6662_01.jpg",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("9c858901-8a57-4791-81fe-4c455b099bc9"),
                     BrandId = Guid.Parse("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"),
@@ -193,7 +193,7 @@ namespace SportGearRental.Data
                     Name = "Puma Fitness Gloves",
                     Description = "Удобни ръкавици за фитнес и тежести.",
                     PricePerDay = 5.00m,
-                    ImageUrl = "https://example.com/images/puma-gloves.jpg",
+                    ImageUrl = "https://images.puma.net/images/041465/01/fnd/ARE/",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
                     BrandId = Guid.Parse("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"),
@@ -206,7 +206,7 @@ namespace SportGearRental.Data
                     Name = "Columbia Winter Gloves",
                     Description = "Топли ръкавици за зимни спортове.",
                     PricePerDay = 7.50m,
-                    ImageUrl = "https://example.com/images/columbia-gloves.jpg",
+                    ImageUrl = "https://columbia.scene7.com/is/image/ColumbiaSportswear2/2097011_010_f_pu?$x1_grid$&v=1753875458",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
                     BrandId = Guid.Parse("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"),
@@ -220,7 +220,7 @@ namespace SportGearRental.Data
                     Name = "Salomon Ski Goggles",
                     Description = "Очила за ски и сноуборд с високо качество.",
                     PricePerDay = 10.00m,
-                    ImageUrl = "https://example.com/images/salomon-goggles.jpg",
+                    ImageUrl = "https://www.bfgcdn.com/1500_1500_90/417-3873/salomon-s-view-s1-vlt-53-ski-goggles.jpg",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("7c9e6679-7425-40de-944b-e07fc1f90ae7"),
                     BrandId = Guid.Parse("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"),
@@ -233,7 +233,7 @@ namespace SportGearRental.Data
                     Name = "Nike Running Shorts",
                     Description = "Дишащи шорти за бягане и спорт.",
                     PricePerDay = 6.00m,
-                    ImageUrl = "https://example.com/images/nike-shorts.jpg",
+                    ImageUrl = "https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/77e95a3c-1e37-4f3b-937f-3dc9cecdd195/M+NK+DF+FAST+3IN+BF+SHRT+ENRGY.png",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("9c858901-8a57-4791-81fe-4c455b099bc9"),
                     BrandId = Guid.Parse("c9bf9e57-1685-4c89-bafb-ff5af830be8a"),
@@ -246,7 +246,7 @@ namespace SportGearRental.Data
                     Name = "Adidas Fitness Mat",
                     Description = "Удобен постел за фитнес и йога.",
                     PricePerDay = 8.00m,
-                    ImageUrl = "https://example.com/images/adidas-mat.jpg",
+                    ImageUrl = "https://media.strefatenisa.com.pl/public/media/10/da/b4/1721069801/adidas-training-mat-blue-1.jpg?ts=1745860696",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                     BrandId = Guid.Parse("e358efa4-1e22-4ac1-8f98-cd78e9a6ccf3"),
@@ -259,7 +259,7 @@ namespace SportGearRental.Data
                     Name = "Mountain Bike X200",
                     Description = "Велосипед с 21 скорости и амортисьори.",
                     PricePerDay = 25.00m,
-                    ImageUrl = "https://example.com/images/bike-x200.jpg",
+                    ImageUrl = "https://al3aby.com/wp-content/uploads/2022/04/upland-X200-size29-green-2.jpg",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("6fa459ea-ee8a-3ca4-894e-db77e160355e"),
                     BrandId = Guid.Parse("1c2d0d89-62e6-4e3b-8fcd-125c5bb8f2a1"),
@@ -272,7 +272,7 @@ namespace SportGearRental.Data
                     Name = "Yoga Mat Deluxe",
                     Description = "Дебела постелка за йога с антислип покритие.",
                     PricePerDay = 9.00m,
-                    ImageUrl = "https://example.com/images/yoga-mat-deluxe.jpg",
+                    ImageUrl = "https://www.trojanhealth.co.za/storage/10mm-Deluxe-Yoga-Mat-Pink-Grey-Turqoise.jpg",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                     BrandId = Guid.Parse("0d9a5b76-48b1-4eea-8c1d-cdff4a56b57a"),
@@ -285,7 +285,7 @@ namespace SportGearRental.Data
                     Name = "Trail Running Shoes",
                     Description = "Обувки за бягане в планината, устойчиви на кал и вода.",
                     PricePerDay = 13.50m,
-                    ImageUrl = "https://example.com/images/trail-shoes.jpg",
+                    ImageUrl = "https://s3.amazonaws.com/www.irunfar.com/wp-content/uploads/2024/07/25053122/Best-Trail-Running-Shoes-Hoka-Speedgoat-6.jpg",
                     IsDeleted = false,
                     CategoryId = Guid.Parse("f47ac10b-58cc-4372-a567-0e02b2c3d479"),
                     BrandId = Guid.Parse("3d6f0a88-9d64-4a38-9f2c-52deff0a92d2"),
@@ -296,14 +296,14 @@ namespace SportGearRental.Data
 
             // Reviews
             builder.Entity<Review>().HasData(
-                // 3 ревюта на user
+                
                 new Review
                 {
                     Id = Guid.Parse("f2e3a1b4-7f9c-4d26-bf6e-0a4eae9d0bfb"),
                     Content = "Great equipment, very durable!",
                     Rating = 5,
-                    UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde", // нормален потребител
-                    SportGearId = Guid.Parse("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), // Nike Air Zoom Pegasus
+                    UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 
+                    SportGearId = Guid.Parse("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), 
                     IsDeleted = false
                 },
                 new Review
@@ -312,7 +312,7 @@ namespace SportGearRental.Data
                     Content = "Good value for money.",
                     Rating = 4,
                     UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
-                    SportGearId = Guid.Parse("acbd18db-4cc2-43e2-a05d-dcbbd298db96"), // Adidas Terrex Jacket
+                    SportGearId = Guid.Parse("acbd18db-4cc2-43e2-a05d-dcbbd298db96"),
                     IsDeleted = false
                 },
                 new Review
@@ -321,18 +321,18 @@ namespace SportGearRental.Data
                     Content = "Works perfectly for my needs.",
                     Rating = 5,
                     UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde",
-                    SportGearId = Guid.Parse("37b51d19-59a7-4ed4-8996-0b1d0c428a92"), // Puma Fitness Gloves
+                    SportGearId = Guid.Parse("37b51d19-59a7-4ed4-8996-0b1d0c428a92"), 
                     IsDeleted = false
                 },
 
-                // 3 ревюта на admin
+                
                 new Review
                 {
                     Id = Guid.Parse("d4b6c1a3-7f56-4a2e-9bc7-efa7a1234567"),
                     Content = "Highly recommend this gear!",
                     Rating = 5,
-                    UserId = "c3d4e5f6-7890-4abc-def1-234567890abc", // admin user
-                    SportGearId = Guid.Parse("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"), // Nike Running Shorts
+                    UserId = "c3d4e5f6-7890-4abc-def1-234567890abc", 
+                    SportGearId = Guid.Parse("b6d81b36-1b9e-4f1d-9e0f-5b3a9d3b21d6"), 
                     IsDeleted = false
                 },
                 new Review
@@ -341,7 +341,7 @@ namespace SportGearRental.Data
                     Content = "Good quality and fast delivery.",
                     Rating = 4,
                     UserId = "c3d4e5f6-7890-4abc-def1-234567890abc",
-                    SportGearId = Guid.Parse("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"), // Adidas Fitness Mat
+                    SportGearId = Guid.Parse("a87ff679-a2f3-4f54-8e8f-0fa6d8b7cd55"), 
                     IsDeleted = false
                 },
                 new Review
@@ -350,7 +350,7 @@ namespace SportGearRental.Data
                     Content = "Perfect for winter sports.",
                     Rating = 5,
                     UserId = "c3d4e5f6-7890-4abc-def1-234567890abc",
-                    SportGearId = Guid.Parse("73feffa4-7f1b-4e14-90c6-b42b041bf63f"), // Columbia Winter Gloves
+                    SportGearId = Guid.Parse("73feffa4-7f1b-4e14-90c6-b42b041bf63f"), 
                     IsDeleted = false
                 }
             );
@@ -359,8 +359,8 @@ namespace SportGearRental.Data
                 new Rental
                 {
                     Id = Guid.Parse("a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d"),
-                    UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde", // примерен потребител
-                    SportGearId = Guid.Parse("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), // примерен спортен артикул
+                    UserId = "d4e5f6a7-8901-4bcd-efa2-34567890bcde", 
+                    SportGearId = Guid.Parse("8f14e45f-ceea-4bfc-9274-b7987d4a59d9"), 
                     RentalStartDate = new DateTime(2025, 7, 20),
                     RentalEndDate = new DateTime(2025, 7, 25),
                     IsDeleted = false,

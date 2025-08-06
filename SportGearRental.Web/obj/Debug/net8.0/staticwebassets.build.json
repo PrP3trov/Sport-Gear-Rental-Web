@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "05k8hyE01NbRPnQC+Lub77zzzlzC9xFFE7R/L5cIp88=",
+  "Hash": "HZ7vfe/ENiGCRULog7URYHdfrG5OealhXrVPJmPS8Yk=",
   "Source": "SportGearRental.Web",
   "BasePath": "_content/SportGearRental.Web",
   "Mode": "Default",
@@ -1319,6 +1319,48 @@
       "OriginalItemSpec": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SportGearRental.Web.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomeIndex.css",
+      "SourceId": "SportGearRental.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\",
+      "BasePath": "_content/SportGearRental.Web",
+      "RelativePath": "css/HomeIndex#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5te4uw5via",
+      "Integrity": "B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomeIndex.css"
+    },
+    {
+      "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
+      "SourceId": "SportGearRental.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\",
+      "BasePath": "_content/SportGearRental.Web",
+      "RelativePath": "css/HomePrivacy#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x8ehjnw5dr",
+      "Integrity": "n66lpaxOz2igVMMI5BFlxzLV+lZTF1fZfnklUewEwH8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomePrivacy.css"
+    },
+    {
       "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\site.css",
       "SourceId": "SportGearRental.Web",
       "SourceType": "Discovered",
@@ -1338,6 +1380,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\SportGearIndex.css",
+      "SourceId": "SportGearRental.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\",
+      "BasePath": "_content/SportGearRental.Web",
+      "RelativePath": "css/SportGearIndex#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "17mxksx9sa",
+      "Integrity": "Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\SportGearIndex.css"
     },
     {
       "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\favicon.ico",
@@ -1361,6 +1424,48 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomeIndex.js",
+      "SourceId": "SportGearRental.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\",
+      "BasePath": "_content/SportGearRental.Web",
+      "RelativePath": "js/HomeIndex#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "svmaz5noy9",
+      "Integrity": "qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\HomeIndex.js"
+    },
+    {
+      "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
+      "SourceId": "SportGearRental.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\",
+      "BasePath": "_content/SportGearRental.Web",
+      "RelativePath": "js/HomePrivacy#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3fcw1ronw2",
+      "Integrity": "Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\HomePrivacy.js"
+    },
+    {
       "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\site.js",
       "SourceId": "SportGearRental.Web",
       "SourceType": "Discovered",
@@ -1380,6 +1485,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\SportGearIndex.js",
+      "SourceId": "SportGearRental.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\",
+      "BasePath": "_content/SportGearRental.Web",
+      "RelativePath": "js/SportGearIndex#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "63252pojmb",
+      "Integrity": "LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\SportGearIndex.js"
     },
     {
       "Identity": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -2581,6 +2707,170 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/HomeIndex.5te4uw5via.css",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomeIndex.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6659"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:04:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5te4uw5via"
+        },
+        {
+          "Name": "label",
+          "Value": "css/HomeIndex.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw="
+        }
+      ]
+    },
+    {
+      "Route": "css/HomeIndex.css",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomeIndex.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6659"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:04:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw="
+        }
+      ]
+    },
+    {
+      "Route": "css/HomePrivacy.css",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2875"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n66lpaxOz2igVMMI5BFlxzLV+lZTF1fZfnklUewEwH8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:37:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-n66lpaxOz2igVMMI5BFlxzLV+lZTF1fZfnklUewEwH8="
+        }
+      ]
+    },
+    {
+      "Route": "css/HomePrivacy.x8ehjnw5dr.css",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2875"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"n66lpaxOz2igVMMI5BFlxzLV+lZTF1fZfnklUewEwH8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:37:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x8ehjnw5dr"
+        },
+        {
+          "Name": "label",
+          "Value": "css/HomePrivacy.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-n66lpaxOz2igVMMI5BFlxzLV+lZTF1fZfnklUewEwH8="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -2659,6 +2949,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-9b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM="
+        }
+      ]
+    },
+    {
+      "Route": "css/SportGearIndex.17mxksx9sa.css",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\SportGearIndex.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 16:57:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "17mxksx9sa"
+        },
+        {
+          "Name": "label",
+          "Value": "css/SportGearIndex.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/SportGearIndex.css",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\SportGearIndex.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 16:57:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ="
         }
       ]
     },
@@ -4965,6 +5337,170 @@
       ]
     },
     {
+      "Route": "js/HomeIndex.js",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomeIndex.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1936"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:05:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/HomeIndex.svmaz5noy9.js",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomeIndex.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1936"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:05:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "svmaz5noy9"
+        },
+        {
+          "Name": "label",
+          "Value": "js/HomeIndex.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/HomePrivacy.3fcw1ronw2.js",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1224"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:37:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3fcw1ronw2"
+        },
+        {
+          "Name": "label",
+          "Value": "js/HomePrivacy.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0="
+        }
+      ]
+    },
+    {
+      "Route": "js/HomePrivacy.js",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1224"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 17:37:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0="
+        }
+      ]
+    },
+    {
       "Route": "js/site.js",
       "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\site.js",
       "Selectors": [],
@@ -5043,6 +5579,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="
+        }
+      ]
+    },
+    {
+      "Route": "js/SportGearIndex.63252pojmb.js",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\SportGearIndex.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6481"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 16:59:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "63252pojmb"
+        },
+        {
+          "Name": "label",
+          "Value": "js/SportGearIndex.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU="
+        }
+      ]
+    },
+    {
+      "Route": "js/SportGearIndex.js",
+      "AssetFile": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\SportGearIndex.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6481"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 06 Aug 2025 16:59:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU="
         }
       ]
     },
