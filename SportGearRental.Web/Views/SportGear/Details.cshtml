@@ -12,98 +12,195 @@
     var reviews = await ReviewService.GetReviewsForGearAsync(Model.Id);
 }
 
-<h2 class="text-center">@Model.Name</h2>
-<hr />
+@section Styles {
+    <link rel="stylesheet" href="~/css/sportgear-details.css" />
+    <link rel="stylesheet" href="~/css/review-create.css" />
+    <link rel="stylesheet" href="~/css/review-index.css" />
 
-<div class="row">
-    <div class="col-md-6">
-        <img src="@Model.ImageUrl" class="img-fluid rounded shadow" alt="@Model.Name" />
+
+}
+
+@section Scripts {
+    <script src="~/js/sportgear-details.js" asp-append-version="true"></script>
+    <script src="~/js/review-create.js" asp-append-version="true"></script>
+
+}
+
+<div class="gear-details-container">
+   <div class="page-header">
+        <div class="header-icon">🎿</div>
+        <h1 class="page-title">@Model.Name</h1>
+        <p class="page-subtitle">Детайли за екипировката</p>
     </div>
-    <div class="col-md-6">
-        <dl class="row">
-            <dt class="col-sm-4">Description</dt>
-            <dd class="col-sm-8">@Model.Description</dd>
 
-            <dt class="col-sm-4">Price Per Day</dt>
-            <dd class="col-sm-8">@Model.PricePerDay.ToString("C")</dd>
+    <div class="gear-details-content">
+        <div class="gear-image-section">
+            <div class="image-container">
+                <img src="@Model.ImageUrl" class="gear-image" alt="@Model.Name" />
+                <div class="image-overlay">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i>
+                        @Model.PricePerDay.ToString("C")/ден
+                    </div>
+                    @if (isOwner)
+                    {
+                        <div class="owner-badge">
+                            <i class="fas fa-crown"></i>
+                            Ваша екипировка
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
 
-            <dt class="col-sm-4">Category</dt>
-            <dd class="col-sm-8">@Model.Category</dd>
+        <div class="gear-info-section">
+            <div class="info-card">
+                <div class="info-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Информация за екипировката</h3>
+                </div>
 
-            <dt class="col-sm-4">Brand</dt>
-            <dd class="col-sm-8">@Model.Brand</dd>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-align-left"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="info-label">Описание</span>
+                            <span class="info-value">@Model.Description</span>
+                        </div>
+                    </div>
 
-            <dt class="col-sm-4">Condition</dt>
-            <dd class="col-sm-8">@Model.Condition</dd>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="info-label">Цена на ден</span>
+                            <span class="info-value price-highlight">@Model.PricePerDay.ToString("C")</span>
+                        </div>
+                    </div>
 
-            <dt class="col-sm-4">Owner</dt>
-            <dd class="col-sm-8">@Model.OwnerEmail</dd>
-        </dl>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="info-label">Категория</span>
+                            <span class="info-value category-badge">@Model.Category</span>
+                        </div>
+                    </div>
 
-        <div class="mt-4">
-            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-            @if (User.Identity?.IsAuthenticated ?? false && !isOwner)
-            {
-                <form asp-controller="Favorite" asp-action="Add" method="post" class="d-inline">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="gearId" value="@Model.Id" />
-                    <button type="submit" class="btn btn-primary">Add to Favourite</button>
-                </form>
-            }
-            @if (isOwner)
-            {
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-                <button type="button" class="btn btn-danger"
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteModal"
-                        data-gear-id="@Model.Id"
-                        data-gear-name="@Model.Name">
-                    Delete
-                </button>
-            }
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="info-label">Марка</span>
+                            <span class="info-value brand-badge">@Model.Brand</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="info-label">Състояние</span>
+                            <span class="info-value condition-badge">@Model.Condition</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="info-content">
+                            <span class="info-label">Собственик</span>
+                            <span class="info-value">@Model.OwnerEmail</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Назад към списъка
+                </a>
+
+                @if (User.Identity?.IsAuthenticated ?? false && !isOwner)
+                {
+                    <form asp-controller="Favorite" asp-action="Add" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="gearId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-heart"></i>
+                            Добави към любими
+                        </button>
+                    </form>
+                }
+
+                @if (isOwner)
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                        <i class="fas fa-edit"></i>
+                        Редактирай
+                    </a>
+                    <button type="button" class="btn btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteModal"
+                            data-gear-id="@Model.Id"
+                            data-gear-name="@Model.Name">
+                        <i class="fas fa-trash"></i>
+                        Изтрий
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-section">
+        <div class="reviews-header">
+            <i class="fas fa-comments"></i>
+            <h3>Отзиви и коментари</h3>
+        </div>
+        <div class="reviews-content">
+            <partial name="~/Views/Review/Create.cshtml" model="new SportGearRental.ViewModels.Review.ReviewFormModel()" />
+            <partial name="~/Views/Review/Index.cshtml" model="reviews" />
         </div>
     </div>
 </div>
 
-<div class="mt-5">
-    <partial name="~/Views/Review/Create.cshtml" model="new SportGearRental.ViewModels.Review.ReviewFormModel()" />
-    <partial name="~/Views/Review/Index.cshtml" model="reviews" />
-</div>
-
-<!-- Delete Confirmation Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <h5 class="modal-title" id="deleteModalLabel">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Потвърждение за изтриване
+                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete <strong id="gearName"></strong>?
+                <div class="delete-warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Сигурни ли сте, че искате да изтриете <strong id="gearName"></strong>?
+                    <br><small class="text-muted">Това действие не може да бъде отменено.</small>
+                </div>
             </div>
             <div class="modal-footer">
                 <form id="deleteForm" method="post">
-                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i>
+                        Да, изтрий
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                        Отказ
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-@section Scripts {
-    <script>
-        var deleteModal = document.getElementById('deleteModal');
-        deleteModal.addEventListener('show.bs.modal', function (event) {
-            var button = event.relatedTarget;
-            var gearId = button.getAttribute('data-gear-id');
-            var gearName = button.getAttribute('data-gear-name');
-
-            var modalGearName = deleteModal.querySelector('#gearName');
-            modalGearName.textContent = gearName;
-
-            var form = deleteModal.querySelector('#deleteForm');
-            form.action = '/SportGear/Delete/' + gearId;
-        });
-    </script>
-}

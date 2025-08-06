@@ -1,51 +1,88 @@
 ﻿@model IEnumerable<SportGearRental.ViewModels.Rentals.RentalViewModel>
 
-<h2 class="mb-4 text-center text-primary fw-bold">Моите наеми</h2>
-
-@if (!Model.Any())
-{
-    <div class="alert alert-info text-center">
-        Нямате наети екипировки.
-    </div>
+@section Styles {
+    <link rel="stylesheet" href="~/css/rentals-index.css" />
 }
-else
-{
-    <div class="row justify-content-center">
-        @foreach (var rental in Model)
-        {
-            <div class="col-lg-6 col-md-8 col-sm-12 mb-4">
-                <div class="card rental-card shadow-sm">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="@rental.SportGearImageUrl" class="img-fluid rounded-start rental-image" alt="@rental.SportGearName" />
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">@rental.SportGearName</h5>
-                                <p class="mb-1"><strong>Цена на ден:</strong> @rental.PricePerDay лв.</p>
-                                <p class="mb-1"><strong>Начало:</strong> @rental.RentalStartDate.ToString("dd.MM.yyyy")</p>
-                                <p class="mb-1"><strong>Край:</strong> @rental.RentalEndDate.ToString("dd.MM.yyyy")</p>
-                                <p class="mb-2"><strong>Остават дни:</strong> @rental.DaysRemaining</p>
 
-                                <div class="d-flex gap-2">
-                                    <a asp-action="Details" asp-route-id="@rental.Id" class="btn btn-primary btn-sm">
-                                        Детайли
-                                    </a>
-                                    @if (User.IsInRole("Admin"))
-                                    {
-                                        <a asp-action="Edit" asp-route-id="@rental.Id" class="btn btn-warning btn-sm">
-                                            Редактирай
-                                        </a>
-                                    }
-                                    <a asp-action="Delete" asp-route-id="@rental.Id" class="btn btn-danger btn-sm">
-                                        Премахни
-                                    </a>
+<div class="rental-index-container">
+
+    <div class="page-header">
+        <div class="header-icon">🏔️</div>
+        <h1 class="page-title">Моите наеми</h1>
+        <p class="page-subtitle">Управление на вашите активни наеми</p>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <div class="empty-icon">📋</div>
+            <h3>Нямате наети екипировки</h3>
+            <p>Започнете да изследвате нашата колекция от спортна екипировка</p>
+            <a href="@Url.Action("Index", "SportGear")" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+                Разгледай екипировки
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="rentals-grid">
+            @foreach (var rental in Model)
+            {
+                <div class="rental-card">
+                    <div class="rental-card-inner">
+                        <div class="rental-image-container">
+                            <img src="@rental.SportGearImageUrl" class="rental-image" alt="@rental.SportGearName" />
+                            <div class="days-remaining-badge">
+                                <i class="fas fa-clock"></i>
+                                @rental.DaysRemaining дни
+                            </div>
+                        </div>
+
+                        <div class="rental-content">
+                            <h3 class="rental-title">@rental.SportGearName</h3>
+
+                            <div class="rental-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span class="detail-label">Цена на ден:</span>
+                                    <span class="detail-value price-highlight">@rental.PricePerDay лв.</span>
+                                </div>
+
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span class="detail-label">Начало:</span>
+                                    <span class="detail-value">@rental.RentalStartDate.ToString("dd.MM.yyyy")</span>
+                                </div>
+
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar-minus"></i>
+                                    <span class="detail-label">Край:</span>
+                                    <span class="detail-value">@rental.RentalEndDate.ToString("dd.MM.yyyy")</span>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="rental-actions">
+                            <a asp-action="Details" asp-route-id="@rental.Id" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-info-circle"></i>
+                                Details
+                            </a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@rental.Id" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                    Edit
+                                </a>
+                            }
+                            <a asp-action="Delete" asp-route-id="@rental.Id" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                                Remove
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
-}
+            }
+        </div>
+    }
+</div>

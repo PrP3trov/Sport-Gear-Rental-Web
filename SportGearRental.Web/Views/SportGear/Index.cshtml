@@ -10,15 +10,14 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 @section Styles {
-    <link rel="stylesheet" href="~/css/SportGearIndex.css" />
+    <link rel="stylesheet" href="~/css/sportgear-index.css" />
 }
 @section Scripts {
-    <script src="~/js/SportGearIndex.js" asp-append-version="true"></script>
+    <script src="~/js/sportgear-index.js" asp-append-version="true"></script>
 }
 
 
 <div class="gear-index-container">
-    <!-- Floating Background Shapes -->
     <div class="floating-shapes">
         <div class="shape">
             <i class="fas fa-dumbbell" style="font-size: 80px; color: #667eea;"></i>
@@ -31,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Page Header -->
     <div class="page-header">
         <div class="header-icon">
             <i class="fas fa-store"></i>
@@ -40,7 +38,6 @@
         <p class="page-subtitle">Discover and rent amazing sports equipment</p>
     </div>
 
-    <!-- FILTER FORM -->
     <div class="filter-section">
         <div class="filter-header">
             <i class="fas fa-filter"></i>
@@ -141,7 +138,6 @@
         </div>
     }
 
-    <!-- GEAR LIST -->
     <div class="gear-grid">
         @foreach (var gear in Model.Gears.Select((value, index) => new { value, index }))
         {
@@ -192,7 +188,6 @@
     </div>
 </div>
 
-<!-- DELETE CONFIRMATION MODAL -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -222,7 +217,6 @@
     </div>
 </div>
 
-<!-- RENTAL MODAL -->
 <div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

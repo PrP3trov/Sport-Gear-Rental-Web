@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportGearRental.Data", "Spo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportGearRental.Data.Models", "SportGearRental.Data.Models\SportGearRental.Data.Models.csproj", "{6AAD0704-C22F-491C-BA5F-6E96982ED06D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportGearRental.Infrastructure", "SportGearRental.Infrastructure\SportGearRental.Infrastructure.csproj", "{878DFF17-4146-46EA-84FB-A7BD99040DC4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportGearRental.Services", "SportGearRental.Services\SportGearRental.Services.csproj", "{8B010D02-5D4F-4E39-8C47-552A3C9AF109}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportGearRental.Tests", "SportGearRental.Tests\SportGearRental.Tests.csproj", "{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}"
@@ -45,10 +43,6 @@ Global
 		{6AAD0704-C22F-491C-BA5F-6E96982ED06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AAD0704-C22F-491C-BA5F-6E96982ED06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AAD0704-C22F-491C-BA5F-6E96982ED06D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{878DFF17-4146-46EA-84FB-A7BD99040DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{878DFF17-4146-46EA-84FB-A7BD99040DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{878DFF17-4146-46EA-84FB-A7BD99040DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{878DFF17-4146-46EA-84FB-A7BD99040DC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B010D02-5D4F-4E39-8C47-552A3C9AF109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B010D02-5D4F-4E39-8C47-552A3C9AF109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B010D02-5D4F-4E39-8C47-552A3C9AF109}.Release|Any CPU.ActiveCfg = Release|Any CPU

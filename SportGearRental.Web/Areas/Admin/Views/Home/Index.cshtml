@@ -2,239 +2,22 @@
     Layout = "_AdminLayout";
 }
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<style>
-    .admin-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
+@section Styles {
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/admin-home-index.css" />
+}
 
-    .admin-header {
-        text-align: center;
-        margin-bottom: 3rem;
-        animation: fadeInDown 0.8s ease-out;
-    }
-
-        .admin-header h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-        }
-
-        .admin-header p {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-        }
-
-    .admin-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .admin-card {
-        background: white;
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        overflow: hidden;
-        animation: fadeInUp 0.8s ease-out;
-        border: 1px solid #e1e8ed;
-    }
-
-        .admin-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .admin-card:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        .admin-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .admin-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .admin-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-        }
-
-    .card-icon {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-        font-size: 1.8rem;
-        color: white;
-        transition: all 0.3s ease;
-    }
-
-    .gear-card .card-icon {
-        background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-    }
-
-    .rental-card .card-icon {
-        background: linear-gradient(135deg, #4ecdc4, #44a08d);
-    }
-
-    .review-card .card-icon {
-        background: linear-gradient(135deg, #feca57, #ff9ff3);
-    }
-
-    .admin-card:hover .card-icon {
-        transform: rotate(360deg) scale(1.1);
-    }
-
-    .card-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 0.8rem;
-    }
-
-    .card-description {
-        color: #7f8c8d;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        font-size: 0.95rem;
-    }
-
-    .card-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        text-decoration: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 50px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    }
-
-        .card-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-            text-decoration: none;
-            color: white;
-        }
-
-    .stats-section {
-        margin-top: 3rem;
-        background: rgba(255,255,255,0.95);
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        animation: fadeInUp 1s ease-out;
-    }
-
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1rem;
-    }
-
-    .stat-item {
-        text-align: center;
-        padding: 1rem;
-        border-radius: 15px;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-        transition: transform 0.3s ease;
-    }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-
-    .stat-number {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #667eea;
-        display: block;
-    }
-
-    .stat-label {
-        color: #7f8c8d;
-        font-size: 0.9rem;
-        margin-top: 0.5rem;
-    }
-
-    @@keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @@keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @@media (max-width: 768px) {
-        .admin-container {
-            padding: 1rem;
-        }
-
-        .admin-header h1 {
-            font-size: 2rem;
-        }
-
-        .admin-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .admin-card {
-            padding: 1.5rem;
-        }
-    }
-</style>
+@section Scripts {
+    <script src="~/js/admin-home-index.js" asp-append-version="true"></script>
+}
 
 <div class="admin-container">
-    <!-- Header Section -->
     <div class="admin-header">
         <h1><i class="fas fa-tachometer-alt"></i> Административен панел</h1>
         <p>Управлявайте вашата система за спортно оборудване</p>
     </div>
 
-    <!-- Main Admin Cards -->
     <div class="admin-grid">
-        <!-- Sport Gear Management -->
         <div class="admin-card gear-card">
             <div class="card-icon">
                 <i class="fas fa-dumbbell"></i>
@@ -250,7 +33,6 @@
             </a>
         </div>
 
-        <!-- Rental Management -->
         <div class="admin-card rental-card">
             <div class="card-icon">
                 <i class="fas fa-calendar-alt"></i>
@@ -266,7 +48,6 @@
             </a>
         </div>
 
-        <!-- Review Management -->
         <div class="admin-card review-card">
             <div class="card-icon">
                 <i class="fas fa-star"></i>
@@ -282,22 +63,3 @@
             </a>
         </div>
     </div>
-
-
-
-<script>
-    // Add some interactive effects
-    document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.admin-card');
-
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    });
-</script>

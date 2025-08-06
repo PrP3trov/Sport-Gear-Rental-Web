@@ -1640,16 +1640,6 @@
           "bin/placeholder/SportGearRental.Data.Models.dll": {}
         }
       },
-      "SportGearRental.Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/SportGearRental.Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SportGearRental.Infrastructure.dll": {}
-        }
-      },
       "SportGearRental.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4288,11 +4278,6 @@
       "path": "../SportGearRental.Data.Models/SportGearRental.Data.Models.csproj",
       "msbuildProject": "../SportGearRental.Data.Models/SportGearRental.Data.Models.csproj"
     },
-    "SportGearRental.Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../SportGearRental.Infrastructure/SportGearRental.Infrastructure.csproj",
-      "msbuildProject": "../SportGearRental.Infrastructure/SportGearRental.Infrastructure.csproj"
-    },
     "SportGearRental.ViewModels/1.0.0": {
       "type": "project",
       "path": "../SportGearRental.ViewModels/SportGearRental.ViewModels.csproj",
@@ -4306,7 +4291,6 @@
       "SportGearRental.Common >= 1.0.0",
       "SportGearRental.Data >= 1.0.0",
       "SportGearRental.Data.Models >= 1.0.0",
-      "SportGearRental.Infrastructure >= 1.0.0",
       "SportGearRental.ViewModels >= 1.0.0"
     ]
   },
@@ -4350,9 +4334,6 @@
             },
             "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Data\\SportGearRental.Data.csproj": {
               "projectPath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Data\\SportGearRental.Data.csproj"
-            },
-            "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Infrastructure\\SportGearRental.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Infrastructure\\SportGearRental.Infrastructure.csproj"
             },
             "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj": {
               "projectPath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.ViewModels\\SportGearRental.ViewModels.csproj"

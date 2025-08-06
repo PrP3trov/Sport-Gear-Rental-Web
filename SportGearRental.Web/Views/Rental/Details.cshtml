@@ -1,25 +1,140 @@
 ﻿@model SportGearRental.ViewModels.Rentals.RentalDetailsViewModel
 
-<h2 class="mb-4 text-center text-primary fw-bold">Детайли за наем</h2>
+@section Styles {
+    <link rel="stylesheet" href="~/css/rental-details.css" />
+}
 
-<div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8 col-sm-12">
-        <div class="card rental-card shadow-sm">
-            <img src="@Model.SportGearImageUrl" class="card-img-top rental-image" alt="@Model.SportGearName" />
-            <div class="card-body">
-                <h5 class="card-title">@Model.SportGearName</h5>
-                <p class="mb-1"><strong>Цена на ден:</strong> @Model.PricePerDay лв.</p>
-                <p class="mb-1"><strong>Дата на наемане:</strong> @Model.RentalStartDate.ToString("dd.MM.yyyy")</p>
-                <p class="mb-1"><strong>Дата за връщане:</strong> @Model.RentalEndDate.ToString("dd.MM.yyyy")</p>
-                <p class="mb-2"><strong>Остават дни:</strong> @Model.DaysRemaining</p>
+<div class="rental-details-container">
 
-                <div class="d-flex gap-2">
-                    <a asp-action="Index" class="btn btn-secondary btn-sm">Назад</a>
+
+    <div class="page-header">
+        <div class="header-icon">📋</div>
+        <h1 class="page-title">Детайли за наем</h1>
+        <p class="page-subtitle">Информация за вашия активен наем</p>
+    </div>
+
+    <div class="rental-details-content">
+        <div class="rental-card">
+            <div class="rental-image-container">
+                <img src="@Model.SportGearImageUrl" class="rental-image" alt="@Model.SportGearName" />
+                <div class="image-overlay">
+                    <div class="days-remaining-badge">
+                        <i class="fas fa-clock"></i>
+                        <span class="days-number">@Model.DaysRemaining</span>
+                        <span class="days-text">дни остават</span>
+                    </div>
+                    <div class="price-badge">
+                        <i class="fas fa-money-bill-wave"></i>
+                        @Model.PricePerDay лв./ден
+                    </div>
+                </div>
+            </div>
+
+            <div class="rental-content">
+                <div class="rental-header">
+                    <h2 class="rental-title">@Model.SportGearName</h2>
+                    <div class="rental-status-indicator">
+                        <i class="fas fa-circle pulse-dot"></i>
+                        <span>Активен наем</span>
+                    </div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Цена на ден</span>
+                            <span class="detail-value price-highlight">@Model.PricePerDay лв.</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Дата на наемане</span>
+                            <span class="detail-value">@Model.RentalStartDate.ToString("dd.MM.yyyy")</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-calendar-minus"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Дата за връщане</span>
+                            <span class="detail-value">@Model.RentalEndDate.ToString("dd.MM.yyyy")</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-card highlight-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <div class="detail-content">
+                            <span class="detail-label">Остават дни</span>
+                            <span class="detail-value countdown">@Model.DaysRemaining</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-section">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Назад
+                    </a>
                     @if (User.IsInRole("Admin"))
                     {
-                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Редактирай</a>
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                            Редактирай
+                        </a>
                     }
-                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Премахни</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                        <i class="fas fa-trash"></i>
+                        Премахни
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="info-header">
+                <i class="fas fa-info-circle"></i>
+                <h3>Информация за наема</h3>
+            </div>
+            <div class="info-content">
+                <div class="timeline">
+                    <div class="timeline-item completed">
+                        <div class="timeline-dot">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Наем започнат</h4>
+                            <p>@Model.RentalStartDate.ToString("dd MMMM yyyy")</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item active">
+                        <div class="timeline-dot">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>В процес на наемане</h4>
+                            <p>@Model.DaysRemaining дни до връщане</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item pending">
+                        <div class="timeline-dot">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Дата за връщане</h4>
+                            <p>@Model.RentalEndDate.ToString("dd MMMM yyyy")</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

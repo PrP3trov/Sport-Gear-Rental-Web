@@ -13,7 +13,6 @@
           "SportGearRental.Common": "1.0.0",
           "SportGearRental.Data": "1.0.0",
           "SportGearRental.Data.Models": "1.0.0",
-          "SportGearRental.Infrastructure": "1.0.0",
           "SportGearRental.ViewModels": "1.0.0"
         },
         "runtime": {
@@ -1008,14 +1007,6 @@
           }
         }
       },
-      "SportGearRental.Infrastructure/1.0.0": {
-        "runtime": {
-          "SportGearRental.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "SportGearRental.ViewModels/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "8.0.18",
@@ -1622,11 +1613,6 @@
       "sha512": ""
     },
     "SportGearRental.Data.Models/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SportGearRental.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

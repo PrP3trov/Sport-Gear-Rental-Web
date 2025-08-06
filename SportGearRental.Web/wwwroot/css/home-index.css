@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
-    background: #0a0a0a;
+    background: #0a0a0a !important;
     color: #ffffff;
 }
 
@@ -242,7 +242,7 @@ body {
         animation-delay: 10s;
     }
 
-@@keyframes fadeInUp {
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -254,7 +254,7 @@ body {
     }
 }
 
-@@keyframes gradientShift {
+@keyframes gradientShift {
     0%, 100% {
         background-position: 0% 50%;
     }
@@ -264,7 +264,7 @@ body {
     }
 }
 
-@@keyframes float {
+@keyframes float {
     0%, 100% {
         transform: translateY(0px) rotate(0deg);
     }
@@ -274,7 +274,7 @@ body {
     }
 }
 
-@@keyframes floatAround {
+@keyframes floatAround {
     0% {
         transform: translateY(0px) translateX(0px);
     }
@@ -296,7 +296,7 @@ body {
     }
 }
 
-@@media (max-width: 768px) {
+@media (max-width: 768px) {
     .hero-section {
         padding: 2rem 1rem;
     }

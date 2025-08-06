@@ -1,28 +1,100 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/HomeIndex.5te4uw5via.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\HomeIndex.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/admin-home-index.03fn0kg1q3.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\admin-home-index.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5te4uw5via"},{"Name":"integrity","Value":"sha256-B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw="},{"Name":"label","Value":"_content/SportGearRental.Web/css/HomeIndex.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6659"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:04:24 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"03fn0kg1q3"},{"Name":"integrity","Value":"sha256-5EO1vFJDcBfKx24q/jNsWU76E72ganAnEsjuweVodr0="},{"Name":"label","Value":"_content/SportGearRental.Web/css/admin-home-index.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4465"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00225EO1vFJDcBfKx24q/jNsWU76E72ganAnEsjuweVodr0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:59:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/HomeIndex.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\HomeIndex.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/admin-home-index.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\admin-home-index.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6659"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022B25YTukvsIKckHPFn6BeABTpZqxM09ERRP10wL5KiKw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:04:24 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5EO1vFJDcBfKx24q/jNsWU76E72ganAnEsjuweVodr0="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4465"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00225EO1vFJDcBfKx24q/jNsWU76E72ganAnEsjuweVodr0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:59:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/HomePrivacy.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\HomePrivacy.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/favorite-index.3ydntsuuqx.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\favorite-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3ydntsuuqx"},{"Name":"integrity","Value":"sha256-WzO/8GUSbeYWmLnygm7JJKM1VVPwX/yZTKPWn3xvDFU="},{"Name":"label","Value":"_content/SportGearRental.Web/css/favorite-index.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"11251"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022WzO/8GUSbeYWmLnygm7JJKM1VVPwX/yZTKPWn3xvDFU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:39:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/favorite-index.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\favorite-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-WzO/8GUSbeYWmLnygm7JJKM1VVPwX/yZTKPWn3xvDFU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"11251"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022WzO/8GUSbeYWmLnygm7JJKM1VVPwX/yZTKPWn3xvDFU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:39:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/home-index.3mequ4yrr1.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\home-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3mequ4yrr1"},{"Name":"integrity","Value":"sha256-heURjz3nDWq1asP\u002BT/Q2ZrnxE31ej0n2/GotffRNez4="},{"Name":"label","Value":"_content/SportGearRental.Web/css/home-index.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6665"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022heURjz3nDWq1asP\u002BT/Q2ZrnxE31ej0n2/GotffRNez4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:08:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/home-index.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\home-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-heURjz3nDWq1asP\u002BT/Q2ZrnxE31ej0n2/GotffRNez4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6665"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022heURjz3nDWq1asP\u002BT/Q2ZrnxE31ej0n2/GotffRNez4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:08:13 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/home-privacy.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\home-privacy.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-n66lpaxOz2igVMMI5BFlxzLV\u002BlZTF1fZfnklUewEwH8="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2875"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022n66lpaxOz2igVMMI5BFlxzLV\u002BlZTF1fZfnklUewEwH8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:37:44 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/HomePrivacy.x8ehjnw5dr.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\HomePrivacy.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/home-privacy.x8ehjnw5dr.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\home-privacy.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x8ehjnw5dr"},{"Name":"integrity","Value":"sha256-n66lpaxOz2igVMMI5BFlxzLV\u002BlZTF1fZfnklUewEwH8="},{"Name":"label","Value":"_content/SportGearRental.Web/css/HomePrivacy.css"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x8ehjnw5dr"},{"Name":"integrity","Value":"sha256-n66lpaxOz2igVMMI5BFlxzLV\u002BlZTF1fZfnklUewEwH8="},{"Name":"label","Value":"_content/SportGearRental.Web/css/home-privacy.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2875"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022n66lpaxOz2igVMMI5BFlxzLV\u002BlZTF1fZfnklUewEwH8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:37:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/rental-details.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\rental-details.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rCp0uIhmovPyXJY8aBzBs2nFI3XWRiNDny1h37l5nIc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"9742"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rCp0uIhmovPyXJY8aBzBs2nFI3XWRiNDny1h37l5nIc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:12:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/rental-details.ofaquwgnvr.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\rental-details.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ofaquwgnvr"},{"Name":"integrity","Value":"sha256-rCp0uIhmovPyXJY8aBzBs2nFI3XWRiNDny1h37l5nIc="},{"Name":"label","Value":"_content/SportGearRental.Web/css/rental-details.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"9742"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rCp0uIhmovPyXJY8aBzBs2nFI3XWRiNDny1h37l5nIc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:12:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/rentals-index.83m2ioztkm.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\rentals-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"83m2ioztkm"},{"Name":"integrity","Value":"sha256-rAE5m7oTqQHomSq49HyQwZQozfOKO/LVM1Uxt0IrKwM="},{"Name":"label","Value":"_content/SportGearRental.Web/css/rentals-index.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4811"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rAE5m7oTqQHomSq49HyQwZQozfOKO/LVM1Uxt0IrKwM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 18:51:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/rentals-index.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\rentals-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rAE5m7oTqQHomSq49HyQwZQozfOKO/LVM1Uxt0IrKwM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4811"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022rAE5m7oTqQHomSq49HyQwZQozfOKO/LVM1Uxt0IrKwM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 18:51:11 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/review-create.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\review-create.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Iv1TQyh/dCGi/mlB6LvtLSxajSrfPZqKea\u002BZqKY4hv8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"8263"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Iv1TQyh/dCGi/mlB6LvtLSxajSrfPZqKea\u002BZqKY4hv8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:22:33 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/review-create.yfubg94y1a.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\review-create.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"yfubg94y1a"},{"Name":"integrity","Value":"sha256-Iv1TQyh/dCGi/mlB6LvtLSxajSrfPZqKea\u002BZqKY4hv8="},{"Name":"label","Value":"_content/SportGearRental.Web/css/review-create.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8263"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Iv1TQyh/dCGi/mlB6LvtLSxajSrfPZqKea\u002BZqKY4hv8=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:22:33 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/review-index.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\review-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-NpyMch0bJTi7Vrma89DBdz6dgo0r6uvgPFMSJqc2Tt4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"10089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022NpyMch0bJTi7Vrma89DBdz6dgo0r6uvgPFMSJqc2Tt4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:17:29 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/review-index.q4mn4kwtoc.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\review-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"q4mn4kwtoc"},{"Name":"integrity","Value":"sha256-NpyMch0bJTi7Vrma89DBdz6dgo0r6uvgPFMSJqc2Tt4="},{"Name":"label","Value":"_content/SportGearRental.Web/css/review-index.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10089"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022NpyMch0bJTi7Vrma89DBdz6dgo0r6uvgPFMSJqc2Tt4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:17:29 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
@@ -36,14 +108,26 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rotv26ktza"},{"Name":"integrity","Value":"sha256-9b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM="},{"Name":"label","Value":"_content/SportGearRental.Web/css/site.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1488"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00229b0w5bWUZlz/3BLei3Ng2H74cAnI2AA5gWrqFZasFdM=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 Aug 2025 21:38:48 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/SportGearIndex.17mxksx9sa.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SportGearIndex.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/sportgear-details.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\sportgear-details.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"17mxksx9sa"},{"Name":"integrity","Value":"sha256-Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ="},{"Name":"label","Value":"_content/SportGearRental.Web/css/SportGearIndex.css"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-nhM/fwrES8MyC7Zew8F6MnxH\u002Bcmy2jGC1adt43tSOpw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6649"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022nhM/fwrES8MyC7Zew8F6MnxH\u002Bcmy2jGC1adt43tSOpw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:30:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/sportgear-details.qhigaqilgh.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\sportgear-details.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qhigaqilgh"},{"Name":"integrity","Value":"sha256-nhM/fwrES8MyC7Zew8F6MnxH\u002Bcmy2jGC1adt43tSOpw="},{"Name":"label","Value":"_content/SportGearRental.Web/css/sportgear-details.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6649"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022nhM/fwrES8MyC7Zew8F6MnxH\u002Bcmy2jGC1adt43tSOpw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:30:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/sportgear-index.17mxksx9sa.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\sportgear-index.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"17mxksx9sa"},{"Name":"integrity","Value":"sha256-Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ="},{"Name":"label","Value":"_content/SportGearRental.Web/css/sportgear-index.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"11372"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 16:57:19 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/SportGearIndex.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\SportGearIndex.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/css/sportgear-index.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\sportgear-index.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"11372"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Yz1ILVD6P7/88IWRD/8riSH73Gd6oRsDHjeqVvoEygQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 16:57:19 GMT"}]]]></ResponseHeaders>
@@ -60,29 +144,65 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5430"},{"Name":"Content-Type","Value":"image/x-icon"},{"Name":"ETag","Value":"\u0022Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\u0022"},{"Name":"Last-Modified","Value":"Sat, 26 Jul 2025 16:49:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/HomeIndex.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\HomeIndex.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/admin-home-index.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\admin-home-index.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rh7pN2FTcB2aGY1VuQ3iDsbKp\u002BdAj31isU5xUz2vYak="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"445"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022rh7pN2FTcB2aGY1VuQ3iDsbKp\u002BdAj31isU5xUz2vYak=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 20:00:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/admin-home-index.up3mh5ghvj.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\admin-home-index.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"up3mh5ghvj"},{"Name":"integrity","Value":"sha256-rh7pN2FTcB2aGY1VuQ3iDsbKp\u002BdAj31isU5xUz2vYak="},{"Name":"label","Value":"_content/SportGearRental.Web/js/admin-home-index.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"445"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022rh7pN2FTcB2aGY1VuQ3iDsbKp\u002BdAj31isU5xUz2vYak=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 20:00:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/favorite-index.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\favorite-index.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jcsNLcKy3GT3lR6om3va0D5CVXFxKXvsM1mZ9nuBysM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2548"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022jcsNLcKy3GT3lR6om3va0D5CVXFxKXvsM1mZ9nuBysM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:39:00 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/favorite-index.vxjmmoznsn.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\favorite-index.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"vxjmmoznsn"},{"Name":"integrity","Value":"sha256-jcsNLcKy3GT3lR6om3va0D5CVXFxKXvsM1mZ9nuBysM="},{"Name":"label","Value":"_content/SportGearRental.Web/js/favorite-index.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2548"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022jcsNLcKy3GT3lR6om3va0D5CVXFxKXvsM1mZ9nuBysM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:39:00 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/home-index.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\home-index.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1936"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:05:17 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1936"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:03:44 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/HomeIndex.svmaz5noy9.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\HomeIndex.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/home-index.svmaz5noy9.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\home-index.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"svmaz5noy9"},{"Name":"integrity","Value":"sha256-qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ="},{"Name":"label","Value":"_content/SportGearRental.Web/js/HomeIndex.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1936"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:05:17 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"svmaz5noy9"},{"Name":"integrity","Value":"sha256-qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ="},{"Name":"label","Value":"_content/SportGearRental.Web/js/home-index.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1936"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022qMZ727HJqf6Ed/0ymowlqtLRweff75Cs33DzNQm5TsQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:03:44 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/HomePrivacy.3fcw1ronw2.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\HomePrivacy.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/home-privacy.3fcw1ronw2.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\home-privacy.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3fcw1ronw2"},{"Name":"integrity","Value":"sha256-Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0="},{"Name":"label","Value":"_content/SportGearRental.Web/js/HomePrivacy.js"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3fcw1ronw2"},{"Name":"integrity","Value":"sha256-Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0="},{"Name":"label","Value":"_content/SportGearRental.Web/js/home-privacy.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1224"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:37:33 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/HomePrivacy.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\HomePrivacy.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/home-privacy.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\home-privacy.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1224"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Icx24YezDlD2BJfJl0LvTqzrLslvtm36tqTyGAdL4z0=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 17:37:33 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/review-create.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\review-create.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-4doJgdikuIXr6L42zWiUqI6R58w35fC/rxB\u002BrNraYGA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3121"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224doJgdikuIXr6L42zWiUqI6R58w35fC/rxB\u002BrNraYGA=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:23:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/review-create.rhyia7uwaq.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\review-create.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"rhyia7uwaq"},{"Name":"integrity","Value":"sha256-4doJgdikuIXr6L42zWiUqI6R58w35fC/rxB\u002BrNraYGA="},{"Name":"label","Value":"_content/SportGearRental.Web/js/review-create.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3121"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00224doJgdikuIXr6L42zWiUqI6R58w35fC/rxB\u002BrNraYGA=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 19:23:17 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
@@ -96,14 +216,26 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xtxxf3hu2r"},{"Name":"integrity","Value":"sha256-hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo="},{"Name":"label","Value":"_content/SportGearRental.Web/js/site.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"231"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 26 Jul 2025 16:49:30 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/SportGearIndex.63252pojmb.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\SportGearIndex.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/sportgear-details.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\sportgear-details.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"63252pojmb"},{"Name":"integrity","Value":"sha256-LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU="},{"Name":"label","Value":"_content/SportGearRental.Web/js/SportGearIndex.js"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-1AS4qxQuftFTV5wCZ\u002Bv9OjW5yZFqL0749EI\u002BTrwxWM4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"504"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00221AS4qxQuftFTV5wCZ\u002Bv9OjW5yZFqL0749EI\u002BTrwxWM4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 18:58:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/sportgear-details.wt2y6vam85.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\sportgear-details.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wt2y6vam85"},{"Name":"integrity","Value":"sha256-1AS4qxQuftFTV5wCZ\u002Bv9OjW5yZFqL0749EI\u002BTrwxWM4="},{"Name":"label","Value":"_content/SportGearRental.Web/js/sportgear-details.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"504"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00221AS4qxQuftFTV5wCZ\u002Bv9OjW5yZFqL0749EI\u002BTrwxWM4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 18:58:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/sportgear-index.63252pojmb.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\sportgear-index.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"63252pojmb"},{"Name":"integrity","Value":"sha256-LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU="},{"Name":"label","Value":"_content/SportGearRental.Web/js/sportgear-index.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6481"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 16:59:44 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/SportGearIndex.js">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\SportGearIndex.js'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/sportgear-index.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\sportgear-index.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6481"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 16:59:44 GMT"}]]]></ResponseHeaders>

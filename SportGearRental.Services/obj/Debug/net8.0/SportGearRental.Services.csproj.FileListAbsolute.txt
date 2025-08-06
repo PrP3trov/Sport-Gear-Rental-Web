@@ -30,12 +30,10 @@ C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\b
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Common.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Data.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Data.Models.dll
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Infrastructure.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.ViewModels.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Common.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Data.Models.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Data.pdb
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.Infrastructure.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\bin\Debug\net8.0\SportGearRental.ViewModels.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\obj\Debug\net8.0\SportGearRental.Services.csproj.AssemblyReference.cache
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Services\obj\Debug\net8.0\SportGearRental.Services.GeneratedMSBuildEditorConfig.editorconfig

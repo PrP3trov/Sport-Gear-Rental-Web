@@ -1,15 +1,101 @@
 ﻿@model SportGearRental.ViewModels.Review.ReviewFormModel
 
-<form asp-controller="Review" asp-action="Add" asp-route-gearId="@(ViewData["GearId"])" method="post">
-    <div class="form-group">
-        <label asp-for="Content"></label>
-        <textarea asp-for="Content" class="form-control"></textarea>
-        <span asp-validation-for="Content" class="text-danger"></span>
+@section Styles {
+    <link rel="stylesheet" href="~/css/review-create.css" />
+}
+
+@section Scripts {
+    <script src="~/js/review-create.js" asp-append-version="true"></script>
+}
+
+<div class="review-form-container">
+    <div class="form-header">
+        <div class="header-icon">
+            <i class="fas fa-star"></i>
+        </div>
+        <h3>Споделете мнението си</h3>
+        <p>Вашият отзив ще помогне на други потребители</p>
     </div>
-    <div class="form-group">
-        <label asp-for="Rating"></label>
-        <input asp-for="Rating" class="form-control" type="number" min="1" max="5" />
-        <span asp-validation-for="Rating" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary mt-2">Add Review</button>
-</form>
+
+    <form asp-controller="Review" asp-action="Add" asp-route-gearId="@(ViewData["GearId"])" method="post" class="review-form">
+
+        <div class="form-group rating-section">
+            <label class="form-label">
+                <i class="fas fa-star-half-alt"></i>
+                Оценка
+            </label>
+            <div class="star-rating-container">
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="Rating" value="5" asp-for="Rating" />
+                    <label for="star5" class="star">
+                        <i class="fas fa-star"></i>
+                        <span class="star-text">Отлично</span>
+                    </label>
+
+                    <input type="radio" id="star4" name="Rating" value="4" asp-for="Rating" />
+                    <label for="star4" class="star">
+                        <i class="fas fa-star"></i>
+                        <span class="star-text">Много добро</span>
+                    </label>
+
+                    <input type="radio" id="star3" name="Rating" value="3" asp-for="Rating" />
+                    <label for="star3" class="star">
+                        <i class="fas fa-star"></i>
+                        <span class="star-text">Добро</span>
+                    </label>
+
+                    <input type="radio" id="star2" name="Rating" value="2" asp-for="Rating" />
+                    <label for="star2" class="star">
+                        <i class="fas fa-star"></i>
+                        <span class="star-text">Слабо</span>
+                    </label>
+
+                    <input type="radio" id="star1" name="Rating" value="1" asp-for="Rating" />
+                    <label for="star1" class="star">
+                        <i class="fas fa-star"></i>
+                        <span class="star-text">Много слабо</span>
+                    </label>
+                </div>
+                <div class="rating-feedback">
+                    <span class="selected-rating"></span>
+                </div>
+            </div>
+            <span asp-validation-for="Rating" class="validation-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <span class="error-text"></span>
+            </span>
+        </div>
+
+        <div class="form-group content-section">
+            <label asp-for="Content" class="form-label">
+                <i class="fas fa-comment-alt"></i>
+                Вашият отзив
+            </label>
+            <div class="textarea-container">
+                <textarea asp-for="Content" class="form-control content-textarea"
+                          placeholder="Споделете вашето мнение за тази екипировка. Какво ви хареса или не ви хареса?"></textarea>
+                <div class="char-counter">
+                    <span class="current-count">0</span>/<span class="max-count">500</span>
+                </div>
+            </div>
+            <span asp-validation-for="Content" class="validation-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <span class="error-text"></span>
+            </span>
+        </div>
+
+        <div class="submit-section">
+            <button type="submit" class="btn btn-primary submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                <span class="btn-text">Публикувай отзив</span>
+                <div class="btn-loader">
+                    <div class="spinner"></div>
+                </div>
+            </button>
+            <div class="form-tips">
+                <i class="fas fa-lightbulb"></i>
+                Вашият отзив ще бъде видим за всички потребители
+            </div>
+        </div>
+    </form>
+</div>

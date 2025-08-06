@@ -21,7 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SportGearRental.Common\SportGearRental.Common.csproj" />
     <ProjectReference Include="..\SportGearRental.Data.Models\SportGearRental.Data.Models.csproj" />
-    <ProjectReference Include="..\SportGearRental.Infrastructure\SportGearRental.Infrastructure.csproj" />
     <ProjectReference Include="..\SportGearRental.Services\SportGearRental.Services.csproj" />
     <ProjectReference Include="..\SportGearRental.ViewModels\SportGearRental.ViewModels.csproj" />
   </ItemGroup>

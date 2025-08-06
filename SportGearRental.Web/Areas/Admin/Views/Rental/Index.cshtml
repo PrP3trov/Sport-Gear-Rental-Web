@@ -689,13 +689,6 @@
                     </div>
 
                     <div class="rental-actions">
-                        @if (status == "Active" || status == "Upcoming")
-                        {
-                            <a href="#" class="action-btn btn-extend">
-                                <i class="fas fa-plus-circle"></i>
-                                Extend
-                            </a>
-                        }
                         <a asp-area="Admin" asp-controller="Rental" asp-action="Edit" asp-route-id="@rental.Id" class="action-btn btn-edit">
                             <i class="fas fa-edit"></i>
                             Edit

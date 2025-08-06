@@ -273,13 +273,11 @@ C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\De
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Common.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Data.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Data.Models.dll
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Infrastructure.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Services.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.ViewModels.dll
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Common.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Data.Models.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Data.pdb
-C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Infrastructure.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.Services.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\bin\Debug\net8.0\SportGearRental.ViewModels.pdb
 C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\obj\Debug\net8.0\SportGearRental.Web.csproj.AssemblyReference.cache

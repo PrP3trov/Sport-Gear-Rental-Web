@@ -1,0 +1,2 @@
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\wwwroot\css\SportGearIndex.css
+C:\Users\tsrle\Documents\GitHub\Sport-Gear-Rental-Web\SportGearRental.Web\wwwroot\js\SportGearIndex.js

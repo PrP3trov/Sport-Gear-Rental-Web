@@ -1,6 +1,13 @@
 ﻿﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
+@section Styles {
+    <link rel="stylesheet" href="~/css/home-privacy.css" />
+}
+
+@section Scripts {
+    <script src="~/js/home-privacy.js" asp-append-version="true"></script>
+}
 
 <div id="privacy-policy">
     <h1 class="page-title">@ViewData["Title"]</h1>
@@ -82,11 +89,3 @@
     </div>
 
 </div>
-
-@section Styles {
-    <link rel="stylesheet" href="~/css/HomePrivacy.css" />
-}
-
-@section Scripts {
-    <script src="~/js/HomePrivacy.js" asp-append-version="true"></script>
-}

@@ -1,38 +1,206 @@
 ﻿@using System.Linq
 @model IEnumerable<SportGearRental.ViewModels.SportGear.SportGearListViewModel>
-
 @{
     ViewData["Title"] = "My Favorites";
 }
 
-<h2 class="text-center">My Favorites</h2>
-<hr />
-
-@if (!Model.Any())
-{
-    <p>You have no favorite gear.</p>
+@section Styles {
+    <link rel="stylesheet" href="~/css/favorite-index.css" />
 }
-else
-{
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        @foreach (var gear in Model)
+
+@section Scripts {
+    <script src="~/js/favorite-index.js" asp-append-version="true"></script>
+}
+
+<div class="favorites-container">
+    <div class="page-header">
+        <div class="header-icon">💝</div>
+        <h1 class="page-title">Моите любими</h1>
+        <p class="page-subtitle">Вашата лична колекция от предпочитани екипировки</p>
+        @if (Model.Any())
         {
-            <div class="col">
-                <div class="card h-100">
-                    <img src="@gear.ImageUrl" class="card-img-top" alt="@gear.Name" style="height:250px; object-fit:cover;" />
-                    <div class="card-body">
-                        <h5 class="card-title">@gear.Name</h5>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a asp-controller="SportGear" asp-action="Details" asp-route-id="@gear.Id" class="btn btn-outline-primary btn-sm">Details</a>
-                        <form asp-action="Remove" method="post" class="d-inline">
-                            @Html.AntiForgeryToken()
-                            <input type="hidden" name="gearId" value="@gear.Id" />
-                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="favorites-count">
+                <i class="fas fa-heart"></i>
+                @Model.Count() @(Model.Count() == 1 ? "любима екипировка" : "любими екипировки")
             </div>
         }
     </div>
-}
+
+    @if (!Model.Any())
+    {
+        <div class="empty-favorites">
+            <div class="empty-animation">
+                <div class="heart-container">
+                    <i class="fas fa-heart broken-heart"></i>
+                    <div class="heart-particles">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+            </div>
+            <h3>Все още няmate любими екипировки</h3>
+            <p>Започнете да изследвате нашата колекция и добавете първата си любима екипировка!</p>
+            <div class="empty-actions">
+                <a href="@Url.Action("Index", "SportGear")" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                    Разгледай екипировки
+                </a>
+                <div class="discover-tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Кликнете върху <i class="fas fa-heart" style="color: #e74c3c;"></i> при екипировка, която ви харесва
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="filter-section">
+            <div class="filter-header">
+                <i class="fas fa-filter"></i>
+                <h4>Организирайте любимите си</h4>
+            </div>
+            <div class="filter-controls">
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="grid" title="Мрежов изглед">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="Списъчен изглед">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+                <div class="sort-controls">
+                    <select class="form-select sort-select">
+                        <option value="name">Подреди по име</option>
+                        <option value="recent">Най-скоро добавени</option>
+                        <option value="price-low">Цена: ниска към висока</option>
+                        <option value="price-high">Цена: висока към ниска</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="favorites-grid" id="favoritesGrid">
+            @foreach (var gear in Model)
+            {
+                <div class="favorite-card" data-name="@gear.Name.ToLower()" data-price="@gear.PricePerDay">
+                    <div class="card-image-container">
+                        <img src="@gear.ImageUrl" class="favorite-image" alt="@gear.Name" />
+                        <div class="image-overlay">
+                            <div class="favorite-badge">
+                                <i class="fas fa-heart pulse-heart"></i>
+                            </div>
+                            <div class="quick-actions">
+                                <a asp-controller="SportGear" asp-action="Details" asp-route-id="@gear.Id"
+                                   class="quick-btn" title="Виж детайли">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <h3 class="gear-title">@gear.Name</h3>
+                        @if (gear.PricePerDay >=0)
+                        {
+                            <div class="price-tag">
+                                <i class="fas fa-tag"></i>
+                                @gear.PricePerDay.ToString("F2") лв./ден
+                            </div>
+                        }
+                    </div>
+
+                    <div class="card-actions">
+                        <a asp-controller="SportGear" asp-action="Details" asp-route-id="@gear.Id"
+                           class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-info-circle"></i>
+                            Детайли
+                        </a>
+                        <form asp-action="Remove" method="post" class="d-inline remove-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="gearId" value="@gear.Id" />
+                            <button type="button" class="btn btn-danger btn-sm remove-btn"
+                                    data-gear-name="@gear.Name">
+                                <i class="fas fa-heart-broken"></i>
+                                Премахни
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="stats-panel">
+            <div class="stats-header">
+                <i class="fas fa-chart-bar"></i>
+                <h4>Статистика на любимите</h4>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">@Model.Count()</span>
+                        <span class="stat-label">Общо любими</span>
+                    </div>
+                </div>
+                @if (Model.Any(g => g.PricePerDay >= 0))
+                {
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">@Model.Where(g => g.PricePerDay >= 0).Average(g => g.PricePerDay).ToString("F0")</span>
+                            <span class="stat-label">Средна цена (лв.)</span>
+                        </div>
+                    </div>
+                }
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">Скоро</span>
+                        <span class="stat-label">Последно добавяне</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="removeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="removeModalLabel">
+                    <i class="fas fa-heart-broken"></i>
+                    Премахни от любими
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="remove-icon">
+                    <i class="fas fa-heart-broken"></i>
+                </div>
+                <p>Сигурни ли сте, че искате да премахнете <strong id="gearNameModal"></strong> от любимите си?</p>
+                <small class="text-muted">Винаги можете да я добавите отново по-късно.</small>
+            </div>
+            <div class="modal-footer">
+                <form id="removeForm" method="post">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-heart-broken"></i>
+                        Да, премахни
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                        Отказ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
