@@ -1,0 +1,28 @@
+@model IEnumerable<SportGearRental.ViewModels.Review.ReviewAdminViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Gear</th>
+            <th>User</th>
+            <th>Rating</th>
+            <th>Content</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model)
+    {
+        <tr>
+            <td>@r.SportGearName</td>
+            <td>@r.UserName</td>
+            <td>@r.Rating</td>
+            <td>@r.Content</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@r.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@r.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

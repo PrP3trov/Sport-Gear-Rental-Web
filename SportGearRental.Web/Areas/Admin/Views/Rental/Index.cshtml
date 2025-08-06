@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SportGearRental.ViewModels.Rentals.RentalViewModel>
+
+<h2 class="mb-4 text-center text-primary fw-bold">Моите наеми</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        Нямате наети екипировки.
+    </div>
+}
+else
+{
+    <div class="row justify-content-center">
+        @foreach (var rental in Model)
+        {
+            <div class="col-lg-6 col-md-8 col-sm-12 mb-4">
+                <div class="card rental-card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="@rental.SportGearImageUrl" class="img-fluid rounded-start rental-image" alt="@rental.SportGearName" />
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@rental.SportGearName</h5>
+                                <p class="mb-1"><strong>Цена на ден:</strong> @rental.PricePerDay лв.</p>
+                                <p class="mb-1"><strong>Начало:</strong> @rental.RentalStartDate.ToString("dd.MM.yyyy")</p>
+                                <p class="mb-1"><strong>Край:</strong> @rental.RentalEndDate.ToString("dd.MM.yyyy")</p>
+                                <p class="mb-2"><strong>Остават дни:</strong> @rental.DaysRemaining</p>
+
+                                <div class="d-flex gap-2">
+                                    <a asp-action="Details" asp-route-id="@rental.Id" class="btn btn-primary btn-sm">
+                                        Детайли
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@rental.Id" class="btn btn-danger btn-sm">
+                                        Премахни
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

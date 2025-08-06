@@ -13,6 +13,7 @@ namespace SportGearRental.Services.ServiceContracts
         Task<IEnumerable<SportGearListViewModel>> GetAllAsync();
         Task<SportGearDetailsViewModel?> GetDetailsByIdAsync(Guid id);
         Task<SportGearFormModel?> GetFormByIdAsync(Guid id, string userId);
+        Task<SportGearFormModel?> GetFormByIdAsync(Guid id);
         Task<bool> ExistsByIdAsync(Guid id);
         Task<bool> IsOwnerAsync(Guid id, string userId);
 

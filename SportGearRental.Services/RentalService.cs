@@ -37,11 +37,45 @@ namespace SportGearRental.Services
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<RentalViewModel>> GetAllAsync()
+        {
+            return await _context.Rentals
+                .Include(r => r.SportGear)
+                .Where(r => !r.IsDeleted)
+                .Select(r => new RentalViewModel
+                {
+                    Id = r.Id,
+                    SportGearName = r.SportGear.Name,
+                    SportGearImageUrl = r.SportGear.ImageUrl ?? string.Empty,
+                    PricePerDay = r.SportGear.PricePerDay,
+                    RentalStartDate = r.RentalStartDate,
+                    RentalEndDate = r.RentalEndDate
+                })
+                .ToListAsync();
+        }
+
         public async Task<RentalDetailsViewModel?> GetByIdAsync(Guid id, string userId)
         {
             return await _context.Rentals
                 .Include(r => r.SportGear)
                 .Where(r => r.Id == id && !r.IsDeleted && r.UserId == userId)
+                .Select(r => new RentalDetailsViewModel
+                {
+                    Id = r.Id,
+                    SportGearName = r.SportGear.Name,
+                    SportGearImageUrl = r.SportGear.ImageUrl ?? string.Empty,
+                    PricePerDay = r.SportGear.PricePerDay,
+                    RentalStartDate = r.RentalStartDate,
+                    RentalEndDate = r.RentalEndDate
+                })
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<RentalDetailsViewModel?> GetByIdAsync(Guid id)
+        {
+            return await _context.Rentals
+                .Include(r => r.SportGear)
+                .Where(r => r.Id == id && !r.IsDeleted)
                 .Select(r => new RentalDetailsViewModel
                 {
                     Id = r.Id,
@@ -83,6 +117,18 @@ namespace SportGearRental.Services
         {
             var rental = await _context.Rentals
                 .FirstOrDefaultAsync(r => r.Id == id && r.UserId == userId);
+
+            if (rental != null)
+            {
+                rental.IsDeleted = true;
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            var rental = await _context.Rentals
+                .FirstOrDefaultAsync(r => r.Id == id);
 
             if (rental != null)
             {

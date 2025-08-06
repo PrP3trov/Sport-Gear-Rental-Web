@@ -1,0 +1,23 @@
+﻿@model SportGearRental.ViewModels.Rentals.RentalDetailsViewModel
+
+<h2 class="mb-4 text-center text-primary fw-bold">Детайли за наем</h2>
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+        <div class="card rental-card shadow-sm">
+            <img src="@Model.SportGearImageUrl" class="card-img-top rental-image" alt="@Model.SportGearName" />
+            <div class="card-body">
+                <h5 class="card-title">@Model.SportGearName</h5>
+                <p class="mb-1"><strong>Цена на ден:</strong> @Model.PricePerDay лв.</p>
+                <p class="mb-1"><strong>Дата на наемане:</strong> @Model.RentalStartDate.ToString("dd.MM.yyyy")</p>
+                <p class="mb-1"><strong>Дата за връщане:</strong> @Model.RentalEndDate.ToString("dd.MM.yyyy")</p>
+                <p class="mb-2"><strong>Остават дни:</strong> @Model.DaysRemaining</p>
+
+                <div class="d-flex gap-2">
+                    <a asp-action="Index" class="btn btn-secondary btn-sm">Назад</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Премахни</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

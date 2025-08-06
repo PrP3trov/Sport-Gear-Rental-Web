@@ -1,0 +1,300 @@
+﻿@model SportGearRental.ViewModels.SportGear.SportGearQueryModel
+@using Microsoft.AspNetCore.Identity
+@using SportGearRental.Data.Models
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "All Sport Gear";
+    var currentUserId = UserManager.GetUserId(User);
+}
+
+<h2 class="text-center">All Sport Gear</h2>
+<hr />
+
+<!-- FILTER FORM -->
+<form method="get" class="row g-3 mb-4 align-items-end">
+    <div class="col-md-3">
+        <label class="form-label">Search</label>
+        <input type="text" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search by name or description" />
+    </div>
+
+    <div class="col-md-2">
+        <label class="form-label">Category</label>
+        <select name="categoryId" class="form-select">
+            <option value="">Всички</option>
+            @foreach (var c in Model.Categories)
+            {
+                <option value="@c.Id" selected="@(Model.CategoryId == c.Id)">@c.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <label class="form-label">Brand</label>
+        <select name="brandId" class="form-select">
+            <option value="">All</option>
+            @foreach (var b in Model.Brands)
+            {
+                <option value="@b.Id" selected="@(Model.BrandId == b.Id)">@b.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <label class="form-label">Condition</label>
+        <select name="conditionId" class="form-select">
+            <option value="">Any</option>
+            @foreach (var gc in Model.Conditions)
+            {
+                <option value="@gc.Id" selected="@(Model.ConditionId == gc.Id)">@gc.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <label class="form-label">Max Price (@Model.MaxPrice - 200)</label>
+        <input type="range" name="maxPrice" min="0" max="200" value="@Model.MaxPrice" class="form-range"
+               oninput="this.nextElementSibling.value = this.value" />
+        <output>@Model.MaxPrice</output>
+    </div>
+
+    <div class="col-md-1">
+        <label class="form-label">Min Rating</label>
+        <select name="minRating" class="form-select">
+            <option value="">Any</option>
+            @for (int i = 1; i <= 5; i++)
+            {
+                <option value="@i" selected="@(Model.MinRating == i)">@i ★</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-12 text-end">
+        <button type="submit" class="btn btn-primary">Apply Filters</button>
+    </div>
+</form>
+
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <div class="mb-4 text-end">
+        <a asp-action="Create" class="btn btn-success">➕ Add New Gear</a>
+    </div>
+}
+
+<!-- GEAR LIST -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var gear in Model.Gears)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <img src="@gear.ImageUrl" class="card-img-top" alt="@gear.Name" style="height: 250px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">@gear.Name</h5>
+                    <p class="card-text">Price/Day: <strong>@gear.PricePerDay.ToString("C")</strong></p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="Details" asp-route-id="@gear.Id" class="btn btn-outline-primary btn-sm">Details</a>
+
+                    @if (gear.OwnerId == currentUserId)
+                    {
+                        <a asp-action="Edit" asp-route-id="@gear.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <button type="button" class="btn btn-danger btn-sm"
+                                data-bs-toggle="modal"
+                                data-bs-target="#deleteModal"
+                                data-gear-id="@gear.Id"
+                                data-gear-name="@gear.Name">
+                            Delete
+                        </button>
+                    }
+                    else if (User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <!-- Бутон Наеми -->
+                        <button type="button" class="btn btn-success btn-sm"
+                                data-bs-toggle="modal"
+                                data-bs-target="#rentalModal"
+                                data-gear-id="@gear.Id"
+                                data-price="@gear.PricePerDay">
+                            Наеми
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- DELETE CONFIRMATION MODAL -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <strong id="gearName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" method="post">
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- RENTAL MODAL -->
+<div class="modal fade" id="rentalModal" tabindex="-1" aria-labelledby="rentalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-controller="Rental" asp-action="CreateQuickRental" method="post" id="rentalForm">
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rentalModalLabel">Наемане на екипировка</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Скрито поле за ID на екипировката -->
+                    <input type="hidden" id="gearId" name="SportGearId" />
+
+                    <!-- Начална дата -->
+                    <div class="mb-3">
+                        <label class="form-label">Начална дата</label>
+                        <input type="date" class="form-control" id="startDate" name="StartDate"
+                               min="@DateTime.UtcNow.ToString("yyyy-MM-dd")" required />
+                    </div>
+
+                    <!-- Крайна дата -->
+                    <div class="mb-3">
+                        <label class="form-label">Крайна дата</label>
+                        <input type="date" class="form-control" id="endDate" name="EndDate"
+                               min="@DateTime.UtcNow.ToString("yyyy-MM-dd")" required />
+                    </div>
+
+                    <!-- Цена на ден -->
+                    <div class="mb-3">
+                        <label class="form-label">Цена на ден</label>
+                        <input type="text" class="form-control" id="pricePerDay" readonly />
+                    </div>
+
+                      <!-- Обща цена -->
+                      <div class="mb-3">
+                          <label class="form-label">Обща цена</label>
+                          <input type="text" class="form-control" id="totalPrice" readonly />
+                      </div>
+
+                    <!-- Поле за грешка -->
+                    <div id="dateError" class="text-danger mb-2" style="display:none; font-weight:bold;"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Потвърди наем</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var deleteModal = document.getElementById('deleteModal');
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var gearId = button.getAttribute('data-gear-id');
+            var gearName = button.getAttribute('data-gear-name');
+
+            var modalGearName = deleteModal.querySelector('#gearName');
+            modalGearName.textContent = gearName;
+
+            var form = deleteModal.querySelector('#deleteForm');
+            form.action = '/SportGear/Delete/' + gearId;          
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let startDateInput = document.getElementById("startDate");
+            let endDateInput = document.getElementById("endDate");
+            let pricePerDayInput = document.getElementById("pricePerDay");
+            let totalPriceInput = document.getElementById("totalPrice");
+            let gearIdInput = document.getElementById("gearId");
+            let dateError = document.getElementById("dateError");
+            let rentalForm = document.getElementById("rentalForm");
+
+            // При отваряне на модала
+            document.querySelectorAll('[data-bs-target="#rentalModal"]').forEach(button => {
+                button.addEventListener('click', function () {
+                    let price = this.getAttribute('data-price');
+                    let gearId = this.getAttribute('data-gear-id');
+
+                    pricePerDayInput.value = parseFloat(price).toFixed(2) + " лв.";
+                    gearIdInput.value = gearId;
+
+                    totalPriceInput.value = "";
+                    startDateInput.value = "";
+                    endDateInput.value = "";
+                    dateError.style.display = "none";
+                });
+            });
+
+            // Минимална крайна дата според началната
+            startDateInput.addEventListener("change", function () {
+                endDateInput.setAttribute("min", this.value);
+                updateTotalPrice();
+            });
+
+            // Пресмятане при промяна на крайната дата
+            endDateInput.addEventListener("change", updateTotalPrice);
+
+            // Преди изпращане на формата - проверка
+            rentalForm.addEventListener("submit", function (e) {
+                updateTotalPrice(); // гарантираме, че цената е изчислена
+
+                if (!totalPriceInput.value) {
+                    e.preventDefault();
+                    dateError.innerText = "Моля, изберете валидни дати, за да се изчисли цената.";
+                    dateError.style.display = "block";
+                }
+            });
+
+            function updateTotalPrice() {
+                let start = new Date(startDateInput.value);
+                let end = new Date(endDateInput.value);
+                let price = parseFloat(pricePerDayInput.value.replace(" лв.", ""));
+
+                if (!startDateInput.value || !endDateInput.value) {
+                    dateError.innerText = "Моля, изберете начална и крайна дата.";
+                    dateError.style.display = "block";
+                    totalPriceInput.value = "";
+                    return;
+                }
+
+                if (end < start) {
+                    dateError.innerText = "Крайната дата не може да е преди началната.";
+                    dateError.style.display = "block";
+                    totalPriceInput.value = "";
+                    return;
+                }
+
+                let today = new Date();
+                today.setHours(0,0,0,0);
+                if (start < today) {
+                    dateError.innerText = "Началната дата не може да е в миналото.";
+                    dateError.style.display = "block";
+                    totalPriceInput.value = "";
+                    return;
+                }
+
+                dateError.style.display = "none";
+
+                let days = Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
+                let total = (days * price).toFixed(2);
+
+                // Показваме с лв. за потребителя
+                totalPriceInput.value = total + " лв.";
+            }
+        });
+    </script>
+}

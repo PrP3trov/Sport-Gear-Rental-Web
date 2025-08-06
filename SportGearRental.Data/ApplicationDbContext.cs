@@ -63,8 +63,8 @@ namespace SportGearRental.Data
                 new IdentityRole
                 {
                     Id = adminRoleId,
-                    Name = "Admin",
-                    NormalizedName = "ADMIN"
+                    Name = "Administrator",
+                    NormalizedName = "ADMINISTRATOR"
                 },
                 new IdentityRole
                 {

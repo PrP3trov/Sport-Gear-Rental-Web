@@ -1,0 +1,29 @@
+﻿@model SportGearRental.ViewModels.Rentals.RentalDetailsViewModel
+
+<h2 class="mb-4 text-center text-danger fw-bold">Премахване на наем</h2>
+
+<div class="alert alert-warning text-center">
+    <strong>Сигурни ли сте, че искате да премахнете този наем?</strong>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+        <div class="card rental-card shadow-sm">
+            <img src="@Model.SportGearImageUrl" class="card-img-top rental-image" alt="@Model.SportGearName" />
+            <div class="card-body">
+                <h5 class="card-title">@Model.SportGearName</h5>
+                <p><strong>Цена на ден:</strong> @Model.PricePerDay лв.</p>
+                <p><strong>Начало:</strong> @Model.RentalStartDate.ToString("dd.MM.yyyy")</p>
+                <p><strong>Край:</strong> @Model.RentalEndDate.ToString("dd.MM.yyyy")</p>
+            </div>
+        </div>
+
+        <form asp-action="Delete" method="post" class="mt-3">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-danger">Да, премахни</button>
+                <a asp-action="Index" class="btn btn-secondary">Отказ</a>
+            </div>
+        </form>
+    </div>
+</div>

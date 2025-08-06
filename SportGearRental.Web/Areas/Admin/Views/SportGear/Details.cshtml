@@ -1,0 +1,101 @@
+﻿@model SportGearRental.ViewModels.SportGear.SportGearDetailsViewModel
+@using Microsoft.AspNetCore.Identity
+@using SportGearRental.Data.Models
+@inject UserManager<ApplicationUser> UserManager
+@inject SportGearRental.Services.ServiceContracts.IReviewService ReviewService
+
+@{
+    ViewData["Title"] = "Sport Gear Details";
+    var currentUserId = UserManager.GetUserId(User);
+    bool isOwner = Model.OwnerId == currentUserId;
+    ViewData["GearId"] = Model.Id;
+    var reviews = await ReviewService.GetReviewsForGearAsync(Model.Id);
+}
+
+<h2 class="text-center">@Model.Name</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.ImageUrl" class="img-fluid rounded shadow" alt="@Model.Name" />
+    </div>
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Description</dt>
+            <dd class="col-sm-8">@Model.Description</dd>
+
+            <dt class="col-sm-4">Price Per Day</dt>
+            <dd class="col-sm-8">@Model.PricePerDay.ToString("C")</dd>
+
+            <dt class="col-sm-4">Category</dt>
+            <dd class="col-sm-8">@Model.Category</dd>
+
+            <dt class="col-sm-4">Brand</dt>
+            <dd class="col-sm-8">@Model.Brand</dd>
+
+            <dt class="col-sm-4">Condition</dt>
+            <dd class="col-sm-8">@Model.Condition</dd>
+
+            <dt class="col-sm-4">Owner</dt>
+            <dd class="col-sm-8">@Model.OwnerEmail</dd>
+        </dl>
+
+        <div class="mt-4">
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            @if (isOwner)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+                <button type="button" class="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                        data-gear-id="@Model.Id"
+                        data-gear-name="@Model.Name">
+                    Delete
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="mt-5">
+    <partial name="~/Views/Review/Create.cshtml" model="new SportGearRental.ViewModels.Review.ReviewFormModel()" />
+    <partial name="~/Views/Review/Index.cshtml" model="reviews" />
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <strong id="gearName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" method="post">
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var deleteModal = document.getElementById('deleteModal');
+        deleteModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var gearId = button.getAttribute('data-gear-id');
+            var gearName = button.getAttribute('data-gear-name');
+
+            var modalGearName = deleteModal.querySelector('#gearName');
+            modalGearName.textContent = gearName;
+
+            var form = deleteModal.querySelector('#deleteForm');
+            form.action = '/SportGear/Delete/' + gearId;
+        });
+    </script>
+}

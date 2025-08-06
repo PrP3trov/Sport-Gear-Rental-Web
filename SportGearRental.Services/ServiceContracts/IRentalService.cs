@@ -10,9 +10,12 @@ namespace SportGearRental.Services.ServiceContracts
     public interface IRentalService
     {
         Task<IEnumerable<RentalViewModel>> GetAllAsync(string userId);
+        Task<IEnumerable<RentalViewModel>> GetAllAsync();
         Task<RentalDetailsViewModel?> GetByIdAsync(Guid id, string userId);
+        Task<RentalDetailsViewModel?> GetByIdAsync(Guid id);
         Task CreateAsync(RentalFormModel model, string userId);
         Task DeleteAsync(Guid id, string userId);
+        Task DeleteAsync(Guid id);
         Task<IEnumerable<SportGearDropdownViewModel>> GetSportGearsForDropdownAsync();
         Task<bool> HasUserRentedGearAsync(Guid gearId, string userId);
 

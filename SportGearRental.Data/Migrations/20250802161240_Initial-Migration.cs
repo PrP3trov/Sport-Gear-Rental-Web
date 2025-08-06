@@ -302,7 +302,7 @@ namespace SportGearRental.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "a1f2e3d4-c5b6-47f8-9876-123456789abc", null, "Admin", "ADMIN" },
+                    { "a1f2e3d4-c5b6-47f8-9876-123456789abc", null, "Administrator", "ADMINISTRATOR" },
                     { "b2f3e4d5-a6b7-48c9-8765-abcdef123456", null, "User", "USER" }
                 });
 

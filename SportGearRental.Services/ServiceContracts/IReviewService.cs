@@ -11,5 +11,9 @@ namespace SportGearRental.Services.ServiceContracts
     {
         Task<IEnumerable<ReviewViewModel>> GetReviewsForGearAsync(Guid gearId);
         Task AddReviewAsync(Guid gearId, string userId, ReviewFormModel model);
+        Task<IEnumerable<ReviewAdminViewModel>> GetAllAsync();
+        Task<ReviewFormModel?> GetByIdAsync(Guid id);
+        Task EditAsync(Guid id, ReviewFormModel model);
+        Task DeleteAsync(Guid id);
     }
 }

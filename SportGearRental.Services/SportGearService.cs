@@ -82,6 +82,29 @@ namespace SportGearRental.Services
             };
         }
 
+        public async Task<SportGearFormModel?> GetFormByIdAsync(Guid id)
+        {
+            var gear = await _context.SportGears
+                .Where(g => g.Id == id && !g.IsDeleted)
+                .FirstOrDefaultAsync();
+
+            if (gear == null) return null;
+
+            return new SportGearFormModel
+            {
+                Name = gear.Name,
+                Description = gear.Description,
+                PricePerDay = gear.PricePerDay,
+                ImageUrl = gear.ImageUrl,
+                CategoryId = gear.CategoryId,
+                BrandId = gear.BrandId,
+                ConditionId = gear.ConditionId,
+                Categories = await GetCategoryOptionsAsync(),
+                Brands = await GetBrandOptionsAsync(),
+                Conditions = await GetConditionOptionsAsync()
+            };
+        }
+
         public async Task<bool> ExistsByIdAsync(Guid id)
         {
             return await _context.SportGears.AnyAsync(g => g.Id == id && !g.IsDeleted);

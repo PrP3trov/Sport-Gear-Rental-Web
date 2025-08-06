@@ -34,6 +34,56 @@ namespace SportGearRental.Services
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<ReviewAdminViewModel>> GetAllAsync()
+        {
+            return await _context.Reviews
+                .Include(r => r.SportGear)
+                .Include(r => r.User)
+                .Select(r => new ReviewAdminViewModel
+                {
+                    Id = r.Id,
+                    Content = r.Content,
+                    Rating = r.Rating,
+                    UserName = r.User.UserName,
+                    SportGearName = r.SportGear.Name
+                })
+                .ToListAsync();
+        }
+
+        public async Task<ReviewFormModel?> GetByIdAsync(Guid id)
+        {
+            var review = await _context.Reviews
+                .FirstOrDefaultAsync(r => r.Id == id);
+
+            if (review == null) return null;
+
+            return new ReviewFormModel
+            {
+                Content = review.Content,
+                Rating = review.Rating
+            };
+        }
+
+        public async Task EditAsync(Guid id, ReviewFormModel model)
+        {
+            var review = await _context.Reviews.FirstOrDefaultAsync(r => r.Id == id);
+            if (review == null) return;
+
+            review.Content = model.Content;
+            review.Rating = model.Rating;
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            var review = await _context.Reviews.FirstOrDefaultAsync(r => r.Id == id);
+            if (review == null) return;
+
+            review.IsDeleted = true;
+            await _context.SaveChangesAsync();
+        }
+
         public async Task AddReviewAsync(Guid gearId, string userId, ReviewFormModel model)
         {
             bool hasRented = await _context.Rentals

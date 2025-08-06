@@ -55,8 +55,8 @@ namespace SportGearRental.Data.Migrations
                         new
                         {
                             Id = "a1f2e3d4-c5b6-47f8-9876-123456789abc",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
