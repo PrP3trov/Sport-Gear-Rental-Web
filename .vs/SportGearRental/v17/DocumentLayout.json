@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.tests\\sportgearservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|solutionrelative:sportgearrental.tests\\sportgearservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\views\\sportgear\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\views\\sportgear\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.tests\\reviewservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|solutionrelative:sportgearrental.tests\\reviewservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\wwwroot\\css\\homeprivacy.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\wwwroot\\css\\homeprivacy.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.tests\\rentalservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|solutionrelative:sportgearrental.tests\\rentalservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.web\\wwwroot\\js\\homeprivacy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{97C15FCD-0942-40F1-84B2-ACF79CAEBB60}|SportGearRental.Web\\SportGearRental.Web.csproj|solutionrelative:sportgearrental.web\\wwwroot\\js\\homeprivacy.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.tests\\favoriteservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|solutionrelative:sportgearrental.tests\\favoriteservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|c:\\users\\tsrle\\documents\\github\\sport-gear-rental-web\\sportgearrental.tests\\sportgearrental.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1B0DF8BC-9C43-4DB2-BED2-1CAC918DC1EB}|SportGearRental.Tests\\SportGearRental.Tests.csproj|solutionrelative:sportgearrental.tests\\sportgearrental.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HomePrivacy.js",
-              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
-              "RelativeDocumentMoniker": "SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
-              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
-              "RelativeToolTip": "SportGearRental.Web\\wwwroot\\js\\HomePrivacy.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-06T17:37:01.828Z",
+              "DocumentIndex": 0,
+              "Title": "SportGearServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\SportGearServiceTests.cs",
+              "RelativeDocumentMoniker": "SportGearRental.Tests\\SportGearServiceTests.cs",
+              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\SportGearServiceTests.cs",
+              "RelativeToolTip": "SportGearRental.Tests\\SportGearServiceTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T18:25:48.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomePrivacy.css",
-              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
-              "RelativeDocumentMoniker": "SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
-              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
-              "RelativeToolTip": "SportGearRental.Web\\wwwroot\\css\\HomePrivacy.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-06T17:35:56.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "SportGearRental.Web\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "SportGearRental.Web\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAFYAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-06T17:34:54.614Z",
+              "Title": "RentalServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\RentalServiceTests.cs",
+              "RelativeDocumentMoniker": "SportGearRental.Tests\\RentalServiceTests.cs",
+              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\RentalServiceTests.cs",
+              "RelativeToolTip": "SportGearRental.Tests\\RentalServiceTests.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAIwGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T18:19:38.704Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Views\\SportGear\\Index.cshtml",
-              "RelativeDocumentMoniker": "SportGearRental.Web\\Views\\SportGear\\Index.cshtml",
-              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Web\\Views\\SportGear\\Index.cshtml",
-              "RelativeToolTip": "SportGearRental.Web\\Views\\SportGear\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-06T17:31:04.682Z",
+              "Title": "ReviewServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\ReviewServiceTests.cs",
+              "RelativeDocumentMoniker": "SportGearRental.Tests\\ReviewServiceTests.cs",
+              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\ReviewServiceTests.cs",
+              "RelativeToolTip": "SportGearRental.Tests\\ReviewServiceTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T18:18:42.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SportGearRental.Tests",
+              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\SportGearRental.Tests.csproj",
+              "RelativeDocumentMoniker": "SportGearRental.Tests\\SportGearRental.Tests.csproj",
+              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\SportGearRental.Tests.csproj",
+              "RelativeToolTip": "SportGearRental.Tests\\SportGearRental.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-06T18:13:57.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FavoriteServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\FavoriteServiceTests.cs",
+              "RelativeDocumentMoniker": "SportGearRental.Tests\\FavoriteServiceTests.cs",
+              "ToolTip": "C:\\Users\\tsrle\\Documents\\GitHub\\Sport-Gear-Rental-Web\\SportGearRental.Tests\\FavoriteServiceTests.cs",
+              "RelativeToolTip": "SportGearRental.Tests\\FavoriteServiceTests.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAcwBYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T18:12:04.994Z",
               "EditorCaption": ""
             }
           ]
