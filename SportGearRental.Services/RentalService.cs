@@ -175,7 +175,8 @@ namespace SportGearRental.Services
                 .Select(sg => new SportGearDropdownViewModel
                 {
                     Id = sg.Id,
-                    Name = sg.Name
+                    Name = sg.Name,
+                    PricePerDay = sg.PricePerDay
                 })
                 .ToListAsync();
         }

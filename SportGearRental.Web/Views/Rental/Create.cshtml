@@ -11,9 +11,12 @@
 
     <div class="form-group">
         <label asp-for="SportGearId" class="control-label"></label>
-        <select asp-for="SportGearId" class="form-control"
-                asp-items="@(new SelectList(Model.SportGears, "Id", "Name"))">
+        <select asp-for="SportGearId" class="form-control">
             <option value="">-- Select Gear --</option>
+            @foreach (var gear in Model.SportGears)
+            {
+                <option value="@gear.Id" data-price="@gear.PricePerDay">@gear.Name</option>
+            }
         </select>
         <span asp-validation-for="SportGearId" class="text-danger"></span>
     </div>
@@ -28,8 +31,52 @@
         <label asp-for="EndDate" class="control-label"></label>
         <input asp-for="EndDate" class="form-control" type="date" />
         <span asp-validation-for="EndDate" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label>Price Per Day</label>
+            <input id="pricePerDay" class="form-control" readonly />
+        </div>
 
+        <div class="form-group">
+            <label>Total Price</label>
+            <input id="totalPrice" class="form-control" readonly />
+        </div>
     <button type="submit" class="btn btn-primary">Save</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sportGearSelect = document.getElementById('SportGearId');
+            const startDateInput = document.getElementById('StartDate');
+            const endDateInput = document.getElementById('EndDate');
+            const pricePerDayInput = document.getElementById('pricePerDay');
+            const totalPriceInput = document.getElementById('totalPrice');
+
+            function updatePrices() {
+                const selectedOption = sportGearSelect.options[sportGearSelect.selectedIndex];
+                const pricePerDay = parseFloat(selectedOption?.getAttribute('data-price')) || 0;
+                pricePerDayInput.value = pricePerDay ? pricePerDay.toFixed(2) : '';
+
+                const startDate = new Date(startDateInput.value);
+                const endDate = new Date(endDateInput.value);
+                let total = 0;
+
+                if (!isNaN(startDate) && !isNaN(endDate) && endDate >= startDate) {
+                    const diffTime = endDate - startDate;
+                    const diffDays = Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)), 1);
+                    total = diffDays * pricePerDay;
+                }
+
+                totalPriceInput.value = total ? total.toFixed(2) : '';
+            }
+
+            sportGearSelect.addEventListener('change', updatePrices);
+            startDateInput.addEventListener('change', updatePrices);
+            endDateInput.addEventListener('change', updatePrices);
+
+            updatePrices();
+        });
+    </script>
+}
