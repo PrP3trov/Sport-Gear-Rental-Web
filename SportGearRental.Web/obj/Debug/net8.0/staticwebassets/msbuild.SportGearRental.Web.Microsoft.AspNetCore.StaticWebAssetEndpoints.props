@@ -228,17 +228,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wt2y6vam85"},{"Name":"integrity","Value":"sha256-1AS4qxQuftFTV5wCZ\u002Bv9OjW5yZFqL0749EI\u002BTrwxWM4="},{"Name":"label","Value":"_content/SportGearRental.Web/js/sportgear-details.js"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"504"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00221AS4qxQuftFTV5wCZ\u002Bv9OjW5yZFqL0749EI\u002BTrwxWM4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 18:58:39 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/sportgear-index.63252pojmb.js">
+    <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/sportgear-index.f2jx20l5i2.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\sportgear-index.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"63252pojmb"},{"Name":"integrity","Value":"sha256-LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU="},{"Name":"label","Value":"_content/SportGearRental.Web/js/sportgear-index.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6481"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 16:59:44 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f2jx20l5i2"},{"Name":"integrity","Value":"sha256-x7C4Ugc1A9plwS4vyp5\u002BC1qHzdEcNXC0xYVcKugKbas="},{"Name":"label","Value":"_content/SportGearRental.Web/js/sportgear-index.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5489"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022x7C4Ugc1A9plwS4vyp5\u002BC1qHzdEcNXC0xYVcKugKbas=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 20:59:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/js/sportgear-index.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\sportgear-index.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6481"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022LuA0Oh7W2Uvwyco3\u002BkCywM0HK6BzG8mr\u002B/KdFSvX9AU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 16:59:44 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-x7C4Ugc1A9plwS4vyp5\u002BC1qHzdEcNXC0xYVcKugKbas="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5489"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022x7C4Ugc1A9plwS4vyp5\u002BC1qHzdEcNXC0xYVcKugKbas=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Aug 2025 20:59:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SportGearRental.Web/lib/bootstrap/dist/css/bootstrap-grid.agp80tu62r.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css'))</AssetFile>

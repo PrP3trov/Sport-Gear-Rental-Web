@@ -354,8 +354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>63252pojmb</Fingerprint>
-      <Integrity>LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU=</Integrity>
+      <Fingerprint>f2jx20l5i2</Fingerprint>
+      <Integrity>x7C4Ugc1A9plwS4vyp5+C1qHzdEcNXC0xYVcKugKbas=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\sportgear-index.js'))</OriginalItemSpec>

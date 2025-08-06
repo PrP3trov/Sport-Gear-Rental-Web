@@ -3863,7 +3863,7 @@
       ]
     },
     {
-      "Route": "js/sportgear-index.63252pojmb.js",
+      "Route": "js/sportgear-index.f2jx20l5i2.js",
       "AssetFile": "js/sportgear-index.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3877,7 +3877,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6481"
+          "Value": "5489"
         },
         {
           "Name": "Content-Type",
@@ -3885,21 +3885,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU=\""
+          "Value": "\"x7C4Ugc1A9plwS4vyp5+C1qHzdEcNXC0xYVcKugKbas=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 16:59:44 GMT"
+          "Value": "Wed, 06 Aug 2025 20:59:47 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "63252pojmb"
+          "Value": "f2jx20l5i2"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU="
+          "Value": "sha256-x7C4Ugc1A9plwS4vyp5+C1qHzdEcNXC0xYVcKugKbas="
         },
         {
           "Name": "label",
@@ -3922,7 +3922,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6481"
+          "Value": "5489"
         },
         {
           "Name": "Content-Type",
@@ -3930,17 +3930,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU=\""
+          "Value": "\"x7C4Ugc1A9plwS4vyp5+C1qHzdEcNXC0xYVcKugKbas=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 06 Aug 2025 16:59:44 GMT"
+          "Value": "Wed, 06 Aug 2025 20:59:47 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-LuA0Oh7W2Uvwyco3+kCywM0HK6BzG8mr+/KdFSvX9AU="
+          "Value": "sha256-x7C4Ugc1A9plwS4vyp5+C1qHzdEcNXC0xYVcKugKbas="
         }
       ]
     },
